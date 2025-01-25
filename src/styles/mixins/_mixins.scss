@@ -1,0 +1,18 @@
+@use 'sass:map';
+
+$breakpoints: (
+  'mobile': 393px,
+  'tablet': 834px,
+  'desktop': 1440px,
+  'widescreen': 1920px,
+);
+
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "The breakpoint #{$breakpoint} is not defined in the breakpoints map.";
+  }
+}

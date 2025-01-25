@@ -1,0 +1,28 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.page {
+  color: #ffffff;
+  font-family: var(--font-montserrat), sans-serif;
+  background-color: #1d212c;
+}
+
+.modal {
+  font-family: var(--font-montserrat), sans-serif;
+  color: #ffffff;
+}
+
+header,
+section,
+footer {
+  width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  max-height: 900px;
+  margin: 0 auto;
+}
