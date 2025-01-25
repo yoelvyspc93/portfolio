@@ -26,7 +26,7 @@ export default function RootLayout({
         <div className="page">
           {/* <Navigator /> */}
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </body>
     </html>
