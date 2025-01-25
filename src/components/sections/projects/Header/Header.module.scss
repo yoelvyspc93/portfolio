@@ -1,0 +1,36 @@
+@use '@/styles/variables/colors' as cl;
+@use '@/styles/mixins/mixins' as mx;
+
+.section {
+  height: 100%;
+  max-height: none;
+  padding-top: 100px;
+  text-align: center;
+
+  @include mx.respond-to('tablet') {
+    padding-top: 150px;
+  }
+  @include mx.respond-to('desktop') {
+    padding-top: 200px;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #ffffff;
+
+    span {
+      font-weight: 700;
+      background: cl.$color__linear-gradient;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @include mx.respond-to('tablet') {
+      font-size: 54px;
+    }
+    @include mx.respond-to('desktop') {
+      font-size: 64px;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@use '@/styles/variables/colors' as cl;
+@use '@/styles/mixins/mixins' as mx;
+
+.footer {
+  text-align: center;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 16px;
+
+  @include mx.respond-to('tablet') {
+    padding: 20px 32px;
+  }
+  @include mx.respond-to('desktop') {
+    padding: 20px 0;
+  }
+}
+
+.divider {
+  border-radius: 50%;
+  width: 100%;
+  height: 4px;
+  background: cl.$color__linear-gradient;
+}
+
+.navMenu {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    li {
+      a {
+        color: cl.$color__white;
+        text-decoration: none;
+
+        &:hover,
+        &.active {
+          background: cl.$color__linear-gradient;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+
+  a {
+    color: cl.$color__white;
+    transition: color 0.3s ease;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

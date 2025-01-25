@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 
-const SITE_URL = process.env?.NEXT_PUBLIC_SITE_URL || 'https://yoelvyspc93.github.io/portfolio/';
+const SITE_URL =
+  process.env?.NEXT_PUBLIC_SITE_URL ||
+  'https://yoelvyspc93.github.io/portfolio/';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
