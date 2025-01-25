@@ -4,6 +4,8 @@ import { Montserrat } from 'next/font/google';
 import { ReactNode } from 'react';
 import { metadata as seo } from '@/constants/metadata';
 import { Metadata } from 'next';
+import { Navigator } from '@/components/common/Navigator';
+import { Footer } from '@/components/sections/home/Footer';
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -21,7 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable}`}>
-        <div className="page">{children}</div>
+        <div className="page">
+          <Navigator />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
