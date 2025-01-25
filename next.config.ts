@@ -9,9 +9,31 @@ const nextConfig: NextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
-      use: ['@svgr/webpack'],
-    });
-    return config;
+      issuer: /\.[jt]sx?$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            svgoConfig: {
+              plugins: [
+                {
+                  name: 'preset-default',
+                  params: {
+                    overrides: {
+                      cleanupIds: false,
+                      removeViewBox: false,
+                    },
+                  },
+                },
+                'removeXMLNS',
+              ],
+            },
+          },
+        },
+      ],
+    })
+
+    return config
   },
 };
 
