@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 import { metadata as seo } from '@/constants/metadata';
 import { Metadata } from 'next';
 // import { Navigator } from '@/components/common/Navigator';
-import { Footer } from '@/components/sections/home/Footer';
+// import { Footer } from '@/components/sections/home/Footer';
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
