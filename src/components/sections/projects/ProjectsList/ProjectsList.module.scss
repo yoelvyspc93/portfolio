@@ -1,0 +1,18 @@
+@use '@/styles/mixins/mixins' as mx;
+
+.section {
+  height: 100%;
+  max-height: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding: 64px 0 100px;
+
+  @include mx.respond-to('tablet') {
+    padding: 100px 0 100px;
+  }
+  @include mx.respond-to('desktop') {
+    padding: 200px 0 100px;
+  }
+}

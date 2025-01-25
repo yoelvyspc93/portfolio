@@ -1,0 +1,15 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import { colors } from './colors';
+
+<Meta title="Systems/Colors" />
+
+## Colors Palette
+
+All the colors used along wise the project.
+Usage: `$color__[color-name]`, example: `$color__grey-100 or $color__white`
+
+<ColorPalette>
+  {colors.map(({ title, subtitle, colors }, index) => (
+    <ColorItem title={title} subtitle={subtitle} colors={colors} key={index} />
+  ))}
+</ColorPalette>

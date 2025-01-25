@@ -1,0 +1,21 @@
+@use '@/styles/variables/colors' as cl;
+.circle_button {
+  width: 64px;
+  height: 64px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+
+  svg {
+    padding-left: 4px;
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+    transition: fill 0.3s ease;
+  }
+}

@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yoelvys Portfolio
 
-## Getting Started
+A modern portfolio website built with **Next.js** and deployed on **Vercel**. This project showcases my skills, projects, and experience as a frontend developer, utilizing animations, interactive design, and optimized performance.
 
-First, run the development server:
+---
+
+## 🛠️ Features
+
+- Built with **Next.js 15.1.0** for a seamless development experience.
+- Fully responsive design to ensure compatibility across devices.
+- **GSAP** animations for smooth and engaging interactions.
+- **Storybook** for component development and documentation.
+- Deployed on **Vercel** for fast and reliable hosting.
+
+---
+
+## 📦 Dependencies
+
+### **Main Dependencies:**
+
+- **clsx**: Conditional class names.
+- **GSAP**: For advanced animations.
+- **Next.js**: Framework for server-side rendering and static site generation.
+- **React 19.0.0**: Core library for building the user interface.
+- **Sass**: Styling with advanced CSS features.
+
+### **Development Dependencies:**
+
+- **Storybook**: For developing and testing components in isolation.
+- **TypeScript**: Type safety during development.
+- **ESLint**: Linting for consistent code quality.
+
+---
+
+## 🚀 Getting Started
+
+### **Prerequisites**
+
+Ensure you have the following installed:
+
+- **Node.js** (v18+ recommended)
+- **npm** or **yarn**
+
+### **Installation**
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yoelvyspc93/portfolio.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd portfolio
+   ```
+
+3. Install dependencies:
+   ```bash
+   yarn install
+   ```
+
+### Running the Development Server
+
+Start the local development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Build and Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To create a production build:
 
-## Learn More
+```bash
+yarn run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the production server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+yarn run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧩 Storybook
 
-## Deploy on Vercel
+This project uses Storybook for component-driven development.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Start Storybook
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To start Storybook locally:
+
+```bash
+yarn run storybook
+```
+
+## 📬 Contact
+
+For any inquiries, reach out to me at yoelvyspc93@gmail.com or visit my website.
