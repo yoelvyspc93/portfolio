@@ -1,4 +1,4 @@
-import LinkedinIcon from '/public/icons/linkedin.svg';
+import LinkedinIcon from '@/components/common/Icons/linkedin.svg';
 
 export default function HomePage() {
   return (
