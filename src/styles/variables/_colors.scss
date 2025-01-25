@@ -1,0 +1,15 @@
+$color__white: #ffffff;
+$color__black: #000000;
+
+// Colors
+$color__dark-slate: #1d212c;
+$color__pink-purple: #d78fe3;
+$color__violet-blue: #7779e7;
+$color__sky-blue: #9bcffc;
+
+$color__linear-gradient: linear-gradient(
+  to right,
+  $color__pink-purple 0%,
+  $color__violet-blue 50%,
+  $color__sky-blue 100%
+);

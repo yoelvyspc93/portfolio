@@ -1,0 +1,29 @@
+@use 'sass:math';
+@use 'sass:list';
+
+@function rem($value, $base-value: 16) {
+  $value: math.div(strip-unit($value), strip-unit($base-value)) * 1rem;
+  @if ($value == 0rem) {
+    $value: 0;
+  }
+  @return $value;
+}
+
+@function rems($values, $base-value: 16) {
+  $max: list.length($values);
+
+  @if $max == 1 {
+    @return rem(list.nth($values, 1), $base-value);
+  }
+
+  $remValues: ();
+
+  @for $i from 1 through $max {
+    $remValues: list.append(
+      $remValues,
+      rem(list.nth($values, $i), $base-value)
+    );
+  }
+
+  @return $remValues;
+}
