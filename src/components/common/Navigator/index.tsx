@@ -5,7 +5,7 @@ import styles from './Navigator.module.scss';
 import { navigationItems } from '@/constants/navigator';
 import { socialLinks } from '@/constants/social';
 import { useState, useEffect } from 'react';
-import HamburgerIcon from '@/../public/icons/hamburger.svg';
+// import HamburgerIcon from '@/../public/icons/hamburger.svg';
 // import CloseIcon from '@/../public/icons/close-outline.svg';
 import { clsx } from 'clsx';
 import { useViewports } from '@/hook/useViewports';
@@ -89,7 +89,7 @@ export const Navigator = () => {
       </div>
       <div className={styles.button} onClick={handleClick}>
         {/* {open ? <CloseIcon /> : <HamburgerIcon />} */}
-        <HamburgerIcon />
+        {/* <HamburgerIcon /> */}
       </div>
     </nav>
   );

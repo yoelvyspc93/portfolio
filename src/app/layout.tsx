@@ -4,7 +4,7 @@ import { Montserrat } from 'next/font/google';
 import { ReactNode } from 'react';
 import { metadata as seo } from '@/constants/metadata';
 import { Metadata } from 'next';
-import { Navigator } from '@/components/common/Navigator';
+// import { Navigator } from '@/components/common/Navigator';
 import { Footer } from '@/components/sections/home/Footer';
 
 const montserrat = Montserrat({
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.variable}`}>
         <div className="page">
-          <Navigator />
+          {/* <Navigator /> */}
           {children}
           <Footer />
         </div>
