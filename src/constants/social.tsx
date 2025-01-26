@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import GithubIcon from '/public/icons/github.svg';
-import LinkedinIcon from '/public/icons/linkedin.svg';
+import GithubIcon from '@/components/common/Icons/GithubIcon';
+import LinkedinIcon from '@/components/common/Icons/LinkedinIcon';
 
 export interface SocialLink {
   icon: ReactNode;
