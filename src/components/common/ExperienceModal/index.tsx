@@ -1,18 +1,15 @@
 import { WorkExperience } from '@/constants/experience';
-//import styles from './ExperienceModal.module.scss';
+import styles from './ExperienceModal.module.scss';
 
 export const ExperienceModal = ({
   experience,
 }: {
   experience: WorkExperience;
 }) => {
-  console.log({ experience });
+  const { period, details, techStack } = experience;
 
-  return <div>Hello</div>;
-};
-
-/*
-<div className={styles.experience}>
+  return (
+    <div className={styles.experience}>
       <span className={styles.experience__date}>{period}</span>
       {details.map((desc, index) => (
         <p key={index} className={styles.experience__description}>
@@ -30,4 +27,5 @@ export const ExperienceModal = ({
         ))}
       </div>
     </div>
-*/
+  );
+};

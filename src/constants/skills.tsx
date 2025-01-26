@@ -1,22 +1,21 @@
+import ChromaticIcon from '@/components/common/Icons/ChromaticIcon';
+import CssIcon from '@/components/common/Icons/CssIcon';
+import CypressIcon from '@/components/common/Icons/CypressIcon';
+import DjangoIcon from '@/components/common/Icons/DjangoIcon';
+import FigmaIcon from '@/components/common/Icons/FigmaIcon';
+import HtmlIcon from '@/components/common/Icons/HtmlIcon';
+import JavascriptIcon from '@/components/common/Icons/JavascriptIcon';
+import JestIcon from '@/components/common/Icons/JestIcon';
+import NextjsIcon from '@/components/common/Icons/NextjsIcon';
+import PythonIcon from '@/components/common/Icons/PythonIcon';
+import ReactIcon from '@/components/common/Icons/ReactIcon';
+import ReactNativeIcon from '@/components/common/Icons/ReactNativeIcon';
+import ReduxIcon from '@/components/common/Icons/ReduxIcon';
+import StorybookIcon from '@/components/common/Icons/StorybookIcon';
+import TypescriptIcon from '@/components/common/Icons/TypescriptIcon';
+import WebflowIcon from '@/components/common/Icons/WebflowIcon';
+import WordpressIcon from '@/components/common/Icons/WordpressIcon';
 import { ReactNode } from 'react';
-
-import ChromaticIcon from '@/../public/icons/chromatic.svg';
-import CssIcon from '@/../public/icons/css.svg';
-import CypressIcon from '@/../public/icons/cypress.svg';
-import DjangoIcon from '@/../public/icons/django.svg';
-import FigmaIcon from '@/../public/icons/figma.svg';
-import HtmlIcon from '@/../public/icons/html.svg';
-import JavascriptIcon from '@/../public/icons/javascript.svg';
-import JestIcon from '@/../public/icons/jest.svg';
-import NextJsIcon from '@/../public/icons/nextjs.svg';
-import PythonIcon from '@/../public/icons/python.svg';
-import ReactNativeIcon from '@/../public/icons/react-native.svg';
-import ReactIcon from '@/../public/icons/react.svg';
-import ReduxIcon from '@/../public/icons/redux.svg';
-import StorybookIcon from '@/../public/icons/storybook.svg';
-import TypeScriptIcon from '@/../public/icons/typescript.svg';
-import WebflowIcon from '@/../public/icons/webflow.svg';
-import WordpressIcon from '@/../public/icons/wordpress.svg';
 
 type Skill = {
   name: string;
@@ -29,7 +28,7 @@ export const skills: (Skill | null)[] = [
   null,
   null,
   null,
-  { name: 'Next.js', favorite: true, icon: <NextJsIcon /> },
+  { name: 'Next.js', favorite: true, icon: <NextjsIcon /> },
   { name: 'CSS3', favorite: false, icon: <CssIcon /> },
   { name: 'Redux', favorite: false, icon: <ReduxIcon /> },
   null,
@@ -45,7 +44,7 @@ export const skills: (Skill | null)[] = [
   null,
   { name: 'React Native', favorite: false, icon: <ReactNativeIcon /> },
   { name: 'Webflow', favorite: true, icon: <WebflowIcon /> },
-  { name: 'TypeScript', favorite: false, icon: <TypeScriptIcon /> },
+  { name: 'TypeScript', favorite: false, icon: <TypescriptIcon /> },
   { name: 'Cypress', favorite: false, icon: <CypressIcon /> },
   null,
   // 4 row
@@ -67,7 +66,7 @@ export const skills_mobile: (Skill | null)[] = [
   // 1 row
   null,
   { name: 'CSS3', favorite: false, icon: <CssIcon /> },
-  { name: 'Next.js', favorite: true, icon: <NextJsIcon /> },
+  { name: 'Next.js', favorite: true, icon: <NextjsIcon /> },
   { name: 'Redux', favorite: false, icon: <ReduxIcon /> },
   null,
   // 2 row
@@ -77,7 +76,7 @@ export const skills_mobile: (Skill | null)[] = [
   { name: 'React Native', favorite: false, icon: <ReactNativeIcon /> },
   // 3 row
   { name: 'React', favorite: true, icon: <ReactIcon /> },
-  { name: 'TypeScript', favorite: false, icon: <TypeScriptIcon /> },
+  { name: 'TypeScript', favorite: false, icon: <TypescriptIcon /> },
   { name: 'Cypress', favorite: false, icon: <CypressIcon /> },
   { name: 'Webflow', favorite: true, icon: <WebflowIcon /> },
   // 4 row

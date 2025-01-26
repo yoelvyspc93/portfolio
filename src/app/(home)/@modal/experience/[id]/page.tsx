@@ -1,3 +1,5 @@
+import { ExperienceModal } from '@/components/common/ExperienceModal';
+import { Modal } from '@/components/common/Modal';
 import { workExperiences } from '@/constants/experience';
 
 export async function generateStaticParams() {
@@ -16,8 +18,12 @@ export default async function ExperienceModalPage({
   const workExperience = workExperiences.find((exp) => exp.id === id);
 
   if (!workExperience) {
-    return <div>Experience not found</div>;
+    return null;
   }
 
-  return <div>Experience: {workExperience?.company}</div>;
+  return (
+    <Modal isOpen title={workExperience.company}>
+      <ExperienceModal experience={workExperience} />
+    </Modal>
+  );
 }

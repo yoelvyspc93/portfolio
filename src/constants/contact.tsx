@@ -1,7 +1,6 @@
+import EmailGradientIcon from '@/components/common/Icons/EmailGradientIcon';
+import TelegramGradientIcon from '@/components/common/Icons/TelegramGradientIcon';
 import { ReactNode } from 'react';
-
-import EmailIcon from '@/../public/icons/email-gradient.svg';
-import TelegramIcon from '@/../public/icons/telegram-gradient.svg';
 
 export interface ContactInfo {
   header: string;
@@ -20,11 +19,11 @@ export const contactInfo: ContactInfo = {
   ],
   contactLinks: [
     {
-      icon: <EmailIcon />,
+      icon: <EmailGradientIcon />,
       text: 'yoelvyspc93@gmail.com',
     },
     {
-      icon: <TelegramIcon />,
+      icon: <TelegramGradientIcon />,
       text: '+53 54773819',
     },
   ],

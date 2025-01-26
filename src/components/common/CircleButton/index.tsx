@@ -1,5 +1,5 @@
+import ArrowIcon from '../Icons/ArrowIcon';
 import styles from './CircleButton.module.scss';
-import ArrowIcon from '@/../public/icons/arrow.svg';
 
 export const CircleButton = () => {
   return (
