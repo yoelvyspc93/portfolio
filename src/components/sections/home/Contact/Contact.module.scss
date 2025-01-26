@@ -6,13 +6,16 @@
   display: flex;
   justify-content: center;
   padding: 0 16px;
+  max-width: 600px;
 
   @include mx.respond-to('tablet') {
-    padding: 0 32px;
+    max-width: 1000px;
     max-height: 600px;
+    padding: 0 32px;
   }
   @include mx.respond-to('desktop') {
     padding: 0;
+    max-width: 1200px;
   }
 
   &__container {

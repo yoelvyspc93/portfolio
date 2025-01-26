@@ -10,12 +10,15 @@
   height: auto;
   max-height: 100%;
   padding: 100px 0 100px;
+  max-width: 600px;
 
   @include mx.respond-to('tablet') {
+    max-width: 1000px;
     padding: 140px 0 100px;
     gap: 50px;
   }
   @include mx.respond-to('desktop') {
+    max-width: 1200px;
     gap: 60px;
   }
 

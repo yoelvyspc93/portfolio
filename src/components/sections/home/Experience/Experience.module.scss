@@ -10,13 +10,16 @@
   justify-content: center;
   gap: 40px;
   padding: 0 16px;
+  max-width: 600px;
 
   @include mx.respond-to('tablet') {
+    max-width: 1000px;
     max-height: 700px;
     padding: 0 32px;
   }
   @include mx.respond-to('desktop') {
     gap: 60px;
+    max-width: 1200px;
   }
 
   &__title {

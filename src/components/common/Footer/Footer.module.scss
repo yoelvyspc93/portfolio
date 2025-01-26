@@ -10,11 +10,14 @@
   align-items: center;
   gap: 24px;
   padding: 20px 16px;
+  max-width: 600px;
 
   @include mx.respond-to('tablet') {
+    max-width: 1000px;
     padding: 20px 32px;
   }
   @include mx.respond-to('desktop') {
+    max-width: 1200px;
     padding: 20px 0;
   }
 }
