@@ -8,6 +8,8 @@ interface Props {
   height?: number;
 }
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export const CustomImage = ({
   src,
   alt,
@@ -15,9 +17,11 @@ export const CustomImage = ({
   width,
   height,
 }: Props) => {
+  const customSrc = isProduction ? `/portfolio${src}` : src;
+
   return (
     <Image
-      src={src}
+      src={customSrc}
       alt={alt}
       fill={fill}
       width={width}
