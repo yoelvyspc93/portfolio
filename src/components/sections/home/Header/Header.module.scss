@@ -4,7 +4,7 @@
 .header {
   position: relative;
   width: 100%;
-  max-width: auto;
+  max-width: 600px;
   height: 100vh;
   margin: 0 auto;
   display: flex;
@@ -26,6 +26,7 @@
   @include mx.respond-to('tablet') {
     padding: 0 32px;
     min-height: 700px;
+    max-width: 1000px;
     height: auto;
   }
   @include mx.respond-to('desktop') {
