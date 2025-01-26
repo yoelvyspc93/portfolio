@@ -1,11 +1,11 @@
-import Image from 'next/image';
+import { CustomImage } from '@/components/common/CustomImage';
 
 export default function HomePage() {
   return (
     <div>
       <h1>
         Yoelvys
-        <Image
+        <CustomImage
           src="/images/header/avatar.webp"
           alt="avatar"
           width={200}
