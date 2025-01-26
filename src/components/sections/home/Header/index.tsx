@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
-import Image from 'next/image';
 import styles from './Header.module.scss';
 import { GradientButton } from '@/components/common/GradientButton';
 import { HeaderCard } from '@/components/common/HeaderCard';
 import gsap from 'gsap';
+import { CustomImage } from '@/components/common/CustomImage';
 
 export const Header = () => {
   useEffect(() => {
@@ -53,11 +53,13 @@ export const Header = () => {
           combining design, advanced animations, and SEO optimization.
         </p>
         <div className={styles.button}>
-          <GradientButton onClick={() => {}}>Download CV</GradientButton>
+          <GradientButton onClick={() => console.log('Download CV')}>
+            Download CV
+          </GradientButton>
         </div>
       </div>
       <div className={styles.image}>
-        <Image
+        <CustomImage
           fill
           priority
           src="/images/header/avatar.webp"

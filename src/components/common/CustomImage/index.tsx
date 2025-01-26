@@ -4,6 +4,7 @@ interface Props {
   src: string;
   alt: string;
   fill?: boolean;
+  priority?: boolean;
   width?: number;
   height?: number;
 }
@@ -14,6 +15,7 @@ export const CustomImage = ({
   src,
   alt,
   fill = false,
+  priority = false,
   width,
   height,
 }: Props) => {
@@ -24,6 +26,7 @@ export const CustomImage = ({
       src={customSrc}
       alt={alt}
       fill={fill}
+      priority={priority}
       width={width}
       height={height}
       placeholder="blur"
