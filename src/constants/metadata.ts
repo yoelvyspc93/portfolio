@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Yoelvys Perez Cabrera' }],
   // themeColor: "#1D212C",
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: '/portfolio/favicon.ico',
+    shortcut: '/portfolio/favicon.png',
+    apple: '/portfolio/favicon.png',
     // apple: "/apple-touch-icon.png",
   },
   openGraph: {
