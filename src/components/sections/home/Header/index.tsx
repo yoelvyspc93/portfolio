@@ -60,10 +60,10 @@ export const Header = () => {
       </div>
       <div className={styles.image}>
         <CustomImage
-          fill
-          priority
           src="/images/header/avatar.webp"
           alt="Yoelvys Perez Cabrera"
+          fill
+          priority
         />
       </div>
       <div className={styles.cards}>

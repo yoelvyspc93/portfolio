@@ -101,14 +101,14 @@ export const About: React.FC = () => {
         <div className={styles.gallery__section} ref={list1Ref}>
           {list1.map((item, index) => (
             <div key={index} className={styles.gallery__item}>
-              <CustomImage src={item} alt="about project" fill />
+              <CustomImage src={item} alt="about project" fill blur />
             </div>
           ))}
         </div>
         <div className={styles.gallery__section} ref={list2Ref}>
           {list2.map((item, index) => (
             <div key={index} className={styles.gallery__item}>
-              <CustomImage src={item} alt="about project" fill />
+              <CustomImage src={item} alt="about project" fill blur />
             </div>
           ))}
         </div>
