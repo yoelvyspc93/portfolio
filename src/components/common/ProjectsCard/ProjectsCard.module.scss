@@ -32,7 +32,7 @@
   .container {
     display: grid;
     width: 100%;
-    max-width: 1200px;
+    max-width: 600px;
     grid-template-areas:
       'index title'
       'content content';
@@ -49,11 +49,13 @@
       grid-template-columns: 40px 1fr 64px;
       padding: 32px;
       gap: 20px 64px;
+      max-width: 1000px;
     }
     @include mx.respond-to('desktop') {
       grid-template-areas: 'index title content icon';
       grid-template-columns: 40px 400px 1fr 64px;
       padding: 64px;
+      max-width: 1200px;
     }
 
     .index,

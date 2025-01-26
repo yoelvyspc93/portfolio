@@ -61,7 +61,7 @@ export const ProjectItem = ({
         )}
       >
         <div className={styles.image}>
-          <CustomImage src={imageUrl} alt="Project preview" fill={true} />
+          <CustomImage src={imageUrl} alt="Project preview" fill blur />
         </div>
       </div>
     </div>

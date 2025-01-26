@@ -7,6 +7,7 @@ interface Props {
   priority?: boolean;
   width?: number;
   height?: number;
+  blur?: boolean;
 }
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -18,6 +19,7 @@ export const CustomImage = ({
   priority = false,
   width,
   height,
+  blur = false,
 }: Props) => {
   const customSrc = isProduction ? `/portfolio${src}` : src;
 
@@ -29,8 +31,10 @@ export const CustomImage = ({
       priority={priority}
       width={width}
       height={height}
-      placeholder="blur"
-      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEklEQVR42mPsnHBckgEIGGEMACysA/U4E8v3AAAAAElFTkSuQmCC"
+      placeholder={blur ? 'blur' : 'empty'}
+      blurDataURL={
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEklEQVR42mPsnHBckgEIGGEMACysA/U4E8v3AAAAAElFTkSuQmCC'
+      }
     />
   );
 };
