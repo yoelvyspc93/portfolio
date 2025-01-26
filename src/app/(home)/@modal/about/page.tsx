@@ -1,3 +1,10 @@
+import { AboutModal } from '@/components/common/AboutModal';
+import { Modal } from '@/components/common/Modal';
+
 export default function AboutModalPage() {
-  return <h1>About</h1>;
+  return (
+    <Modal isOpen title="About">
+      <AboutModal />
+    </Modal>
+  );
 }
