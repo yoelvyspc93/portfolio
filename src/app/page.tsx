@@ -1,6 +1,6 @@
 import { CustomImage } from '@/components/common/CustomImage';
 
-import Aaa from '/public/icons/arrow.svg';
+import Arrow from '@/components/common/Icons/Arrow';
 
 export default function HomePage() {
   return (
@@ -13,7 +13,7 @@ export default function HomePage() {
           width={200}
           height={200}
         />
-        <Aaa width={32} height={32} />
+        <Arrow width={32} height={32} />
       </h1>
     </div>
   );
