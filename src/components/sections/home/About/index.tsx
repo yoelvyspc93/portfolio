@@ -10,20 +10,29 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 
-const list1: string[] = [
-  '/images/projects/flowsev.webp',
-  '/images/projects/henig-diamond.webp',
-  '/images/projects/kubeshark.webp',
-  '/images/projects/pioneerz.webp',
-  '/images/projects/lanetalk.webp',
-];
+// const list1: string[] = [
+//   '/images/projects/flowsev.webp',
+//   '/images/projects/henig-diamond.webp',
+//   '/images/projects/kubeshark.webp',
+//   '/images/projects/pioneerz.webp',
+//   '/images/projects/lanetalk.webp',
+// ];
 
-const list2: string[] = [
-  '/images/projects/lanetalk.webp',
-  '/images/projects/pioneerz.webp',
-  '/images/projects/kubeshark.webp',
-  '/images/projects/henig-diamond.webp',
-  '/images/projects/flowsev.webp',
+// const list2: string[] = [
+//   '/images/projects/lanetalk.webp',
+//   '/images/projects/pioneerz.webp',
+//   '/images/projects/kubeshark.webp',
+//   '/images/projects/henig-diamond.webp',
+//   '/images/projects/flowsev.webp',
+// ];
+
+const list: string[] = [
+  '/images/images.webp',
+  '/images/images.webp',
+  '/images/images.webp',
+  '/images/images.webp',
+  '/images/images.webp',
+  '/images/images.webp',
 ];
 
 export const About: React.FC = () => {
@@ -99,14 +108,14 @@ export const About: React.FC = () => {
       </div>
       <div className={styles.gallery}>
         <div className={styles.gallery__section} ref={list1Ref}>
-          {list1.map((item, index) => (
+          {list.map((item, index) => (
             <div key={index} className={styles.gallery__item}>
               <CustomImage src={item} alt="about project" fill blur />
             </div>
           ))}
         </div>
         <div className={styles.gallery__section} ref={list2Ref}>
-          {list2.map((item, index) => (
+          {list.map((item, index) => (
             <div key={index} className={styles.gallery__item}>
               <CustomImage src={item} alt="about project" fill blur />
             </div>

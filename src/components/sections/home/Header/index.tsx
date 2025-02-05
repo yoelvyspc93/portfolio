@@ -68,7 +68,7 @@ export const Header = () => {
       </div>
       <div className={styles.cards}>
         <HeaderCard number="6+" label="Years of experience" />
-        <HeaderCard number="25+" label="Complete projects" />
+        <HeaderCard number="12+" label="Complete projects" />
         <HeaderCard number="2" label="Companies worked" />
       </div>
     </header>

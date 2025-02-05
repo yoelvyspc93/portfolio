@@ -12,11 +12,11 @@ interface Project {
 export const projectList: Project[] = [
   {
     id: '01',
-    title: 'Pioneerz',
+    title: 'Projects',
     shortDescription:
-      'Modern platform for selling NFTs with advanced animations and seamless experience.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper.',
     detailedDescription: [
-      'I developed a modern platform for selling NFTs, built with Next.js. The website features advanced animations using GSAP, SwiperJS, and Lottie, delivering an interactive and seamless user experience. The project was meticulously tested and iterated using tools such as Storybook, Chromatic, React Testing Library, and Cypress.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper, non elementum velit eleifend. Nulla efficitur, justo eget dictum dapibus, nunc justo consectetur sem, id finibus urna dolor sed arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper, non elementum velit eleifend. Nulla efficitur.',
     ],
     techStack: [
       'Next.js',
@@ -28,57 +28,55 @@ export const projectList: Project[] = [
       'React Testing Library',
       'Cypress',
     ],
-    imageUrl: '/images/projects/pioneerz.webp',
+    imageUrl: '/images/images.webp',
     isFavorite: true,
   },
   {
     id: '02',
-    title: 'Kubeshark',
+    title: 'Projects',
     shortDescription:
-      "Landing page designed to highlight Kubeshark's main features with a clean and responsive design.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper.',
     detailedDescription: [
-      "I developed the official landing page for Kubeshark using Webflow. The site was created to highlight the main features of the tool, with a clean, responsive design focused on user experience. Animations and smooth transitions were implemented to enhance interaction and capture visitors' attention.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper, non elementum velit eleifend. Nulla efficitur, justo eget dictum dapibus, nunc justo consectetur sem, id finibus urna dolor sed arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper, non elementum velit eleifend. Nulla efficitur.',
     ],
     techStack: ['Webflow'],
-    imageUrl: '/images/projects/kubeshark.webp',
+    imageUrl: '/images/images.webp',
     isFavorite: true,
-    websiteUrl: 'https://kubeshark.co/',
   },
   {
     id: '03',
-    title: 'FlowSev',
+    title: 'Projects',
     shortDescription:
-      "Modern and responsive landing page created to showcase FlowSev.ai's features.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper.',
     detailedDescription: [
-      "I developed the landing page for FlowSev.ai using Webflow, focusing on a modern and responsive design. The page integrates transitions and animations to highlight the service's features and provide an engaging and intuitive user experience.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper, non elementum velit eleifend. Nulla efficitur, justo eget dictum dapibus, nunc justo consectetur sem, id finibus urna dolor sed arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper, non elementum velit eleifend. Nulla efficitur.',
     ],
     techStack: ['Webflow'],
-    imageUrl: '/images/projects/flowsev.webp',
+    imageUrl: '/images/images.webp',
     isFavorite: true,
-    websiteUrl: 'https://flowsev.ai/',
   },
   {
     id: '04',
-    title: 'Henig Diamond',
+    title: 'Projects',
     shortDescription:
-      'Informational landing page with 3D animations, an interactive map, and an intelligent chatbot.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper.',
     detailedDescription: [
-      "I developed the informational landing page for Henig Diamond, a company dedicated to diamond sales, using Webflow. The page incorporates advanced animations with GSAP and 3D elements created with Spline, along with an interactive map for office locations. I also integrated an intelligent chatbot designed to answer questions related to the company's services and products.",
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper, non elementum velit eleifend. Nulla efficitur, justo eget dictum dapibus, nunc justo consectetur sem, id finibus urna dolor sed arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper, non elementum velit eleifend. Nulla efficitur.',
     ],
     techStack: ['Webflow', 'GSAP', 'Spline'],
-    imageUrl: '/images/projects/henig-diamond.webp',
+    imageUrl: '/images/images.webp',
     isFavorite: true,
   },
   {
     id: '05',
-    title: 'Lanetalk',
+    title: 'Projects',
     shortDescription:
-      'Real-time platform to display bowling scores using web-sockets.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper.',
     detailedDescription: [
-      'I developed Lanetalk, a platform built in React to display real-time bowling game scores. The application uses web-sockets to ensure continuous and seamless score updates, providing users with a dynamic and precise experience.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper, non elementum velit eleifend. Nulla efficitur, justo eget dictum dapibus, nunc justo consectetur sem, id finibus urna dolor sed arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar sapien ac ex ullamcorper, non elementum velit eleifend. Nulla efficitur.',
     ],
     techStack: ['React', 'Websockets'],
-    imageUrl: '/images/projects/lanetalk.webp',
+    imageUrl: '/images/images.webp',
     isFavorite: false,
   },
 ];
