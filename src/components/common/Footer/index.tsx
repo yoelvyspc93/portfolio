@@ -8,8 +8,12 @@ import Link from 'next/link';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { usePathname, useRouter } from 'next/navigation';
 
 export const Footer = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+
   const footerRef = useRef(null);
   const navLinksRef = useRef<(HTMLLIElement | null)[]>([]);
   const socialLinksRef = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -65,6 +69,14 @@ export const Footer = () => {
     };
   }, []);
 
+  const handleClickItem = (href: string) => {
+    if (pathname === '/') {
+      gsap.to(window, { duration: 1, scrollTo: href });
+    } else {
+      router.push(`/${href}`);
+    }
+  };
+
   return (
     <footer className={styles.footer} ref={footerRef}>
       <div className={styles.divider}></div>
@@ -76,6 +88,7 @@ export const Footer = () => {
               ref={(el) => {
                 navLinksRef.current[index] = el;
               }}
+              onClick={() => handleClickItem(link.path)}
             >
               <Link href={link.path}>{link.name}</Link>
             </li>
