@@ -70,6 +70,7 @@
       gap: 20px;
     }
     @include mx.respond-to('desktop') {
+      max-width: 640px;
       gap: 24px;
     }
 
