@@ -7,8 +7,6 @@ import { TextAreaField } from '@/components/common/Form/TextAreaField';
 import { GradientButton } from '@/components/common/GradientButton';
 import { contactInfo } from '@/constants/contact';
 import { useMailTo } from '@/hook/useMailTo';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const EMAIL_REGEX =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$/i;
@@ -31,83 +29,87 @@ export const Contact = () => {
   const formRef = useRef(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const title = titleRef.current;
-    const form = formRef.current;
+    (async () => {
+      const { default: gsap } = await import('gsap');
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+      gsap.registerPlugin(ScrollTrigger);
+      const title = titleRef.current;
+      const form = formRef.current;
 
-    // Hide elements initially
-    gsap.set(title, { opacity: 0, y: 50 });
-    descriptionRefs.current.forEach((desc) => {
-      if (desc) gsap.set(desc, { opacity: 0, y: 50 });
-    });
-    gsap.set(form, { opacity: 0, y: 50 });
-    linksRef.current.forEach((link) => {
-      if (link) gsap.set(link, { opacity: 0, y: 50 });
-    });
+      // Hide elements initially
+      gsap.set(title, { opacity: 0, y: 50 });
+      descriptionRefs.current.forEach((desc) => {
+        if (desc) gsap.set(desc, { opacity: 0, y: 50 });
+      });
+      gsap.set(form, { opacity: 0, y: 50 });
+      linksRef.current.forEach((link) => {
+        if (link) gsap.set(link, { opacity: 0, y: 50 });
+      });
 
-    // Animate title
-    gsap.to(title, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: title,
-        start: 'top 80%',
-        once: true,
-      },
-    });
-
-    // Animate descriptions
-    descriptionRefs.current.forEach((desc, index) => {
-      if (!desc) return;
-      gsap.to(desc, {
+      // Animate title
+      gsap.to(title, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        delay: index * 0.2,
+        duration: 1,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: desc,
-          start: 'top 85%',
+          trigger: title,
+          start: 'top 80%',
           once: true,
         },
       });
-    });
 
-    // Animate links after descriptions
-    linksRef.current.forEach((link, index) => {
-      if (!link) return;
-      gsap.to(link, {
+      // Animate descriptions
+      descriptionRefs.current.forEach((desc, index) => {
+        if (!desc) return;
+        gsap.to(desc, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: index * 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: desc,
+            start: 'top 85%',
+            once: true,
+          },
+        });
+      });
+
+      // Animate links after descriptions
+      linksRef.current.forEach((link, index) => {
+        if (!link) return;
+        gsap.to(link, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: descriptionRefs.current.length * 0.2 + index * 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: link,
+            start: 'top 90%',
+            once: true,
+          },
+        });
+      });
+
+      // Animate form
+      gsap.to(form, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        delay: descriptionRefs.current.length * 0.2 + index * 0.2,
+        duration: 1,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: link,
+          trigger: form,
           start: 'top 90%',
           once: true,
         },
       });
-    });
 
-    // Animate form
-    gsap.to(form, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: form,
-        start: 'top 90%',
-        once: true,
-      },
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+      return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
+    })();
   }, []);
 
   const validateFields = (): boolean => {
