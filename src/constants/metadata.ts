@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'Yoelvys | Frontend Developer',
   description,
   authors: [{ name: 'Yoelvys Perez Cabrera' }],
-  // themeColor: "#1D212C",
+  themeColor: '#1D212C',
   icons: {
     icon: '/portfolio/favicon.ico',
     shortcut: '/portfolio/favicon.png',
