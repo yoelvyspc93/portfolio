@@ -5,8 +5,6 @@ import styles from './About.module.scss';
 import { GradientButton } from '@/components/common/GradientButton';
 import { aboutInfo } from '@/constants/about';
 
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
 import { Modal } from '@/components/common/Modal';
 import { AboutModal } from '@/components/common/AboutModal';
@@ -30,46 +28,49 @@ export const About: React.FC = () => {
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    (async () => {
+      const { gsap } = await import('gsap');
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+      gsap.registerPlugin(ScrollTrigger);
 
-    const ctx = gsap.context(() => {
-      if (list1Ref.current && list2Ref.current) {
-        gsap.to(list1Ref.current, {
-          y: '-30%',
-          ease: 'none',
+      const ctx = gsap.context(() => {
+        if (list1Ref.current && list2Ref.current) {
+          gsap.to(list1Ref.current, {
+            y: '-30%',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: list1Ref.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          });
+
+          gsap.to(list2Ref.current, {
+            y: '30%',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: list2Ref.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          });
+        }
+
+        gsap.from([titleRef.current, descRef.current, buttonRef.current], {
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          stagger: 0.2,
           scrollTrigger: {
-            trigger: list1Ref.current,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
+            trigger: sectionRef.current,
+            start: 'top 50%',
           },
         });
-
-        gsap.to(list2Ref.current, {
-          y: '30%',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: list2Ref.current,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          },
-        });
-      }
-
-      gsap.from([titleRef.current, descRef.current, buttonRef.current], {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 50%',
-        },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
+      }, sectionRef);
+      return () => ctx.revert();
+    })();
   }, []);
 
   const [isOpenModal, setOpenModal] = useState<boolean>(false);

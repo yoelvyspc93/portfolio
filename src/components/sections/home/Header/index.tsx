@@ -4,42 +4,46 @@ import { useEffect } from 'react';
 import styles from './Header.module.scss';
 import { GradientButton } from '@/components/common/GradientButton';
 import { HeaderCard } from '@/components/common/HeaderCard';
-import gsap from 'gsap';
 import { CustomImage } from '@/components/common/CustomImage';
 
 export const Header = () => {
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { duration: 1, ease: 'power2.out' } });
-    tl.fromTo(
-      `h1`,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.2 },
-      '<',
-    )
-      .fromTo(
-        `.${styles.paragraph}`,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0 },
+    (async () => {
+      const { default: gsap } = await import('gsap');
+      const tl = gsap.timeline({
+        defaults: { duration: 1, ease: 'power2.out' },
+      });
+      tl.fromTo(
+        `h1`,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.2 },
         '<',
       )
-      .fromTo(
-        `.${styles.button}`,
-        { opacity: 0, scale: 0.8 },
-        { opacity: 1, scale: 1 },
-        '<',
-      )
-      .fromTo(
-        `.${styles.image}`,
-        { opacity: 0, x: -100 },
-        { opacity: 1, x: 0 },
-        '<',
-      )
-      .fromTo(
-        `.${styles.cards} > *`,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, stagger: 0.3 },
-        '<',
-      );
+        .fromTo(
+          `.${styles.paragraph}`,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0 },
+          '<',
+        )
+        .fromTo(
+          `.${styles.button}`,
+          { opacity: 0, scale: 0.8 },
+          { opacity: 1, scale: 1 },
+          '<',
+        )
+        .fromTo(
+          `.${styles.image}`,
+          { opacity: 0, x: -100 },
+          { opacity: 1, x: 0 },
+          '<',
+        )
+        .fromTo(
+          `.${styles.cards} > *`,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, stagger: 0.3 },
+          '<',
+        );
+    })();
   }, []);
 
   return (

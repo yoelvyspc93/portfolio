@@ -9,8 +9,6 @@ import { useState, useEffect } from 'react';
 // import CloseIcon from '@/../public/icons/close-outline.svg';
 import { clsx } from 'clsx';
 import { useViewports } from '@/hook/useViewports';
-import { gsap } from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useRouter, usePathname } from 'next/navigation';
 
 export const Navigator = () => {
@@ -20,7 +18,11 @@ export const Navigator = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollToPlugin);
+    (async () => {
+      const { gsap } = await import('gsap');
+      const { ScrollToPlugin } = await import('gsap/ScrollToPlugin');
+      gsap.registerPlugin(ScrollToPlugin);
+    })();
   }, []);
 
   const handleClick = () => {
@@ -31,8 +33,11 @@ export const Navigator = () => {
     if (breakpoint === 'mobile') setOpen(false);
   };
 
-  const handleClickItem = (href: string) => {
+  const handleClickItem = async (href: string) => {
     if (pathname === '/') {
+      const { gsap } = await import('gsap');
+      const { ScrollToPlugin } = await import('gsap/ScrollToPlugin');
+      gsap.registerPlugin(ScrollToPlugin);
       gsap.to(window, { duration: 1, scrollTo: href });
     } else {
       router.push(`/${href}`);

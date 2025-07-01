@@ -1,7 +1,6 @@
 'use client';
 
 import { ReactNode, useRef, useEffect } from 'react';
-import gsap from 'gsap';
 import styles from './GradientButton.module.scss';
 import ArrowIcon from '../Icons/ArrowIcon';
 
@@ -24,21 +23,26 @@ export const GradientButton = ({
   const arrowRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (arrowRef.current && contentRef.current) {
-      gsap.set(arrowRef.current, { opacity: 0, x: 8, y: 1 });
-      gsap.set(contentRef.current, { x: 10 });
-    }
+    (async () => {
+      const { default: gsap } = await import('gsap');
+      if (arrowRef.current && contentRef.current) {
+        gsap.set(arrowRef.current, { opacity: 0, x: 8, y: 1 });
+        gsap.set(contentRef.current, { x: 10 });
+      }
+    })();
   }, []);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = async () => {
     if (contentRef.current && arrowRef.current) {
+      const { default: gsap } = await import('gsap');
       gsap.to(contentRef.current, { duration: 0.3, x: 0 });
       gsap.to(arrowRef.current, { duration: 0.3, opacity: 1, x: 0 });
     }
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = async () => {
     if (contentRef.current && arrowRef.current) {
+      const { default: gsap } = await import('gsap');
       gsap.to(contentRef.current, { duration: 0.3, x: 10 });
       gsap.to(arrowRef.current, { duration: 0.3, opacity: 0, x: 8 });
     }
