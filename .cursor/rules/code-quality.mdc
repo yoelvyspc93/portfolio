@@ -1,0 +1,32 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Code Quality and Style
+
+- **Naming and Clarity:**
+  - Use descriptive names for variables and functions; include auxiliary verbs (e.g., isLoading, hasError).
+  - Event functions must be prefixed with "handle" (e.g., handleClick, handleKeyDown).
+  - Prefer named exports for components and utilities.
+
+- **Functional and Declarative Programming:**
+  - Write functional code and avoid classes.
+  - Prioritize modularization and iteration to avoid code duplication.
+  - Use the RORO (Receive an Object, Return an Object) pattern where applicable.
+
+- **Syntax and Formatting:**
+  - Use the `function` keyword for pure functions.
+  - Avoid unnecessary curly braces in conditional statements; for simple statements, use one-line syntax.
+  - Omit semicolons at the end of lines (if that’s your preference) and use Prettier for consistent formatting.
+  
+- **Error Handling:**
+  - Implement early returns to handle error conditions.
+  - Place the “happy path” at the end and avoid deep nesting by using guard clauses.
+  - Use clear error messages and logging; consider custom error types or error factories.
+  
+- **Documentation:**
+  - Comment your code with JSDoc when necessary.
+  - Always include all required imports and ensure that key component names are accurate.
+

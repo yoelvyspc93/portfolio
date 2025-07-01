@@ -1,0 +1,20 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Accessibility and Usability
+
+- **Interactive Elements:**
+  - All interactive elements (buttons, links, etc.) must include:
+    - `tabIndex={0}`
+    - A descriptive `aria-label`
+    - Keyboard event handlers (e.g., `onKeyDown`)
+    - Appropriate roles as needed
+
+- **Contrast and Navigation:**
+  - Ensure sufficient color contrast.
+  - Implement a “skip to content” link to improve keyboard navigation.
+  - Verify accessibility using tools like Lighthouse or axe DevTools.
+

@@ -4,7 +4,6 @@ import styles from './Footer.module.scss';
 
 import { navigationItems } from '@/constants/navigator';
 import { socialLinks } from '@/constants/social';
-import Link from 'next/link';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -90,7 +89,7 @@ export const Footer = () => {
               }}
               onClick={() => handleClickItem(link.path)}
             >
-              <Link href={link.path}>{link.name}</Link>
+              {link.name}
             </li>
           ))}
         </ul>

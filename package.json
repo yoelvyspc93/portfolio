@@ -8,28 +8,41 @@
     "start": "next start",
     "lint": "next lint --dir src/",
     "lint:fix": "next lint --dir src/ --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "audit:security": "yarn audit --level moderate",
+    "update:security": "yarn upgrade --pattern next"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
-    "init": "^0.1.2",
+    "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.1.6",
     "sass": "^1.83.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.1.0",
+    "eslint-config-next": "15.2.4",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.2",
     "prettier": "^3.4.2",
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19"
-  }
+    "typescript": "^5"
+  },
+  "volta": {
+    "node": "22.13.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=1.22.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }

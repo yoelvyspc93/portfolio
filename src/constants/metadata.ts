@@ -4,11 +4,13 @@ const SITE_URL =
   process.env?.NEXT_PUBLIC_SITE_URL ||
   'https://yoelvyspc93.github.io/portfolio';
 
+const description =
+  'I am Yoelvys, a frontend developer specialized in Next.js, React, and modern technologies. Explore my portfolio featuring innovative projects, advanced animations, and scalable solutions.';
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: 'Yoelvys | Frontend Developer',
-  description:
-    'I am Yoelvys, a frontend developer specialized in Next.js, React, and modern technologies. Explore my portfolio featuring innovative projects, advanced animations, and scalable solutions.',
+  description,
   authors: [{ name: 'Yoelvys Perez Cabrera' }],
   // themeColor: "#1D212C",
   icons: {
@@ -19,8 +21,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Yoelvys | Frontend Developer',
-    description:
-      'I am Yoelvys, a frontend developer specialized in Next.js, React, and modern technologies. Explore my portfolio featuring innovative projects, advanced animations, and scalable solutions.',
+    description,
     url: SITE_URL || '',
     siteName: 'Yoelvys Portfolio',
     images: [
@@ -37,8 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Yoelvys | Frontend Developer',
-    description:
-      'I am Yoelvys, a frontend developer specialized in Next.js, React, and modern technologies. Explore my portfolio featuring innovative projects, advanced animations, and scalable solutions.',
+    description,
     images: [
       {
         url: SITE_URL + '/images/seo/twitter-card.png',
@@ -46,4 +46,50 @@ export const metadata: Metadata = {
       },
     ],
   },
+};
+
+export const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Yoelvys Pérez Cabrera',
+  url: SITE_URL,
+  image: SITE_URL + '/images/seo/og-image.png',
+  jobTitle: 'Frontend Developer',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Dspot Sp. z o.o.',
+    url: 'https://www.dspot.com.pl',
+  },
+  sameAs: [SITE_URL, 'https://linkedin.com/in/yoelvys'],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Villa Clara',
+    addressRegion: 'Cuba',
+    addressCountry: 'CU',
+  },
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Universidad Central de Las Villas',
+  },
+  knowsAbout: [
+    'JavaScript',
+    'TypeScript',
+    'Next.js',
+    'React',
+    'Figma',
+    'Storybook',
+    'Chromatic',
+    'Cypress',
+    'React Native',
+    'Webflow',
+    'Python',
+    'GSAP',
+    'Jest',
+    'React Testing Library',
+    'Tailwind CSS',
+    'CSS3',
+    'HTML5',
+    'Git',
+  ],
+  description,
 };

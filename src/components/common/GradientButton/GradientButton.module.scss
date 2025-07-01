@@ -5,10 +5,7 @@
   position: relative;
   font-size: 16px;
   font-weight: 500;
-  background: cl.$color__linear-gradient;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: cl.$color__white;
   padding: 8px 18px;
   border: none;
   border-radius: 8px;
@@ -16,6 +13,14 @@
   background-color: transparent;
   z-index: 1;
   transition: color 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+
+  span {
+    text-wrap: nowrap;
+  }
 
   @include mx.respond-to('tablet') {
     font-size: 18px;
@@ -44,11 +49,4 @@
   z-index: -1;
 
   transition: color 0.4s ease;
-}
-
-.gradient_button:hover {
-  background: cl.$color__linear-gradient;
-  -webkit-text-fill-color: cl.$color__black;
-  color: cl.$color__black;
-  text-decoration: none;
 }
