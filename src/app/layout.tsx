@@ -2,10 +2,11 @@ import '@/styles/app.scss';
 
 import { Montserrat } from 'next/font/google';
 import { ReactNode } from 'react';
-import { metadata as seo } from '@/constants/metadata';
+import { schemaData, metadata as seo } from '@/constants/metadata';
 import { Metadata } from 'next';
 import { Navigator } from '@/components/common/Navigator';
 import { Footer } from '@/components/common/Footer';
+import JsonLdSchema from '@/components/common/JsonLdSchema';
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -28,6 +29,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+        <JsonLdSchema schemaData={schemaData} />
       </body>
     </html>
   );

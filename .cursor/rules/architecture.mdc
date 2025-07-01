@@ -1,0 +1,24 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Architecture and Best Practices
+
+- **Code Organization:**
+  - Divide responsibilities among components, helpers, constants, hooks, and styles.
+  - Embrace SSR and Next.js Server Components to minimize `use client` usage.
+
+- **Library and API Integration:**
+  - Use GSAP for sophisticated and fluid animations.
+  - Use CSS Modules for isolated and maintainable styles.
+  - Integrate SEO by dynamically injecting metadata with `next/head` or `generateMetadata()`.
+
+- **Server-side Error Handling and Validations:**
+  - Use `next-safe-action` to define secure, type-safe server actions.
+  - Model expected errors as return values and use error boundaries for unexpected exceptions.
+
+- **Optimization:**
+  - Optimize images with the `next/image` component (lazy loading, appropriate formats, size attributes).
+  - Implement dynamic imports to split large components.

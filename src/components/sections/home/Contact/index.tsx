@@ -181,15 +181,19 @@ export const Contact = () => {
                   value={email}
                   onChange={(v) => setEmail(v)}
                 />
-                {errors.email && <span>{errors.email}</span>}
+                {errors.email && (
+                  <span className={styles.error}>{errors.email}</span>
+                )}
                 <TextAreaField
                   id="message"
                   label="Message"
                   value={message}
                   onChange={(v) => setMessage(v)}
                 />
-                {errors.message && <span>{errors.message}</span>}
-                <GradientButton type="submit">Send message</GradientButton>
+                {errors.message && (
+                  <span className={styles.error}>{errors.message}</span>
+                )}
+                <GradientButton type="submit">Send</GradientButton>
               </>
             )}
           </form>

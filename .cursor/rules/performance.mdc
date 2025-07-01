@@ -1,0 +1,17 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Performance and Optimization
+
+- **Loading and Resource Optimization:**
+  - Use the `next/image` component with attributes like `priority`, `sizes`, and `loading="lazy"`.
+  - Dynamically import large components to reduce initial load time.
+  - Prefetch routes with `<Link prefetch />` in Next.js.
+
+- **Animation Resource Management:**
+  - Optimize GSAP usage by avoiding unnecessary animations that consume resources.
+  - Monitor and minimize background memory usage.
+

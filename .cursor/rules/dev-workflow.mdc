@@ -1,0 +1,78 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Workflow and Project Structure
+
+- **Planning Before Coding:**
+  - Define the flow in detailed pseudocode step-by-step before coding.
+  - Confirm your logic and structure before writing actual code.
+  
+- **Project Structure:**
+  - Technologies: Next.js, React, TypeScript, CSS Modules, and GSAP.
+  - Suggested structure:
+    ```
+    app/
+      ├── layout.tsx
+      └── page.tsx
+
+    components/
+      ├── common/
+      ├── sections/
+      └── layout/
+
+    constants/
+      ├── about.ts
+      └── skills.ts
+
+    hooks/
+      └── useExample.ts
+
+    styles/
+      └── app.scss
+    ```
+  - For each component, create a folder with:
+    ```
+    name-component/
+      ├── index.tsx
+      └── class.modules.scss
+      └── use-[name-component].ts
+    ```
+
+# Constants
+
+## Skills
+
+export const skills = [
+  {
+    name: 'React',
+    iconPath: '/icons/skills/react.svg',
+    category: 'frontend',
+    level: 'advanced'
+  },
+  {
+    name: 'Next.js',
+    iconPath: '/icons/skills/nextjs.svg',
+    category: 'frontend',
+    level: 'advanced'
+  },
+  // Otros skills...
+];
+
+## Social Links
+
+export const socialLinks = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com/username',
+    iconPath: '/icons/social/github.svg'
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://linkedin.com/in/username',
+    iconPath: '/icons/social/linkedin.svg'
+  },
+  // Otros enlaces sociales...
+];
