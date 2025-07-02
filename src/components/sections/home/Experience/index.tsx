@@ -4,10 +4,12 @@ import { ExperienceCard } from '@/components/common/ExperienceCard';
 import styles from './Experience.module.scss';
 import { workExperiences } from '@/constants/experience';
 import { useRef, useEffect } from 'react';
+import { useTranslation } from 'next-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const Experience = () => {
+  const { t } = useTranslation('experience');
   const titleRef = useRef(null);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -58,9 +60,11 @@ export const Experience = () => {
 
   return (
     <section id="experience" className={styles.experience}>
-      <h2 ref={titleRef} className={styles.experience__title}>
-        My <span>Experience</span>
-      </h2>
+      <h2
+        ref={titleRef}
+        className={styles.experience__title}
+        dangerouslySetInnerHTML={{ __html: t('title') }}
+      />
       <div className={styles.experience__grid}>
         {workExperiences.map((exp, index) => (
           <div

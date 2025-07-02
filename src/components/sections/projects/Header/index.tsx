@@ -4,8 +4,10 @@ import styles from './Header.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'next-i18next';
 
 export const Header = () => {
+  const { t } = useTranslation('projects');
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -33,9 +35,7 @@ export const Header = () => {
 
   return (
     <section className={styles.section} ref={headerRef}>
-      <h1>
-        My Main <span>Projects</span>
-      </h1>
+      <h1 dangerouslySetInnerHTML={{ __html: t('main') }} />
     </section>
   );
 };

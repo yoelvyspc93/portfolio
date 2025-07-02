@@ -1,11 +1,13 @@
 import { WorkExperience } from '@/constants/experience';
 import styles from './ExperienceModal.module.scss';
+import { useTranslation } from 'next-i18next';
 
 export const ExperienceModal = ({
   experience,
 }: {
   experience: WorkExperience;
 }) => {
+  const { t } = useTranslation('experience');
   const { period, details, techStack } = experience;
 
   return (
@@ -17,7 +19,7 @@ export const ExperienceModal = ({
         </p>
       ))}
       <div className={styles.experience__technologies__title}>
-        Technologies Learned
+        {t('techTitle')}
       </div>
       <div className={styles.experience__technologies}>
         {techStack.map((tech, index) => (

@@ -1,0 +1,19 @@
+{
+  "header": "Contáctame",
+  "messages": [
+    "Siempre estoy abierto a nuevas oportunidades, colaboraciones y proyectos emocionantes. Si tienes alguna pregunta o simplemente quieres saludar, no dudes en enviarme un mensaje.",
+    "¡Estaré encantado de responder lo antes posible!"
+  ],
+  "form": {
+    "emailLabel": "Correo electrónico",
+    "messageLabel": "Mensaje",
+    "submit": "Enviar",
+    "success": "Mensaje enviado con éxito",
+    "errors": {
+      "emailRequired": "El correo es obligatorio.",
+      "emailInvalid": "Introduce una dirección de correo válida.",
+      "messageRequired": "El mensaje es obligatorio.",
+      "messageTooShort": "El mensaje debe tener al menos 3 caracteres."
+    }
+  }
+}

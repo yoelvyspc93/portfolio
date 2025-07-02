@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "header": {
+    "intro": "Yoelvys <div>Perez Cabrera</div>",
+    "description": "Passionate about transforming ideas into unique digital experiences, combining design, advanced animations, and SEO optimization.",
+    "downloadCv": "Download CV",
+    "cardYears": "Years of experience",
+    "cardProjects": "Complete projects",
+    "cardCompanies": "Companies worked"
+  },
+  "notFound": {
+    "title": "Not Found",
+    "description": "Could not find requested resource",
+    "link": "Return Home"
+  },
+  "lang": {
+    "en": "English",
+    "es": "Spanish"
+  }
+}
