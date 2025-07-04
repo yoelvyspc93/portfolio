@@ -6,11 +6,13 @@ import { ProjectsCard } from '@/components/common/ProjectsCard';
 import { GradientButton } from '@/components/common/GradientButton';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';
+import { useTranslation } from '../../../../hooks/useTranslation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const Projects = () => {
   const router = useRouter();
+  const { t } = useTranslation('projects');
   const sectionRef = useRef<HTMLElement | null>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const buttonRef = useRef<HTMLDivElement | null>(null);
@@ -80,9 +82,7 @@ export const Projects = () => {
 
   return (
     <section id="projects" className={styles.projects} ref={sectionRef}>
-      <h2>
-        4 Latest <span>Projects</span>
-      </h2>
+      <h2 dangerouslySetInnerHTML={{ __html: t('latest') }} />
       <div className={styles.list}>
         {latestProjects.map((project, index) => (
           <div
@@ -102,7 +102,7 @@ export const Projects = () => {
       </div>
       <div ref={buttonRef}>
         <GradientButton onClick={() => router.push('/all_projects')}>
-          See More
+          {t('seeMore')}
         </GradientButton>
       </div>
     </section>

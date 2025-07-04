@@ -11,20 +11,20 @@ export const ExperienceModal = ({
   return (
     <div className={styles.experience}>
       <span className={styles.experience__date}>{period}</span>
-      {details.map((desc, index) => (
-        <p key={index} className={styles.experience__description}>
-          {desc}
-        </p>
-      ))}
-      <div className={styles.experience__technologies__title}>
-        Technologies Learned
-      </div>
-      <div className={styles.experience__technologies}>
-        {techStack.map((tech, index) => (
-          <div key={index} className={styles.experience__technologies__item}>
-            {tech}
-          </div>
+      {Array.isArray(details) &&
+        details.map((desc, index) => (
+          <p key={index} className={styles.experience__description}>
+            {desc}
+          </p>
         ))}
+      <div className={styles.experience__technologies__title}>Technologies</div>
+      <div className={styles.experience__technologies}>
+        {Array.isArray(techStack) &&
+          techStack.map((tech, index) => (
+            <div key={index} className={styles.experience__technologies__item}>
+              {tech}
+            </div>
+          ))}
       </div>
     </div>
   );

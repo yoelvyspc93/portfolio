@@ -2,14 +2,16 @@
 
 import styles from './Footer.module.scss';
 
-import { navigationItems } from '@/constants/navigator';
+import { getNavigationItems } from '@/constants/navigator';
 import { socialLinks } from '@/constants/social';
 import { useRef, useEffect } from 'react';
+import { useTranslation } from '../../../hooks/useTranslation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePathname, useRouter } from 'next/navigation';
 
 export const Footer = () => {
+  const { t } = useTranslation('common');
   const router = useRouter();
   const pathname = usePathname();
 
@@ -81,7 +83,7 @@ export const Footer = () => {
       <div className={styles.divider}></div>
       <nav className={styles.navMenu}>
         <ul>
-          {navigationItems.map((link, index) => (
+          {getNavigationItems(t).map((link, index) => (
             <li
               key={link.name}
               ref={(el) => {

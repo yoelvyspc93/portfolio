@@ -3,11 +3,11 @@
 import { CustomImage } from '@/components/common/CustomImage';
 import styles from './About.module.scss';
 import { GradientButton } from '@/components/common/GradientButton';
-import { aboutInfo } from '@/constants/about';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from '../../../../hooks/useTranslation';
 import { Modal } from '@/components/common/Modal';
 import { AboutModal } from '@/components/common/AboutModal';
 import { createPortal } from 'react-dom';
@@ -22,6 +22,7 @@ const list: string[] = [
 ];
 
 export const About: React.FC = () => {
+  const { t } = useTranslation('about');
   const list1Ref = useRef<HTMLDivElement | null>(null);
   const list2Ref = useRef<HTMLDivElement | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -82,16 +83,16 @@ export const About: React.FC = () => {
     <>
       <section ref={sectionRef} id="about" className={styles.about}>
         <div className={styles.about__info}>
-          <h2 ref={titleRef} className={styles.title}>
-            <span className={styles.title__small}>I AM</span>{' '}
-            <span className={styles.title__gradient}>FRONTEND DEVELOPER</span>{' '}
-            <span className={styles.title__small}>and</span> INSPIRED{' '}
-            <span className={styles.title__small}>by</span> TECHNOLOGY{' '}
-            <span className={styles.title__small}>and</span> INNOVATION
-          </h2>
-          <p ref={descRef}>{aboutInfo.shortDescription}</p>
+          <h2
+            ref={titleRef}
+            className={styles.title}
+            dangerouslySetInnerHTML={{ __html: t('title') }}
+          />
+          <p ref={descRef}>{t('shortDescription')}</p>
           <div ref={buttonRef} data-blendy-from="modal-about">
-            <GradientButton onClick={aboutButton}>See More</GradientButton>
+            <GradientButton onClick={aboutButton}>
+              {t('seeMore')}
+            </GradientButton>
           </div>
         </div>
         <div className={styles.gallery}>
@@ -113,7 +114,7 @@ export const About: React.FC = () => {
       </section>
       {isOpenModal &&
         createPortal(
-          <Modal title="About" isOpen>
+          <Modal title={t('modalTitle')} isOpen>
             <AboutModal />
           </Modal>,
           document.body,

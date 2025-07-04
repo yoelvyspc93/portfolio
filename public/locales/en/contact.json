@@ -1,0 +1,19 @@
+{
+  "header": "Contact Me",
+  "messages": [
+    "I am always open to new opportunities, collaborations, and exciting projects. If you have any questions or just want to say hello, feel free to send me a message.",
+    "I will be happy to respond as soon as possible!"
+  ],
+  "form": {
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submit": "Send",
+    "success": "Message sent successfully",
+    "errors": {
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageRequired": "Message is required.",
+      "messageTooShort": "Message must be at least 3 characters long."
+    }
+  }
+}
