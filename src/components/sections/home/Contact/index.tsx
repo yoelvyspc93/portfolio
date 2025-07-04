@@ -6,6 +6,7 @@ import { FormEvent, useState, useRef, useEffect } from 'react';
 import { TextAreaField } from '@/components/common/Form/TextAreaField';
 import { GradientButton } from '@/components/common/GradientButton';
 import { contactInfo } from '@/constants/contact';
+import { useTranslation } from '../../../../hooks/useTranslation';
 import { useMailTo } from '@/hook/useMailTo';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -23,7 +24,9 @@ export const Contact = () => {
     {},
   );
 
-  const { header, messages, contactLinks } = contactInfo;
+  const { t } = useTranslation('contact');
+  const { contactLinks } = contactInfo;
+  const messages = t('messages', { returnObjects: true }) as string[];
 
   const titleRef = useRef(null);
   const descriptionRefs = useRef<(HTMLParagraphElement | null)[]>([]);
@@ -114,15 +117,15 @@ export const Contact = () => {
     const newErrors: { email?: string; message?: string } = {};
 
     if (!email) {
-      newErrors.email = 'Email is required.';
+      newErrors.email = t('form.errors.emailRequired');
     } else if (!EMAIL_REGEX.test(email)) {
-      newErrors.email = 'Please enter a valid email address.';
+      newErrors.email = t('form.errors.emailInvalid');
     }
 
     if (!message) {
-      newErrors.message = 'Message is required.';
+      newErrors.message = t('form.errors.messageRequired');
     } else if (message.length < 3) {
-      newErrors.message = 'Message must be at least 3 characters long.';
+      newErrors.message = t('form.errors.messageTooShort');
     }
 
     setErrors(newErrors);
@@ -144,7 +147,7 @@ export const Contact = () => {
     <section id="contact" className={styles.contact}>
       <div className={styles.contact__container}>
         <div className={styles.contact__info}>
-          <h2 ref={titleRef}>{header}</h2>
+          <h2 ref={titleRef}>{t('header')}</h2>
           {messages.map((desc, index) => (
             <p
               key={index}
@@ -171,12 +174,12 @@ export const Contact = () => {
         <div className={styles.contact_form} ref={formRef}>
           <form onSubmit={handleSubmit}>
             {isSubmit ? (
-              <p>Message sent successfully</p>
+              <p>{t('form.success')}</p>
             ) : (
               <>
                 <InputField
                   id="email"
-                  label="Email"
+                  label={t('form.emailLabel')}
                   type="email"
                   value={email}
                   onChange={(v) => setEmail(v)}
@@ -186,14 +189,16 @@ export const Contact = () => {
                 )}
                 <TextAreaField
                   id="message"
-                  label="Message"
+                  label={t('form.messageLabel')}
                   value={message}
                   onChange={(v) => setMessage(v)}
                 />
                 {errors.message && (
                   <span className={styles.error}>{errors.message}</span>
                 )}
-                <GradientButton type="submit">Send</GradientButton>
+                <GradientButton type="submit">
+                  {t('form.submit')}
+                </GradientButton>
               </>
             )}
           </form>

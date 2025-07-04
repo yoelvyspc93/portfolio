@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useTranslation } from '../../../../hooks/useTranslation';
 import styles from './Header.module.scss';
 import { GradientButton } from '@/components/common/GradientButton';
 import { HeaderCard } from '@/components/common/HeaderCard';
@@ -8,6 +9,7 @@ import gsap from 'gsap';
 import { CustomImage } from '@/components/common/CustomImage';
 
 export const Header = () => {
+  const { t } = useTranslation('common');
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { duration: 1, ease: 'power2.out' } });
     tl.fromTo(
@@ -45,16 +47,14 @@ export const Header = () => {
   return (
     <header id="header" className={styles.header}>
       <div className={styles.content}>
-        <h1 className={styles.title}>
-          Yoelvys <div>Perez Cabrera</div>
-        </h1>
-        <p className={styles.paragraph}>
-          Passionate about transforming ideas into unique digital experiences,
-          combining design, advanced animations, and SEO optimization.
-        </p>
+        <h1
+          className={styles.title}
+          dangerouslySetInnerHTML={{ __html: t('header.intro') }}
+        />
+        <p className={styles.paragraph}>{t('header.description')}</p>
         <div className={styles.button}>
           <GradientButton onClick={() => console.log('Download CV')}>
-            Download CV
+            {t('header.downloadCv')}
           </GradientButton>
         </div>
       </div>
@@ -67,9 +67,9 @@ export const Header = () => {
         />
       </div>
       <div className={styles.cards}>
-        <HeaderCard number="6+" label="Years of experience" />
-        <HeaderCard number="12+" label="Complete projects" />
-        <HeaderCard number="2" label="Companies worked" />
+        <HeaderCard number="6+" label={t('header.cardYears')} />
+        <HeaderCard number="12+" label={t('header.cardProjects')} />
+        <HeaderCard number="2" label={t('header.cardCompanies')} />
       </div>
     </header>
   );

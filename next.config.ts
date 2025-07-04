@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+// Use require to avoid issues with Next.js transpiling
 
 const isProduction = process.env.NODE_ENV === 'production';
 

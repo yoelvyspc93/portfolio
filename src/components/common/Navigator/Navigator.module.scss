@@ -44,6 +44,14 @@
       display: block;
     }
   }
+
+  & .navigator:nth-child(3) {
+    display: none;
+
+    @include mx.respond-to('tablet') {
+      display: block;
+    }
+  }
 }
 
 .navigator {

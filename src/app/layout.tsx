@@ -7,6 +7,7 @@ import { Metadata } from 'next';
 import { Navigator } from '@/components/common/Navigator';
 import { Footer } from '@/components/common/Footer';
 import JsonLdSchema from '@/components/common/JsonLdSchema';
+import { I18nProvider } from '../providers/I18nProvider';
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -24,12 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable}`}>
-        <div className="page">
-          <Navigator />
-          {children}
-          <Footer />
-        </div>
-        <JsonLdSchema schemaData={schemaData} />
+        <I18nProvider>
+          <div className="page">
+            <Navigator />
+            {children}
+            <Footer />
+          </div>
+          <JsonLdSchema schemaData={schemaData} />
+        </I18nProvider>
       </body>
     </html>
   );
