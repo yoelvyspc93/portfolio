@@ -3,12 +3,11 @@
 import { CustomImage } from '@/components/common/CustomImage';
 import styles from './About.module.scss';
 import { GradientButton } from '@/components/common/GradientButton';
-import { aboutInfo } from '@/constants/about';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '../../../../hooks/useTranslation';
 import { Modal } from '@/components/common/Modal';
 import { AboutModal } from '@/components/common/AboutModal';
 import { createPortal } from 'react-dom';
@@ -91,7 +90,9 @@ export const About: React.FC = () => {
           />
           <p ref={descRef}>{t('shortDescription')}</p>
           <div ref={buttonRef} data-blendy-from="modal-about">
-            <GradientButton onClick={aboutButton}>{t('seeMore')}</GradientButton>
+            <GradientButton onClick={aboutButton}>
+              {t('seeMore')}
+            </GradientButton>
           </div>
         </div>
         <div className={styles.gallery}>

@@ -6,7 +6,7 @@ import { ProjectsCard } from '@/components/common/ProjectsCard';
 import { GradientButton } from '@/components/common/GradientButton';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '../../../../hooks/useTranslation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

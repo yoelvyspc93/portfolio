@@ -4,7 +4,7 @@ import { ExperienceCard } from '@/components/common/ExperienceCard';
 import styles from './Experience.module.scss';
 import { workExperiences } from '@/constants/experience';
 import { useRef, useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '../../../../hooks/useTranslation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

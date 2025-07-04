@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '../../../../hooks/useTranslation';
 import styles from './Header.module.scss';
 import { GradientButton } from '@/components/common/GradientButton';
 import { HeaderCard } from '@/components/common/HeaderCard';

@@ -6,7 +6,7 @@ import { FormEvent, useState, useRef, useEffect } from 'react';
 import { TextAreaField } from '@/components/common/Form/TextAreaField';
 import { GradientButton } from '@/components/common/GradientButton';
 import { contactInfo } from '@/constants/contact';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '../../../../hooks/useTranslation';
 import { useMailTo } from '@/hook/useMailTo';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -196,7 +196,9 @@ export const Contact = () => {
                 {errors.message && (
                   <span className={styles.error}>{errors.message}</span>
                 )}
-                <GradientButton type="submit">{t('form.submit')}</GradientButton>
+                <GradientButton type="submit">
+                  {t('form.submit')}
+                </GradientButton>
               </>
             )}
           </form>

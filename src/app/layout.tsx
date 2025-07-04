@@ -6,9 +6,8 @@ import { schemaData, metadata as seo } from '@/constants/metadata';
 import { Metadata } from 'next';
 import { Navigator } from '@/components/common/Navigator';
 import { Footer } from '@/components/common/Footer';
-import { appWithTranslation, useTranslation } from 'next-i18next';
-import nextI18nConfig from '../../next-i18next.config';
 import JsonLdSchema from '@/components/common/JsonLdSchema';
+import { I18nProvider } from '../providers/I18nProvider';
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -18,24 +17,23 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = seo;
 
-function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const { i18n } = useTranslation('common');
   return (
-    <html lang={i18n.language}>
+    <html lang="en">
       <body className={`${montserrat.variable}`}>
-        <div className="page">
-          <Navigator />
-          {children}
-          <Footer />
-        </div>
-        <JsonLdSchema schemaData={schemaData} />
+        <I18nProvider>
+          <div className="page">
+            <Navigator />
+            {children}
+            <Footer />
+          </div>
+          <JsonLdSchema schemaData={schemaData} />
+        </I18nProvider>
       </body>
     </html>
   );
 }
-
-export default appWithTranslation(RootLayout, nextI18nConfig);

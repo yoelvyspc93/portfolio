@@ -5,7 +5,7 @@ import styles from './Navigator.module.scss';
 import { getNavigationItems } from '@/constants/navigator';
 import { socialLinks } from '@/constants/social';
 import { useState, useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '../../../hooks/useTranslation';
 // import HamburgerIcon from '@/../public/icons/hamburger.svg';
 // import CloseIcon from '@/../public/icons/close-outline.svg';
 import { clsx } from 'clsx';
@@ -22,7 +22,7 @@ export const Navigator = () => {
   const [open, setOpen] = useState(false);
 
   const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
+    i18n.changeLanguage(lang as 'en' | 'es');
   };
 
   useEffect(() => {

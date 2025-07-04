@@ -5,7 +5,7 @@ import styles from './Footer.module.scss';
 import { getNavigationItems } from '@/constants/navigator';
 import { socialLinks } from '@/constants/social';
 import { useRef, useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '../../../hooks/useTranslation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePathname, useRouter } from 'next/navigation';

@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { GradientButton } from '../GradientButton';
 import styles from './ExperienceCard.module.scss';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '../../../hooks/useTranslation';
 
 interface Props {
   number: string;

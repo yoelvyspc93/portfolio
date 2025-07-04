@@ -4,7 +4,7 @@ import styles from './Header.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from '../../../../hooks/useTranslation';
 
 export const Header = () => {
   const { t } = useTranslation('projects');
