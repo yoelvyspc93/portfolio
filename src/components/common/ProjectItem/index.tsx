@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { CustomImage } from '../CustomImage';
+import { ProjectImages } from '../ProjectImages';
 import styles from './ProjectItem.module.scss';
 import { GradientButton } from '../GradientButton';
 import { clsx } from 'clsx';
@@ -11,7 +11,7 @@ interface Props {
   title: string;
   description: string[];
   technologies: ReactNode[];
-  imageUrl: string;
+  imagesUrl: string[];
   align: 'left' | 'right';
   website?: string;
 }
@@ -21,7 +21,7 @@ export const ProjectItem = ({
   title,
   description,
   technologies,
-  imageUrl,
+  imagesUrl,
   website,
   align,
 }: Props) => {
@@ -61,7 +61,7 @@ export const ProjectItem = ({
         )}
       >
         <div className={styles.image}>
-          <CustomImage src={imageUrl} alt="Project preview" fill blur />
+          <ProjectImages images={imagesUrl} />
         </div>
       </div>
     </div>

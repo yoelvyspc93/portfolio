@@ -43,7 +43,7 @@ export const ProjectsList = () => {
     <section className={styles.section}>
       {projectList.map(
         (
-          { id, title, detailedDescription, imageUrl, techStack, websiteUrl },
+          { id, title, detailedDescription, imagesUrl, techStack, websiteUrl },
           index,
         ) => (
           <div
@@ -56,7 +56,7 @@ export const ProjectsList = () => {
               id={id}
               title={title}
               description={detailedDescription}
-              imageUrl={imageUrl}
+              imagesUrl={imagesUrl}
               technologies={techStack}
               align={index % 2 === 0 ? 'right' : 'left'}
               website={websiteUrl}
