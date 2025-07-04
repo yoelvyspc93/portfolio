@@ -1,101 +1,108 @@
 # Yoelvys Portfolio
 
-A modern portfolio website built with **Next.js** and deployed on **Vercel**. This project showcases my skills, projects, and experience as a frontend developer, utilizing animations, interactive design, and optimized performance.
+This repository hosts my personal portfolio built with **Next.js**. The site showcases my projects, experience and skills as a frontend developer. It features smooth animations and a responsive layout optimized for deployment on **Vercel**.
 
 ---
 
-## 🛠️ Features
+## 📖 Description
 
-- Built with **Next.js 15.1.0** for a seamless development experience.
-- Fully responsive design to ensure compatibility across devices.
-- **GSAP** animations for smooth and engaging interactions.
-- **Storybook** for component development and documentation.
-- Deployed on **Vercel** for fast and reliable hosting.
+The application displays several sections where I highlight my most relevant skills and projects. It relies on reusable **React** components styled with **Sass** and integrates **GSAP** animations for an engaging user experience.
+
+---
+
+## ✨ Features
+
+- Built with **Next.js 15.2.4**.
+- Fully responsive design for desktop and mobile.
+- Smooth animations thanks to **GSAP**.
+- Ready for component documentation with **Storybook**.
+- Automatically deployed on **Vercel**.
 
 ---
 
 ## 📦 Dependencies
 
-### **Main Dependencies:**
+### Main
 
-- **clsx**: Conditional class names.
-- **GSAP**: For advanced animations.
-- **Next.js**: Framework for server-side rendering and static site generation.
-- **React 19.0.0**: Core library for building the user interface.
-- **Sass**: Styling with advanced CSS features.
+- **clsx**: Utility for conditional class names.
+- **gsap**: Animation library.
+- **next**: React framework for SSR and SSG.
+- **react** and **react-dom**: Core libraries for the UI.
+- **sass**: Style preprocessor.
 
-### **Development Dependencies:**
+### Development
 
-- **Storybook**: For developing and testing components in isolation.
-- **TypeScript**: Type safety during development.
-- **ESLint**: Linting for consistent code quality.
+- **@eslint/eslintrc**, **eslint** and plugins for code linting.
+- **prettier** for consistent formatting.
+- **typescript** for static typing.
+- **@types/** definitions for Node and React.
+- **@svgr/webpack** to load SVGs as components.
 
 ---
 
-## 🚀 Getting Started
-
-### **Prerequisites**
-
-Ensure you have the following installed:
-
-- **Node.js** (v18+ recommended)
-- **npm** or **yarn**
-
-### **Installation**
+## 🛠️ Installation
 
 1. Clone the repository:
-
    ```bash
    git clone https://github.com/yoelvyspc93/portfolio.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
    cd portfolio
    ```
-
-3. Install dependencies:
+2. Install the dependencies:
    ```bash
    yarn install
    ```
 
-### Running the Development Server
+---
 
-Start the local development server:
+## ▶️ Usage
 
-```bash
-yarn run dev
-```
+- Start the development server:
+  ```bash
+  yarn run dev
+  ```
+- Run the linter:
+  ```bash
+  yarn run lint
+  ```
+- Automatically fix lint issues:
+  ```bash
+  yarn run lint:fix
+  ```
+- Format the code with Prettier:
+  ```bash
+  yarn run format
+  ```
 
-## 🛠️ Build and Deployment
+---
 
-### Build for Production
+## 🏗️ Build and Deployment
 
-To create a production build:
+- Generate the production build:
+  ```bash
+  yarn run build
+  ```
+- Start the compiled application:
+  ```bash
+  yarn run start
+  ```
+- Check dependencies for security issues:
+  ```bash
+  yarn run audit:security
+  ```
+- Upgrade important dependencies:
+  ```bash
+  yarn run update:security
+  ```
 
-```bash
-yarn run build
-```
+---
 
-Start the production server:
+## 📚 Storybook
 
-```bash
-yarn run start
-```
+While this project is intended to use **Storybook** for documenting and testing components in isolation, no configuration is included by default. You can easily integrate it following the [official documentation](https://storybook.js.org/).
 
-## 🧩 Storybook
+---
 
-This project uses Storybook for component-driven development.
+## ✉️ Contact
 
-### Start Storybook
+If you have questions or proposals, feel free to reach me at [yoelvyspc93@gmail.com](mailto:yoelvyspc93@gmail.com).
 
-To start Storybook locally:
-
-```bash
-yarn run storybook
-```
-
-## 📬 Contact
-
-For any inquiries, reach out to me at yoelvyspc93@gmail.com or visit my website.
