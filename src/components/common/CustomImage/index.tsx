@@ -21,7 +21,7 @@ export const CustomImage = ({
   height,
   blur = false,
 }: Props) => {
-  const customSrc = isProduction ? `/portfolio${src}` : src;
+  const customSrc = isProduction ? `/portfolio/${src}` : src;
 
   return (
     <Image

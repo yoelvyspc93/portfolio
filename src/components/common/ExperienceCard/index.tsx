@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { GradientButton } from '../GradientButton';
 import styles from './ExperienceCard.module.scss';
+import { useTranslation } from '../../../hooks/useTranslation';
 
 interface Props {
   number: string;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export const ExperienceCard = ({ number, title, description }: Props) => {
+  const { t } = useTranslation('experience');
   const router = useRouter();
 
   const handleOnClick = () => {
@@ -23,7 +25,7 @@ export const ExperienceCard = ({ number, title, description }: Props) => {
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.description}>{description}</p>
       <div className={styles.button}>
-        <GradientButton onClick={handleOnClick}>See More</GradientButton>
+        <GradientButton onClick={handleOnClick}>{t('seeMore')}</GradientButton>
       </div>
     </div>
   );
