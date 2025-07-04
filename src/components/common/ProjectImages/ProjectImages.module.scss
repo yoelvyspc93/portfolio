@@ -1,8 +1,9 @@
 @use '@/styles/mixins/mixins' as mx;
 
 .swiper {
+  border-radius: 20px;
   width: calc(100vw - 32px);
-  min-height: 200px;
+  min-height: 500px;
   cursor: grab;
   position: relative;
 
@@ -12,7 +13,13 @@
   }
 
   @include mx.respond-to('tablet') {
+    width: 550px;
     min-height: 550px;
+  }
+
+  .slide {
+    width: 500px;
+    height: 500px;
   }
 
   .swiper-button-next,

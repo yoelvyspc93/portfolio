@@ -3,12 +3,11 @@
 import { CustomImage } from '../CustomImage';
 import styles from './ProjectImages.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay, Lazy } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import { useRef } from 'react';
 import ArrowIcon from '../Icons/ArrowIcon';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/lazy';
 
 interface Props {
   images: string[];
@@ -18,19 +17,28 @@ export const ProjectImages = ({ images }: Props) => {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
 
+  console.log({ images });
+
   return (
     <Swiper
-      modules={[Navigation, Autoplay, Lazy]}
+      modules={[Navigation, Autoplay]}
       slidesPerView={1}
-      navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
-      onBeforeInit={(swiper) => {
-        Object.assign(swiper.params.navigation, {
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        });
+      navigation={{
+        prevEl: prevRef.current,
+        nextEl: nextRef.current,
       }}
-      autoplay={{ delay: 3000, disableOnInteraction: false }}
-      lazy
+      onSwiper={(swiper) => {
+        if (
+          swiper.params.navigation &&
+          typeof swiper.params.navigation !== 'boolean'
+        ) {
+          swiper.params.navigation.prevEl = prevRef.current;
+          swiper.params.navigation.nextEl = nextRef.current;
+          swiper.navigation.init();
+          swiper.navigation.update();
+        }
+      }}
+      autoplay={{ delay: 10000, disableOnInteraction: false }}
       grabCursor
       className={styles.swiper}
     >
