@@ -17,8 +17,6 @@ export const ProjectImages = ({ images }: Props) => {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
 
-  console.log({ images });
-
   return (
     <Swiper
       modules={[Navigation, Autoplay]}
