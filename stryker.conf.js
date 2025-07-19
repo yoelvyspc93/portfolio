@@ -2,7 +2,20 @@ const COMPONENTS_BASE_PATH = 'src/components/';
 const componentIdentifiers = [
   'common/AboutModal',
   'common/CircleButton',
+  'common/CustomImage',
+  'common/ExperienceCard',
+  'common/ExperienceModal',
+  'common/Footer',
+  'common/Form/InputField',
+  'common/Form/TextAreaField',
+  'common/GradientButton',
   'common/HeaderCard',
+  'common/JsonLdSchema',
+  'common/LanguageSwitcher',
+  'common/Modal',
+  'common/Navigator',
+  'common/ProjectImages',
+  'common/ProjectItem',
   'common/ProjectsCard',
 ];
 const mutateTargets = componentIdentifiers.map(
