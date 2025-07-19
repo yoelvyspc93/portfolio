@@ -68,6 +68,8 @@
   border-radius: 8px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
 
   @include mx.respond-to('tablet') {
     width: 64px;
@@ -81,6 +83,8 @@
   svg {
     width: 24px;
     height: 24px;
+    position: relative;
+    z-index: 1;
 
     @include mx.respond-to('tablet') {
       width: 32px;
@@ -111,6 +115,8 @@
   svg {
     width: 48px;
     height: 48px;
+    position: relative;
+    z-index: 1;
 
     @include mx.respond-to('tablet') {
       width: 64px;
