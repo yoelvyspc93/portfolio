@@ -14,6 +14,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export const EMAIL_REGEX =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$/i;
 
+const placeholders = [
+  'Tell me about your project or idea you have in mind...',
+  'Describe the technical requirements, timeline or any important details...',
+];
+
 export const Contact = () => {
   const { generateMailTo } = useMailTo();
 
@@ -192,6 +197,7 @@ export const Contact = () => {
                   label={t('form.messageLabel')}
                   value={message}
                   onChange={(v) => setMessage(v)}
+                  placeholders={placeholders}
                 />
                 {errors.message && (
                   <span className={styles.error}>{errors.message}</span>
