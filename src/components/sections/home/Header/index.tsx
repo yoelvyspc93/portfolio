@@ -53,7 +53,7 @@ export const Header = () => {
         />
         <p className={styles.paragraph}>{t('header.description')}</p>
         <div className={styles.button}>
-          <GradientButton onClick={() => console.log('Download CV')}>
+          <GradientButton onClick={() => {}}>
             {t('header.downloadCv')}
           </GradientButton>
         </div>
