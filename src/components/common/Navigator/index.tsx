@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from './Navigator.module.scss';
 import { getNavigationItems } from '@/constants/navigator';
 import { socialLinks } from '@/constants/social';
+import { featureFlags } from '@/constants/featureFlags';
 import { useState, useEffect } from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
 // import HamburgerIcon from '@/../public/icons/hamburger.svg';
@@ -92,15 +93,17 @@ export const Navigator = () => {
             ))}
           </ul>
         </div>
-        <div className={styles.navigator}>
-          <ul>
-            {['en', 'es'].map((lng) => (
-              <li key={lng} onClick={() => changeLanguage(lng)}>
-                {t(`lang.${lng}`)}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {featureFlags.showLanguage && (
+          <div className={styles.navigator}>
+            <ul>
+              {['en', 'es'].map((lng) => (
+                <li key={lng} onClick={() => changeLanguage(lng)}>
+                  {t(`lang.${lng}`)}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       <div className={styles.button} onClick={handleClick}>
         {/* {open ? <CloseIcon /> : <HamburgerIcon />} */}
