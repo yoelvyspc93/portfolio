@@ -9,6 +9,7 @@ interface Props {
   onChange: (value: string) => void;
   placeholders?: string[];
   interval?: number;
+  'aria-describedby'?: string;
 }
 
 export const TextAreaField = ({
@@ -18,6 +19,7 @@ export const TextAreaField = ({
   onChange,
   placeholders = [],
   interval = 5000,
+  'aria-describedby': ariaDescribedby,
 }: Props) => {
   const [current, setCurrent] = useState(0);
   const placeholderRef = useRef<HTMLSpanElement>(null);
@@ -83,6 +85,7 @@ export const TextAreaField = ({
           className={styles.textarea}
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          aria-describedby={ariaDescribedby}
         />
         <span ref={placeholderRef} className={styles.placeholder}>
           {placeholders[current]}

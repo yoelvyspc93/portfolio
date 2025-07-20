@@ -8,15 +8,18 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GlowingEffect } from '@/components/common/GlowingEffect';
+import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
 export const Skills = () => {
   const { breakpoint } = useViewports();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const titleRef = useRef(null);
   const skillsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const skillsToRender = breakpoint === 'mobile' ? skills_mobile : skills;
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     gsap.registerPlugin(ScrollTrigger);
     const title = titleRef.current;
 
@@ -58,7 +61,7 @@ export const Skills = () => {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <section id="skills" className={styles.skills}>

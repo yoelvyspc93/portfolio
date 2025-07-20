@@ -10,6 +10,7 @@ import { useTranslation } from '../../../../hooks/useTranslation';
 import { useMailTo } from '@/hook/useMailTo';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
 export const EMAIL_REGEX =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$/i;
@@ -32,6 +33,7 @@ export const Contact = () => {
   const { t } = useTranslation('contact');
   const { contactLinks } = contactInfo;
   const messages = t('messages', { returnObjects: true }) as string[];
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const titleRef = useRef(null);
   const descriptionRefs = useRef<(HTMLParagraphElement | null)[]>([]);
@@ -39,6 +41,7 @@ export const Contact = () => {
   const formRef = useRef(null);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     gsap.registerPlugin(ScrollTrigger);
     const title = titleRef.current;
     const form = formRef.current;
@@ -116,7 +119,7 @@ export const Contact = () => {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   const validateFields = (): boolean => {
     const newErrors: { email?: string; message?: string } = {};
@@ -179,7 +182,7 @@ export const Contact = () => {
         <div className={styles.contact_form} ref={formRef}>
           <form onSubmit={handleSubmit}>
             {isSubmit ? (
-              <p>{t('form.success')}</p>
+              <p aria-live="polite">{t('form.success')}</p>
             ) : (
               <>
                 <InputField
@@ -188,9 +191,16 @@ export const Contact = () => {
                   type="email"
                   value={email}
                   onChange={(v) => setEmail(v)}
+                  aria-describedby={errors.email ? 'email-error' : undefined}
                 />
                 {errors.email && (
-                  <span className={styles.error}>{errors.email}</span>
+                  <span
+                    id="email-error"
+                    className={styles.error}
+                    aria-live="polite"
+                  >
+                    {errors.email}
+                  </span>
                 )}
                 <TextAreaField
                   id="message"
@@ -198,9 +208,18 @@ export const Contact = () => {
                   value={message}
                   onChange={(v) => setMessage(v)}
                   placeholders={placeholders}
+                  aria-describedby={
+                    errors.message ? 'message-error' : undefined
+                  }
                 />
                 {errors.message && (
-                  <span className={styles.error}>{errors.message}</span>
+                  <span
+                    id="message-error"
+                    className={styles.error}
+                    aria-live="polite"
+                  >
+                    {errors.message}
+                  </span>
                 )}
                 <GradientButton type="submit">
                   {t('form.submit')}

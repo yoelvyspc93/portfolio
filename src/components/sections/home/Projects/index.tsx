@@ -9,15 +9,18 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
 export const Projects = () => {
   const router = useRouter();
   const { t } = useTranslation('projects');
+  const prefersReducedMotion = usePrefersReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     gsap.registerPlugin(ScrollTrigger);
 
     const section = sectionRef.current;
@@ -76,7 +79,7 @@ export const Projects = () => {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   const latestProjects = projectList.filter((project) => project.isFavorite);
 
