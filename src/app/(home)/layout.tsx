@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { featureFlags } from '@/constants/featureFlags';
 
 import { About } from '@/components/sections/home/About';
 import { Contact } from '@/components/sections/home/Contact';
@@ -14,12 +15,12 @@ export default function HomeLayout({
 }>) {
   return (
     <main id="main">
-      <Header />
-      <About />
-      <Projects />
-      <Experience />
-      <Skills />
-      <Contact />
+      {featureFlags.showHeader && <Header />}
+      {featureFlags.showAbout && <About />}
+      {featureFlags.showProjects && <Projects />}
+      {featureFlags.showExperience && <Experience />}
+      {featureFlags.showSkills && <Skills />}
+      {featureFlags.showContact && <Contact />}
       {modal}
     </main>
   );
