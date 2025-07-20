@@ -27,6 +27,16 @@ export const Navigator = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollToPlugin);
+    const handler = (e: KeyboardEvent) => {
+      if (e.altKey && e.key.toLowerCase() === 'm') {
+        e.preventDefault();
+        setOpen((prev) => !prev);
+      }
+    };
+    document.addEventListener('keydown', handler);
+    return () => {
+      document.removeEventListener('keydown', handler);
+    };
   }, []);
 
   const handleClick = () => {
@@ -48,7 +58,10 @@ export const Navigator = () => {
 
   return (
     <nav className={styles.nav}>
-      <div className={clsx(styles.wrapper, open && styles.open)}>
+      <div
+        id="main-navigation"
+        className={clsx(styles.wrapper, open && styles.open)}
+      >
         <div className={styles.navigator}>
           <ul>
             {getNavigationItems(t).map((link) => (
@@ -102,10 +115,18 @@ export const Navigator = () => {
           </ul>
         </div>
       </div>
-      <div className={styles.button} onClick={handleClick}>
+      <button
+        type="button"
+        className={styles.button}
+        onClick={handleClick}
+        aria-label="Toggle navigation"
+        aria-expanded={open}
+        aria-controls="main-navigation"
+        aria-keyshortcuts="Alt+M"
+      >
         {/* {open ? <CloseIcon /> : <HamburgerIcon />} */}
         {/* <HamburgerIcon /> */}
-      </div>
+      </button>
     </nav>
   );
 };

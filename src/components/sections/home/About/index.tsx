@@ -11,6 +11,7 @@ import { useTranslation } from '../../../../hooks/useTranslation';
 import { Modal } from '@/components/common/Modal';
 import { AboutModal } from '@/components/common/AboutModal';
 import { createPortal } from 'react-dom';
+import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
 const list: string[] = [
   '/images/images.webp',
@@ -23,6 +24,7 @@ const list: string[] = [
 
 export const About: React.FC = () => {
   const { t } = useTranslation('about');
+  const prefersReducedMotion = usePrefersReducedMotion();
   const list1Ref = useRef<HTMLDivElement | null>(null);
   const list2Ref = useRef<HTMLDivElement | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -31,6 +33,7 @@ export const About: React.FC = () => {
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
@@ -71,7 +74,7 @@ export const About: React.FC = () => {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [prefersReducedMotion]);
 
   const [isOpenModal, setOpenModal] = useState<boolean>(false);
 

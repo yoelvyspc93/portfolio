@@ -9,17 +9,20 @@ import { useTranslation } from '../../../hooks/useTranslation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePathname, useRouter } from 'next/navigation';
+import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
 export const Footer = () => {
   const { t } = useTranslation('common');
   const router = useRouter();
   const pathname = usePathname();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const footerRef = useRef(null);
   const navLinksRef = useRef<(HTMLLIElement | null)[]>([]);
   const socialLinksRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     gsap.registerPlugin(ScrollTrigger);
     const footer = footerRef.current;
 
@@ -68,7 +71,7 @@ export const Footer = () => {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   const handleClickItem = (href: string) => {
     if (pathname === '/') {

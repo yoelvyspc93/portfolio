@@ -45,7 +45,7 @@
     height: 60px;
   }
 
-  &:focus {
+  &:focus-visible {
     box-shadow: 0 0 8px 1px #7779e7;
   }
 }

@@ -10,6 +10,7 @@ interface Props {
   onChange: (value: string) => void;
   placeholders?: string[];
   interval?: number;
+  'aria-describedby'?: string;
 }
 
 export const InputField = ({
@@ -20,6 +21,7 @@ export const InputField = ({
   onChange,
   placeholders = [],
   interval = 5000,
+  'aria-describedby': ariaDescribedby,
 }: Props) => {
   const [current, setCurrent] = useState(0);
   const placeholderRef = useRef<HTMLSpanElement>(null);
@@ -92,6 +94,7 @@ export const InputField = ({
           className={styles.input}
           value={value}
           onChange={(evt) => onChange(evt.target.value)}
+          aria-describedby={ariaDescribedby}
         />
 
         {/* Always render placeholder and animate via GSAP */}
