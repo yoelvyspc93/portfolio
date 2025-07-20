@@ -1,13 +1,14 @@
 'use client';
 
-import { useTranslation } from '../../../hooks/useTranslation';
+import { usePathname, useRouter } from '@/navigation';
 import styles from './LanguageSwitcher.module.scss';
 
 export const LanguageSwitcher = () => {
-  const { i18n } = useTranslation('common');
+  const router = useRouter();
+  const pathname = usePathname();
 
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+    router.replace(pathname, { locale: lng });
   };
 
   return (
@@ -17,7 +18,7 @@ export const LanguageSwitcher = () => {
           key={lng}
           onClick={() => changeLanguage(lng)}
           className={`${styles.langButton} ${
-            i18n.language === lng ? styles.active : ''
+            router.locale === lng ? styles.active : ''
           }`}
           aria-label={`Switch to ${lng === 'en' ? 'English' : 'Spanish'}`}
         >

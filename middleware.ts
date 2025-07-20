@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './src/navigation';
+
+const intlMiddleware = createMiddleware(routing);
 
 export function middleware(request: NextRequest) {
-  const response = NextResponse.next();
+  const response = intlMiddleware(request);
 
   // Generate nonce for CSP
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
@@ -56,6 +60,8 @@ export const config = {
      * - favicon.ico (favicon file)
      * - public folder
      */
+    '/',
+    '/(en|es)/:path*',
     '/((?!api|_next/static|_next/image|favicon.ico|public).*)',
   ],
 };

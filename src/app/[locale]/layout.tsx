@@ -7,7 +7,9 @@ import { Metadata } from 'next';
 import { Navigator } from '@/components/common/Navigator';
 import { Footer } from '@/components/common/Footer';
 import JsonLdSchema from '@/components/common/JsonLdSchema';
-import { I18nProvider } from '../providers/I18nProvider';
+import { NextIntlClientProvider } from 'next-intl';
+import { setRequestLocale } from '@/lib/intlHelpers';
+import { routing } from '@/navigation';
 
 const montserrat = Montserrat({
   variable: '--font-montserrat',
@@ -17,22 +19,27 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = seo;
 
-export default function RootLayout({
+export const generateStaticParams = () =>
+  routing.locales.map((locale) => ({ locale }));
+
+export default async function LocaleLayout({
   children,
-}: Readonly<{
-  children: ReactNode;
-}>) {
+  params: { locale },
+}: Readonly<{ children: ReactNode; params: { locale: string } }>) {
+  setRequestLocale(locale);
+  const messages = (await import(`../../messages/${locale}.json`)).default;
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${montserrat.variable}`}>
-        <I18nProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <div className="page">
             <Navigator />
             {children}
             <Footer />
           </div>
           <JsonLdSchema schemaData={schemaData} />
-        </I18nProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
