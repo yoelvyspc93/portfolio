@@ -1,11 +1,11 @@
 import { renderWithProviders } from '@/lib/test/renderWithProviders';
 import { AboutModal } from '..';
-import { aboutInfo } from '@/constants/about';
 import { screen } from '@testing-library/react';
+import { AboutModalPage } from './AboutModal.test.to';
 
 describe('AboutModal', () => {
   it('renders paragraphs from about info', () => {
-    renderWithProviders(<AboutModal />);
-    expect(screen.getByText(aboutInfo.detailedDescriptions[0])).toBeInTheDocument();
+    const page = new AboutModalPage(renderWithProviders(<AboutModal />));
+    expect(page.first).toBeInTheDocument();
   });
 });

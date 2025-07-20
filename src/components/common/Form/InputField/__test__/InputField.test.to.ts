@@ -1,26 +1,13 @@
-import { renderWithProviders } from '@/lib/test/renderWithProviders';
-import { InputField } from '..';
 import { BasePageClass } from '@/lib/test/BasePageClass.to';
 import { FormFieldTO } from '@/lib/test/FormField.to';
 
 import { RenderResult } from '@testing-library/react';
 
-class InputFieldPage extends BasePageClass {
+export class InputFieldPage extends BasePageClass {
   input: FormFieldTO;
-  constructor(result: RenderResult) {
+  constructor(result: RenderResult, label: string = 'Email') {
     super(result);
-    this.input = new FormFieldTO(result, 'Email');
+    this.input = new FormFieldTO(result, label);
   }
 }
 
-describe('InputField PO', () => {
-  it('allows typing', () => {
-    const handleChange = jest.fn();
-    const page = new InputFieldPage(renderWithProviders(
-      <InputField label="Email" id="email" type="email" value="" onChange={handleChange} />,
-    ));
-    page.input.input.focus();
-    page.input.input.dispatchEvent(new Event('change', { bubbles: true }));
-    expect(page.input.input).toBeInTheDocument();
-  });
-});

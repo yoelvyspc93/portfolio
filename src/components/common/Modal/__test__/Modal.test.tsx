@@ -1,11 +1,12 @@
 import { renderWithProviders } from '@/lib/test/renderWithProviders';
 import { Modal } from '..';
 import { screen } from '@testing-library/react';
+import { ModalPage } from './Modal.test.to';
 
 describe('Modal', () => {
   it('renders when open', () => {
-    renderWithProviders(<Modal isOpen title="T">Content</Modal>);
-    expect(screen.getByText('T')).toBeInTheDocument();
+    const page = new ModalPage(renderWithProviders(<Modal isOpen title="T">Content</Modal>));
+    expect(page.title).toBeInTheDocument();
   });
 
   it('does not render when closed', () => {
