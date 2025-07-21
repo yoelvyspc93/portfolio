@@ -24,7 +24,8 @@
       "@/constants/*": ["./src/constants/*"],
       "@/hook/*": ["./src/hook/*"],
       "@/styles/*": ["./src/styles/*"],
-      "@/navigation": ["./src/navigation"]
+      "@/navigation": ["./src/navigation"],
+      "@/lib/*": ["./src/lib/*"]
     }
   },
   "include": [
