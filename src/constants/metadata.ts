@@ -19,6 +19,13 @@ export const metadata: Metadata = {
     apple: '/portfolio/favicon.png',
     // apple: "/apple-touch-icon.png",
   },
+  alternates: {
+    canonical: '/',
+    languages: {
+      en: '/en',
+      es: '/es',
+    },
+  },
   openGraph: {
     title: 'Yoelvys | Frontend Developer',
     description,
