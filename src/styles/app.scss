@@ -4,3 +4,8 @@
 @use 'mixins/functions';
 @use 'mixins/generic';
 @use 'mixins/mixins';
+
+/* Provide a fallback font variable when the Google Font isn't loaded */
+:root {
+  --font-montserrat: system-ui, sans-serif;
+}

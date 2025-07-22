@@ -31,7 +31,7 @@ export const Contact = () => {
 
   const { t } = useTranslation('contact');
   const { contactLinks } = contactInfo;
-  const messages = t('messages', { returnObjects: true }) as string[];
+  const messages = t.raw('messages') as string[];
 
   const titleRef = useRef(null);
   const descriptionRefs = useRef<(HTMLParagraphElement | null)[]>([]);

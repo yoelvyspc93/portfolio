@@ -1,4 +1,4 @@
-import { useTranslation as useI18nTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 
 type TranslationNamespace =
   | 'common'
@@ -8,8 +8,9 @@ type TranslationNamespace =
   | 'projects';
 
 export function useTranslation(namespace: TranslationNamespace) {
-  return useI18nTranslation(namespace);
+  const t = useTranslations(namespace);
+  return { t };
 }
 
 // Re-export for convenience
-export { useTranslation as default } from 'react-i18next';
+export { useTranslations as default } from 'next-intl';
