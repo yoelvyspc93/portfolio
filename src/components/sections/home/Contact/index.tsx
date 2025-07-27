@@ -32,6 +32,7 @@ export const Contact = () => {
 
   const { t } = useTranslation('contact');
   const { contactLinks } = contactInfo;
+
   const messages = t('messages', { returnObjects: true }) as string[];
   const prefersReducedMotion = usePrefersReducedMotion();
 

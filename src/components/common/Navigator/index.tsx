@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { Link, usePathname, useRouter } from '@/navigation';
 import styles from './Navigator.module.scss';
 import { getNavigationItems } from '@/constants/navigator';
 import { socialLinks } from '@/constants/social';
@@ -8,21 +8,20 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
 // import HamburgerIcon from '@/../public/icons/hamburger.svg';
 // import CloseIcon from '@/../public/icons/close-outline.svg';
-import { clsx } from 'clsx';
+import clsx from 'clsx';
 import { useViewports } from '@/hook/useViewports';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-import { useRouter, usePathname } from 'next/navigation';
 
 export const Navigator = () => {
-  const { t, i18n } = useTranslation('common');
+  const { t } = useTranslation('common');
   const router = useRouter();
   const pathname = usePathname();
   const { breakpoint } = useViewports();
   const [open, setOpen] = useState(false);
 
   const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang as 'en' | 'es');
+    router.replace(pathname, { locale: lang });
   };
 
   useEffect(() => {
@@ -51,7 +50,7 @@ export const Navigator = () => {
     if (pathname === '/') {
       gsap.to(window, { duration: 1, scrollTo: href });
     } else {
-      router.push(`/${href}`);
+      router.push(href);
     }
     handleClickLink();
   };

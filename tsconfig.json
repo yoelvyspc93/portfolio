@@ -23,7 +23,10 @@
       "@/components/*": ["./src/components/*"],
       "@/constants/*": ["./src/constants/*"],
       "@/hook/*": ["./src/hook/*"],
-      "@/styles/*": ["./src/styles/*"]
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/navigation": ["./src/navigation"],
+      "@/lib/*": ["./src/lib/*"]
     }
   },
   "include": [
