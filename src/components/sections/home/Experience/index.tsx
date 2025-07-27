@@ -7,21 +7,24 @@ import { useRef, useEffect } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
 export const Experience = () => {
   const { t } = useTranslation('experience');
+  const prefersReducedMotion = usePrefersReducedMotion();
   const titleRef = useRef(null);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     gsap.registerPlugin(ScrollTrigger);
     const title = titleRef.current;
 
     // Hide elements initially
     gsap.set(title, { opacity: 0, y: 50 });
-    itemsRef.current.forEach((item) => {
+    for (const item of itemsRef.current) {
       if (item) gsap.set(item, { opacity: 0, y: 50 });
-    });
+    }
 
     // Animate title
     gsap.to(title, {
@@ -37,8 +40,8 @@ export const Experience = () => {
     });
 
     // Animate each experience item
-    itemsRef.current.forEach((item, index) => {
-      if (!item) return;
+    for (const [index, item] of itemsRef.current.entries()) {
+      if (!item) continue;
       gsap.to(item, {
         opacity: 1,
         y: 0,
@@ -51,12 +54,12 @@ export const Experience = () => {
           once: true,
         },
       });
-    });
+    }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <section id="experience" className={styles.experience}>

@@ -9,15 +9,18 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
 export const Projects = () => {
   const router = useRouter();
   const { t } = useTranslation('projects');
+  const prefersReducedMotion = usePrefersReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     gsap.registerPlugin(ScrollTrigger);
 
     const section = sectionRef.current;
@@ -27,9 +30,9 @@ export const Projects = () => {
     // Hide elements initially
     gsap.set(section.querySelector('h2'), { opacity: 0, y: 50 });
     gsap.set(button, { opacity: 0, y: 50 });
-    cardsRef.current.forEach((card) => {
+    for (const card of cardsRef.current) {
       if (card) gsap.set(card, { opacity: 0, y: 50 });
-    });
+    }
 
     // Animate section title
     gsap.to(section.querySelector('h2'), {
@@ -58,8 +61,8 @@ export const Projects = () => {
     });
 
     // Animate each card
-    cardsRef.current.forEach((card) => {
-      if (!card) return;
+    for (const card of cardsRef.current) {
+      if (!card) continue;
       gsap.to(card, {
         opacity: 1,
         y: 0,
@@ -71,12 +74,12 @@ export const Projects = () => {
           once: true,
         },
       });
-    });
+    }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   const latestProjects = projectList.filter((project) => project.isFavorite);
 

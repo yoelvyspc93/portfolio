@@ -102,7 +102,24 @@ While this project is intended to use **Storybook** for documenting and testing 
 
 ---
 
+## 🧪 Testing
+
+Run unit tests:
+
+```bash
+yarn test
+```
+
+Run mutation tests with Stryker:
+
+```bash
+yarn stryker
+```
+
+This project follows the Page Component Object Model pattern for component tests.
+
+---
+
 ## ✉️ Contact
 
 If you have questions or proposals, feel free to reach me at [yoelvyspc93@gmail.com](mailto:yoelvyspc93@gmail.com).
-

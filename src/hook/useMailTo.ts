@@ -20,7 +20,7 @@ export const useMailTo = () => {
 
   useEffect(() => {
     if (mailTo) {
-      window.location.href = mailTo;
+      globalThis.location.href = mailTo;
       setMailto(null);
     }
   }, [mailTo]);

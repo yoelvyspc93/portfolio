@@ -2,29 +2,32 @@
 
 import { skills, skills_mobile } from '@/constants/skills';
 import styles from './Skills.module.scss';
-import { clsx } from 'clsx';
+import clsx from 'clsx';
 import { useViewports } from '@/hook/useViewports';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GlowingEffect } from '@/components/common/GlowingEffect';
+import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
 export const Skills = () => {
   const { breakpoint } = useViewports();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const titleRef = useRef(null);
   const skillsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const skillsToRender = breakpoint === 'mobile' ? skills_mobile : skills;
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     gsap.registerPlugin(ScrollTrigger);
     const title = titleRef.current;
 
     // Hide elements initially
     gsap.set(title, { opacity: 0, y: 50 });
-    skillsRef.current.forEach((skill) => {
+    for (const skill of skillsRef.current) {
       if (skill) gsap.set(skill, { opacity: 0, scale: 0.8 });
-    });
+    }
 
     // Animate section title
     gsap.to(title, {
@@ -40,8 +43,8 @@ export const Skills = () => {
     });
 
     // Animate each skill individually when it becomes visible, only once
-    skillsRef.current.forEach((skill) => {
-      if (!skill) return;
+    for (const skill of skillsRef.current) {
+      if (!skill) continue;
       gsap.to(skill, {
         opacity: 1,
         scale: 1,
@@ -53,12 +56,12 @@ export const Skills = () => {
           once: true,
         },
       });
-    });
+    }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <section id="skills" className={styles.skills}>

@@ -7,10 +7,13 @@ import { GradientButton } from '@/components/common/GradientButton';
 import { HeaderCard } from '@/components/common/HeaderCard';
 import gsap from 'gsap';
 import { CustomImage } from '@/components/common/CustomImage';
+import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
 export const Header = () => {
   const { t } = useTranslation('common');
+  const prefersReducedMotion = usePrefersReducedMotion();
   useEffect(() => {
+    if (prefersReducedMotion) return;
     const tl = gsap.timeline({ defaults: { duration: 1, ease: 'power2.out' } });
     tl.fromTo(
       `h1`,
@@ -42,7 +45,7 @@ export const Header = () => {
         { opacity: 1, y: 0, stagger: 0.3 },
         '<',
       );
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <header id="header" className={styles.header}>
@@ -53,7 +56,7 @@ export const Header = () => {
         />
         <p className={styles.paragraph}>{t('header.description')}</p>
         <div className={styles.button}>
-          <GradientButton onClick={() => console.log('Download CV')}>
+          <GradientButton onClick={() => {}}>
             {t('header.downloadCv')}
           </GradientButton>
         </div>
