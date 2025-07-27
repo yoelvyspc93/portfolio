@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname, useRouter } from '@/navigation';
-import { useLocale } from '@/lib/intlHelpers';
+import { useLocale } from 'next-intl';
 import styles from './LanguageSwitcher.module.scss';
 
 export const LanguageSwitcher = () => {

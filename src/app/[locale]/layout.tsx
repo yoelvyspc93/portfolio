@@ -7,8 +7,9 @@ import { Navigator } from '@/components/common/Navigator';
 import { Footer } from '@/components/common/Footer';
 import JsonLdSchema from '@/components/common/JsonLdSchema';
 import { NextIntlClientProvider } from 'next-intl';
-import { setRequestLocale } from '@/lib/intlHelpers';
+import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/navigation';
+import { loadMessages } from '../../i18n/request';
 
 export const metadata: Metadata = seo;
 
@@ -20,8 +21,7 @@ export default async function LocaleLayout({
   params: { locale },
 }: Readonly<{ children: ReactNode; params: { locale: string } }>) {
   setRequestLocale(locale);
-  const messagesModule = await import(`../../messages/${locale}.json`);
-  const messages = messagesModule.default;
+  const messages = await loadMessages(locale);
 
   return (
     <html lang={locale}>
