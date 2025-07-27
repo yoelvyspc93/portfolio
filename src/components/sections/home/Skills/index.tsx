@@ -7,6 +7,7 @@ import { useViewports } from '@/hook/useViewports';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { GlowingEffect } from '@/components/common/GlowingEffect';
 
 export const Skills = () => {
   const { breakpoint } = useViewports();
@@ -59,28 +60,6 @@ export const Skills = () => {
     };
   }, []);
 
-  const handleMouseEnter = (index: number) => {
-    const skill = skillsRef.current[index];
-    if (skill) {
-      gsap.to(skill, {
-        scale: 1.1,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
-    }
-  };
-
-  const handleMouseLeave = (index: number) => {
-    const skill = skillsRef.current[index];
-    if (skill) {
-      gsap.to(skill, {
-        scale: 1,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
-    }
-  };
-
   return (
     <section id="skills" className={styles.skills}>
       <h2 ref={titleRef}>
@@ -95,9 +74,17 @@ export const Skills = () => {
               ref={(el) => {
                 skillsRef.current[index] = el;
               }}
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={() => handleMouseLeave(index)}
             >
+              <GlowingEffect
+                blur={0}
+                borderWidth={2}
+                spread={100}
+                glow={true}
+                disabled={false}
+                proximity={40}
+                inactiveZone={0.3}
+                movementDuration={2}
+              />
               {skill.icon}
             </div>
           ) : (
