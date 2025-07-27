@@ -2,10 +2,10 @@
 
 import { skills, skills_mobile } from '@/constants/skills';
 import styles from './Skills.module.scss';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { useViewports } from '@/hook/useViewports';
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GlowingEffect } from '@/components/common/GlowingEffect';
 import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';

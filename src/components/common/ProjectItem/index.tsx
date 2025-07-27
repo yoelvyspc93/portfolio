@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { ProjectImages } from '../ProjectImages';
 import styles from './ProjectItem.module.scss';
 import { GradientButton } from '../GradientButton';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 interface Props {
   id: string;

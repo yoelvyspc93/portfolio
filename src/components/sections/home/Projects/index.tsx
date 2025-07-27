@@ -7,7 +7,7 @@ import { GradientButton } from '@/components/common/GradientButton';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 

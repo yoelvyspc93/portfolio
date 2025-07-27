@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import styles from './InputField.module.scss';
 
 interface Props {

@@ -8,7 +8,7 @@ import { featureFlags } from '@/constants/featureFlags';
 import { useState, useEffect } from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
 
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { useViewports } from '@/hook/useViewports';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
