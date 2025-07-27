@@ -6,8 +6,7 @@ import { getNavigationItems } from '@/constants/navigator';
 import { socialLinks } from '@/constants/social';
 import { useState, useEffect } from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
-// import HamburgerIcon from '@/../public/icons/hamburger.svg';
-// import CloseIcon from '@/../public/icons/close-outline.svg';
+
 import clsx from 'clsx';
 import { useViewports } from '@/hook/useViewports';
 import { gsap } from 'gsap';
@@ -48,7 +47,7 @@ export const Navigator = () => {
 
   const handleClickItem = (href: string) => {
     if (pathname === '/') {
-      gsap.to(window, { duration: 1, scrollTo: href });
+      gsap.to(globalThis, { duration: 1, scrollTo: href });
     } else {
       router.push(href);
     }
@@ -122,10 +121,7 @@ export const Navigator = () => {
         aria-expanded={open}
         aria-controls="main-navigation"
         aria-keyshortcuts="Alt+M"
-      >
-        {/* {open ? <CloseIcon /> : <HamburgerIcon />} */}
-        {/* <HamburgerIcon /> */}
-      </button>
+      ></button>
     </nav>
   );
 };

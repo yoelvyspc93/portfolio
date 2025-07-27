@@ -36,7 +36,7 @@ export const ProjectImages = ({ images }: Props) => {
           swiper.navigation.update();
         }
       }}
-      autoplay={{ delay: 10000, disableOnInteraction: false }}
+      autoplay={{ delay: 10_000, disableOnInteraction: false }}
       grabCursor
       className={styles.swiper}
     >

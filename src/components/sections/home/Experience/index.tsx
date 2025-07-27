@@ -22,9 +22,9 @@ export const Experience = () => {
 
     // Hide elements initially
     gsap.set(title, { opacity: 0, y: 50 });
-    itemsRef.current.forEach((item) => {
+    for (const item of itemsRef.current) {
       if (item) gsap.set(item, { opacity: 0, y: 50 });
-    });
+    }
 
     // Animate title
     gsap.to(title, {
@@ -40,8 +40,8 @@ export const Experience = () => {
     });
 
     // Animate each experience item
-    itemsRef.current.forEach((item, index) => {
-      if (!item) return;
+    for (const [index, item] of itemsRef.current.entries()) {
+      if (!item) continue;
       gsap.to(item, {
         opacity: 1,
         y: 0,
@@ -54,10 +54,10 @@ export const Experience = () => {
           once: true,
         },
       });
-    });
+    }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
     };
   }, [prefersReducedMotion]);
 

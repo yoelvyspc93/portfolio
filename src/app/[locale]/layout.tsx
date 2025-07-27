@@ -20,7 +20,8 @@ export default async function LocaleLayout({
   params: { locale },
 }: Readonly<{ children: ReactNode; params: { locale: string } }>) {
   setRequestLocale(locale);
-  const messages = (await import(`../../messages/${locale}.json`)).default;
+  const messagesModule = await import(`../../messages/${locale}.json`);
+  const messages = messagesModule.default;
 
   return (
     <html lang={locale}>

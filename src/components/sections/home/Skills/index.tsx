@@ -25,9 +25,9 @@ export const Skills = () => {
 
     // Hide elements initially
     gsap.set(title, { opacity: 0, y: 50 });
-    skillsRef.current.forEach((skill) => {
+    for (const skill of skillsRef.current) {
       if (skill) gsap.set(skill, { opacity: 0, scale: 0.8 });
-    });
+    }
 
     // Animate section title
     gsap.to(title, {
@@ -43,8 +43,8 @@ export const Skills = () => {
     });
 
     // Animate each skill individually when it becomes visible, only once
-    skillsRef.current.forEach((skill) => {
-      if (!skill) return;
+    for (const skill of skillsRef.current) {
+      if (!skill) continue;
       gsap.to(skill, {
         opacity: 1,
         scale: 1,
@@ -56,10 +56,10 @@ export const Skills = () => {
           once: true,
         },
       });
-    });
+    }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
     };
   }, [prefersReducedMotion]);
 

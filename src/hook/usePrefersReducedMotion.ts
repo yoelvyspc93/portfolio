@@ -6,7 +6,7 @@ export const usePrefersReducedMotion = (): boolean => {
   const [prefersReduced, setPrefersReduced] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia(QUERY);
+    const mediaQuery = globalThis.matchMedia(QUERY);
     setPrefersReduced(mediaQuery.matches);
     const handler = (event: MediaQueryListEvent) => {
       setPrefersReduced(event.matches);

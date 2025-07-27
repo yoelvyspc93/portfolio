@@ -15,8 +15,8 @@ const breakpoints = {
 
 export const useViewports = (): Dimensions => {
   const [dimensions, setDimensions] = useState<Dimensions>({
-    width: typeof window !== 'undefined' ? window.innerWidth : 0,
-    height: typeof window !== 'undefined' ? window.innerHeight : 0,
+    width: globalThis.window === undefined ? 0 : window.innerWidth,
+    height: globalThis.window === undefined ? 0 : window.innerHeight,
     breakpoint: 'desktop',
   });
 

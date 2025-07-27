@@ -33,7 +33,7 @@ export const Contact = () => {
   const { t } = useTranslation('contact');
   const { contactLinks } = contactInfo;
 
-  const messages = t('messages', { returnObjects: true }) as string[];
+  const messages = t.raw('messages') as string[];
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const titleRef = useRef(null);
@@ -49,13 +49,13 @@ export const Contact = () => {
 
     // Hide elements initially
     gsap.set(title, { opacity: 0, y: 50 });
-    descriptionRefs.current.forEach((desc) => {
+    for (const desc of descriptionRefs.current) {
       if (desc) gsap.set(desc, { opacity: 0, y: 50 });
-    });
+    }
     gsap.set(form, { opacity: 0, y: 50 });
-    linksRef.current.forEach((link) => {
+    for (const link of linksRef.current) {
       if (link) gsap.set(link, { opacity: 0, y: 50 });
-    });
+    }
 
     // Animate title
     gsap.to(title, {
@@ -71,8 +71,8 @@ export const Contact = () => {
     });
 
     // Animate descriptions
-    descriptionRefs.current.forEach((desc, index) => {
-      if (!desc) return;
+    for (const [index, desc] of descriptionRefs.current.entries()) {
+      if (!desc) continue;
       gsap.to(desc, {
         opacity: 1,
         y: 0,
@@ -85,11 +85,11 @@ export const Contact = () => {
           once: true,
         },
       });
-    });
+    }
 
     // Animate links after descriptions
-    linksRef.current.forEach((link, index) => {
-      if (!link) return;
+    for (const [index, link] of linksRef.current.entries()) {
+      if (!link) continue;
       gsap.to(link, {
         opacity: 1,
         y: 0,
@@ -102,7 +102,7 @@ export const Contact = () => {
           once: true,
         },
       });
-    });
+    }
 
     // Animate form
     gsap.to(form, {
@@ -118,7 +118,7 @@ export const Contact = () => {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
     };
   }, [prefersReducedMotion]);
 

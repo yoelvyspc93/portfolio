@@ -31,7 +31,7 @@ export const TextAreaField = ({
     const tl = gsap.timeline({ repeat: -1 });
     tlRef.current = tl;
 
-    placeholders.forEach((_, i) => {
+    for (const [i] of placeholders.entries()) {
       tl.call(() => setCurrent(i < placeholders.length ? i : 0));
       tl.fromTo(
         el,
@@ -45,7 +45,7 @@ export const TextAreaField = ({
         delay: interval / 1000 - 1,
         ease: 'power1.in',
       });
-    });
+    }
 
     return () => {
       tl.kill();
