@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from '../../../hooks/useTranslation';
 // import HamburgerIcon from '@/../public/icons/hamburger.svg';
 // import CloseIcon from '@/../public/icons/close-outline.svg';
-import { clsx } from 'clsx';
+import clsx from 'clsx';
 import { useViewports } from '@/hook/useViewports';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
