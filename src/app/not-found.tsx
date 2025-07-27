@@ -1,7 +1,6 @@
 import { NextIntlClientProvider, useTranslations } from 'next-intl';
-import { routing } from '@/navigation';
+import { routing, Link } from '@/navigation';
 import { loadMessages } from '../i18n/request';
-import { Link } from '@/navigation';
 
 function NotFoundContent() {
   const t = useTranslations('common.notFound');
