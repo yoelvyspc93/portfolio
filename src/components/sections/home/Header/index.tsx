@@ -5,7 +5,7 @@ import { useTranslation } from '../../../../hooks/useTranslation';
 import styles from './Header.module.scss';
 import { GradientButton } from '@/components/common/GradientButton';
 import { HeaderCard } from '@/components/common/HeaderCard';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { CustomImage } from '@/components/common/CustomImage';
 import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 

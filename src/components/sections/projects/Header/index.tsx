@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './Header.module.scss';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';

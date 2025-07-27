@@ -5,7 +5,7 @@ import { projectList } from '@/constants/projects';
 
 import styles from './ProjectsList.module.scss';
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const ProjectsList = () => {

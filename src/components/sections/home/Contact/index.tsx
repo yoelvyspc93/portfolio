@@ -8,7 +8,7 @@ import { GradientButton } from '@/components/common/GradientButton';
 import { contactInfo } from '@/constants/contact';
 import { useTranslation } from '../../../../hooks/useTranslation';
 import { useMailTo } from '@/hook/useMailTo';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 

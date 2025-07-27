@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode, useRef, useEffect } from 'react';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import styles from './GradientButton.module.scss';
 import ArrowIcon from '../Icons/ArrowIcon';
 

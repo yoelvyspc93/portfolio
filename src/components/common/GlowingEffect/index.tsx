@@ -3,7 +3,7 @@
 import { memo, useCallback, useEffect, useRef } from 'react';
 import styles from './GlowingEffect.module.scss';
 import { clsx } from 'clsx';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 
 interface GlowingEffectProps {
   blur?: number;

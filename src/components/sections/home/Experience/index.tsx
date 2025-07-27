@@ -5,7 +5,7 @@ import styles from './Experience.module.scss';
 import { workExperiences } from '@/constants/experience';
 import { useRef, useEffect } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
