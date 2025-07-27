@@ -7,13 +7,16 @@ import { useRef, useEffect } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
 
 export const Experience = () => {
   const { t } = useTranslation('experience');
+  const prefersReducedMotion = usePrefersReducedMotion();
   const titleRef = useRef(null);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     gsap.registerPlugin(ScrollTrigger);
     const title = titleRef.current;
 
@@ -56,7 +59,7 @@ export const Experience = () => {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <section id="experience" className={styles.experience}>
