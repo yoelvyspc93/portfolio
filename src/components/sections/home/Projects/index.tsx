@@ -30,9 +30,9 @@ export const Projects = () => {
     // Hide elements initially
     gsap.set(section.querySelector('h2'), { opacity: 0, y: 50 });
     gsap.set(button, { opacity: 0, y: 50 });
-    cardsRef.current.forEach((card) => {
+    for (const card of cardsRef.current) {
       if (card) gsap.set(card, { opacity: 0, y: 50 });
-    });
+    }
 
     // Animate section title
     gsap.to(section.querySelector('h2'), {
@@ -61,8 +61,8 @@ export const Projects = () => {
     });
 
     // Animate each card
-    cardsRef.current.forEach((card) => {
-      if (!card) return;
+    for (const card of cardsRef.current) {
+      if (!card) continue;
       gsap.to(card, {
         opacity: 1,
         y: 0,
@@ -74,10 +74,10 @@ export const Projects = () => {
           once: true,
         },
       });
-    });
+    }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
     };
   }, [prefersReducedMotion]);
 

@@ -29,7 +29,7 @@ export const Header = () => {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
     };
   }, []);
 

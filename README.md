@@ -123,4 +123,3 @@ This project follows the Page Component Object Model pattern for component tests
 ## ✉️ Contact
 
 If you have questions or proposals, feel free to reach me at [yoelvyspc93@gmail.com](mailto:yoelvyspc93@gmail.com).
-

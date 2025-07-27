@@ -14,8 +14,8 @@ export const ProjectsList = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    itemsRef.current.forEach((item, index) => {
-      if (!item) return;
+    for (const [index, item] of itemsRef.current.entries()) {
+      if (!item) continue;
       gsap.fromTo(
         item,
         { opacity: 0, y: 50 },
@@ -32,10 +32,10 @@ export const ProjectsList = () => {
           },
         },
       );
-    });
+    }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
     };
   }, []);
 

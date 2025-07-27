@@ -86,7 +86,7 @@ const GlowingEffect = memo(
               ease: 'power2.out',
             });
 
-            const currentAngle = parseFloat(
+            const currentAngle = Number.parseFloat(
               glowElement.style.getPropertyValue('--start') || '0',
             );
             let targetAngle =

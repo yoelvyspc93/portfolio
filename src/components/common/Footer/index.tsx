@@ -27,16 +27,16 @@ export const Footer = () => {
     const footer = footerRef.current;
 
     // Hide elements initially
-    navLinksRef.current.forEach((link) => {
+    for (const link of navLinksRef.current) {
       if (link) gsap.set(link, { opacity: 0, y: 20 });
-    });
-    socialLinksRef.current.forEach((icon) => {
+    }
+    for (const icon of socialLinksRef.current) {
       if (icon) gsap.set(icon, { opacity: 0, y: 20 });
-    });
+    }
 
     // Animate navigation links
-    navLinksRef.current.forEach((link, index) => {
-      if (!link) return;
+    for (const [index, link] of navLinksRef.current.entries()) {
+      if (!link) continue;
       gsap.to(link, {
         opacity: 1,
         y: 0,
@@ -49,11 +49,11 @@ export const Footer = () => {
           once: true,
         },
       });
-    });
+    }
 
     // Animate social icons
-    socialLinksRef.current.forEach((icon, index) => {
-      if (!icon) return;
+    for (const [index, icon] of socialLinksRef.current.entries()) {
+      if (!icon) continue;
       gsap.to(icon, {
         opacity: 1,
         y: 0,
@@ -66,16 +66,16 @@ export const Footer = () => {
           once: true,
         },
       });
-    });
+    }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
     };
   }, [prefersReducedMotion]);
 
   const handleClickItem = (href: string) => {
     if (pathname === '/') {
-      gsap.to(window, { duration: 1, scrollTo: href });
+      gsap.to(globalThis, { duration: 1, scrollTo: href });
     } else {
       router.push(`/${href}`);
     }
