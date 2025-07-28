@@ -1,0 +1,22 @@
+name: Lint and Build
+
+on:
+  pull_request:
+
+jobs:
+  lint-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Run lint
+        run: yarn lint
+      - name: Build project
+        run: yarn run build
