@@ -7,6 +7,7 @@ import { GradientButton } from '@/components/common/GradientButton';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
@@ -85,7 +86,7 @@ export const Projects = () => {
 
   return (
     <section id="projects" className={styles.projects} ref={sectionRef}>
-      <h2 dangerouslySetInnerHTML={{ __html: t('latest') }} />
+      <h2 dangerouslySetInnerHTML={{ __html: sanitizeHtml(t('latest')) }} />
       <div className={styles.list}>
         {latestProjects.map((project, index) => (
           <div

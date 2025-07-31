@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import styles from './Header.module.scss';
 import { GradientButton } from '@/components/common/GradientButton';
 import { HeaderCard } from '@/components/common/HeaderCard';
@@ -52,7 +53,7 @@ export const Header = () => {
       <div className={styles.content}>
         <h1
           className={styles.title}
-          dangerouslySetInnerHTML={{ __html: t('header.intro') }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(t('header.intro')) }}
         />
         <p className={styles.paragraph}>{t('header.description')}</p>
         <div className={styles.button}>

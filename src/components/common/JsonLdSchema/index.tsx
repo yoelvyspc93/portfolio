@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 interface JsonLdSchemaProps {
   schemaData: Record<string, unknown>;
@@ -10,7 +11,9 @@ const JsonLdSchema = ({ schemaData }: JsonLdSchemaProps) => {
       type="application/ld+json"
       id="yoelvys-schema"
       strategy="afterInteractive"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      dangerouslySetInnerHTML={{
+        __html: sanitizeHtml(JSON.stringify(schemaData)),
+      }}
     />
   );
 };
