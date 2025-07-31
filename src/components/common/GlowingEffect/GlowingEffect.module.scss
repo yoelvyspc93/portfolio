@@ -1,6 +1,13 @@
 @use '@/styles/variables/colors' as cl;
 
 .container {
+  --blur: 0;
+  --spread: 20;
+  --start: 0;
+  --active: 0;
+  --glowingeffect-border-width: 1px;
+  --repeating-conic-gradient-times: 5;
+
   pointer-events: none;
   position: absolute;
   inset: 0;
