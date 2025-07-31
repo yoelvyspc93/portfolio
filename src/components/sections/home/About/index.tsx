@@ -8,6 +8,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import { Modal } from '@/components/common/Modal';
 import { AboutModal } from '@/components/common/AboutModal';
 import { createPortal } from 'react-dom';
@@ -89,7 +90,7 @@ export const About: React.FC = () => {
           <h2
             ref={titleRef}
             className={styles.title}
-            dangerouslySetInnerHTML={{ __html: t('title') }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(t('title')) }}
           />
           <p ref={descRef}>{t('shortDescription')}</p>
           <div ref={buttonRef} data-blendy-from="modal-about">

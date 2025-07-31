@@ -44,6 +44,13 @@ const eslintConfig = [
       'unicorn/filename-case': 'off',
       'unicorn/no-null': 'off',
     },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
+    },
   },
 ];
 

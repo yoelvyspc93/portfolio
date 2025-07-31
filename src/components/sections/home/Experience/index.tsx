@@ -5,6 +5,7 @@ import styles from './Experience.module.scss';
 import { workExperiences } from '@/constants/experience';
 import { useRef, useEffect } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
@@ -66,7 +67,7 @@ export const Experience = () => {
       <h2
         ref={titleRef}
         className={styles.experience__title}
-        dangerouslySetInnerHTML={{ __html: t('title') }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(t('title')) }}
       />
       <div className={styles.experience__grid}>
         {workExperiences.map((exp, index) => (
