@@ -78,16 +78,7 @@ export const Skills = () => {
                 skillsRef.current[index] = el;
               }}
             >
-              <GlowingEffect
-                blur={0}
-                borderWidth={2}
-                spread={100}
-                glow={true}
-                disabled={false}
-                proximity={40}
-                inactiveZone={0.3}
-                movementDuration={2}
-              />
+              <GlowingEffect glow={true} disabled={false} />
               {skill.icon}
             </div>
           ) : (

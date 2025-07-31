@@ -10,9 +10,6 @@ const PythonIcon = (props: SVGProps<SVGSVGElement>) => (
         x={0}
         y={0}
         maskUnits="userSpaceOnUse"
-        style={{
-          maskType: 'luminance',
-        }}
       >
         <path fill="#fff" d="M0 0h42v42H0V0Z" />
       </mask>

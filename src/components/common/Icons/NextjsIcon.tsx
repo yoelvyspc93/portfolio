@@ -10,9 +10,6 @@ const NextjsIcon = (props: SVGProps<SVGSVGElement>) => (
         x={0}
         y={0}
         maskUnits="userSpaceOnUse"
-        style={{
-          maskType: 'luminance',
-        }}
       >
         <path fill="#fff" d="M0 0h84v84H0V0Z" />
       </mask>
