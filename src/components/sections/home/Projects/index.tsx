@@ -88,19 +88,21 @@ export const Projects = () => {
       <h2 dangerouslySetInnerHTML={{ __html: t('latest') }} />
       <div className={styles.list}>
         {latestProjects.map((project, index) => (
-          <div
+          <button
+            type="button"
             key={project.id}
             onClick={() => router.push(`/all_projects/?#${project.id}`)}
             ref={(el) => {
               cardsRef.current[index] = el;
             }}
+            className={styles.projectButton}
           >
             <ProjectsCard
               number={project.id}
               title={project.title}
               content={project.shortDescription}
             />
-          </div>
+          </button>
         ))}
       </div>
       <div ref={buttonRef}>

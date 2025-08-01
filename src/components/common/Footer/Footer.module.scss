@@ -51,6 +51,23 @@
           -webkit-text-fill-color: transparent;
         }
       }
+
+      .linkButton {
+        background: none;
+        border: none;
+        color: cl.$color__white;
+        cursor: pointer;
+        padding: 0;
+        font: inherit;
+        text-decoration: none;
+
+        &:hover,
+        &.active {
+          background: cl.$color__linear-gradient;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
     }
   }
 }
