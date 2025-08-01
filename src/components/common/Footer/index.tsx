@@ -92,9 +92,14 @@ export const Footer = () => {
               ref={(el) => {
                 navLinksRef.current[index] = el;
               }}
-              onClick={() => handleClickItem(link.path)}
             >
-              {link.name}
+              <button
+                type="button"
+                onClick={() => handleClickItem(link.path)}
+                className={styles.linkButton}
+              >
+                {link.name}
+              </button>
             </li>
           ))}
         </ul>
