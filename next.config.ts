@@ -13,7 +13,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   poweredByHeader: false,
-  reactStrictMode: true,
 };
 
 export default withNextIntl(nextConfig);

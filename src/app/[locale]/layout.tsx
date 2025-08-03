@@ -8,7 +8,7 @@ import { Footer } from '@/components/common/Footer';
 import JsonLdSchema from '@/components/common/JsonLdSchema';
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
-import { routing } from '@/navigation';
+import { routing } from '@/i18n/navigation';
 import { loadMessages } from '../../i18n/request';
 
 export const metadata: Metadata = seo;
@@ -18,8 +18,10 @@ export const generateStaticParams = () =>
 
 export default async function LocaleLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{ children: ReactNode; params: { locale: string } }>) {
+  const { locale } = await params;
+
   setRequestLocale(locale);
   const messages = await loadMessages(locale);
 
