@@ -9,12 +9,14 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GlowingEffect } from '@/components/common/GlowingEffect';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export const Skills = () => {
   const { breakpoint } = useViewports();
   const prefersReducedMotion = usePrefersReducedMotion();
   const titleRef = useRef(null);
   const skillsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const { t } = useTranslation('skills');
 
   const skillsToRender = breakpoint === 'mobile' ? skills_mobile : skills;
 
@@ -65,9 +67,7 @@ export const Skills = () => {
 
   return (
     <section id="skills" className={styles.skills}>
-      <h2 ref={titleRef}>
-        My main <span>Skills</span>
-      </h2>
+      <h2 ref={titleRef}>{t('title')}</h2>
       <div className={styles.grid}>
         {skillsToRender.map((skill, index) =>
           skill ? (
