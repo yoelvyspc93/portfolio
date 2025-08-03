@@ -7,10 +7,10 @@ import { TextAreaField } from '@/components/common/Form/TextAreaField';
 import { GradientButton } from '@/components/common/GradientButton';
 import { contactInfo } from '@/constants/contact';
 import { useTranslation } from '../../../../hooks/useTranslation';
-import { useMailTo } from '@/hook/useMailTo';
+import { useMailTo } from '@/hooks/useMailTo';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 export const EMAIL_REGEX =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$/i;
@@ -156,7 +156,7 @@ export const Contact = () => {
     <section id="contact" className={styles.contact}>
       <div className={styles.contact__container}>
         <div className={styles.contact__info}>
-          <h2 ref={titleRef}>{t('header')}</h2>
+          <h2 ref={titleRef}>{t('title')}</h2>
           {messages.map((desc, index) => (
             <p
               key={index}
@@ -188,7 +188,7 @@ export const Contact = () => {
               <>
                 <InputField
                   id="email"
-                  label={t('form.emailLabel')}
+                  label={t('form.email.label')}
                   type="email"
                   value={email}
                   onChange={(v) => setEmail(v)}
@@ -205,7 +205,7 @@ export const Contact = () => {
                 )}
                 <TextAreaField
                   id="message"
-                  label={t('form.messageLabel')}
+                  label={t('form.message.label')}
                   value={message}
                   onChange={(v) => setMessage(v)}
                   placeholders={placeholders}
@@ -222,9 +222,7 @@ export const Contact = () => {
                     {errors.message}
                   </span>
                 )}
-                <GradientButton type="submit">
-                  {t('form.submit')}
-                </GradientButton>
+                <GradientButton type="submit">{t('form.send')}</GradientButton>
               </>
             )}
           </form>

@@ -14,14 +14,12 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.plugins('boundaries'),
   ...compat.extends(
     'next/core-web-vitals',
     'next/typescript',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:sonarjs/recommended-legacy',
-    'plugin:boundaries/recommended',
     'plugin:storybook/recommended',
     'plugin:prettier/recommended',
   ),

@@ -2,12 +2,12 @@
 
 import { ExperienceCard } from '@/components/common/ExperienceCard';
 import styles from './Experience.module.scss';
-import { workExperiences } from '@/constants/experience';
+import { experiencesData } from '@/constants/experience';
 import { useRef, useEffect } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 export const Experience = () => {
   const { t } = useTranslation('experience');
@@ -30,35 +30,30 @@ export const Experience = () => {
     gsap.to(title, {
       opacity: 1,
       y: 0,
-      duration: 1,
+      duration: 0.8,
       ease: 'power2.out',
       scrollTrigger: {
         trigger: title,
-        start: 'top 70%',
-        once: true,
+        start: 'top 80%',
       },
     });
 
-    // Animate each experience item
+    // Animate items
     for (const [index, item] of itemsRef.current.entries()) {
-      if (!item) continue;
-      gsap.to(item, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: index * 0.3,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 60%',
-          once: true,
-        },
-      });
+      if (item) {
+        gsap.to(item, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: index * 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 80%',
+          },
+        });
+      }
     }
-
-    return () => {
-      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
-    };
   }, [prefersReducedMotion]);
 
   return (
@@ -69,21 +64,29 @@ export const Experience = () => {
         dangerouslySetInnerHTML={{ __html: t('title') }}
       />
       <div className={styles.experience__grid}>
-        {workExperiences.map((exp, index) => (
-          <div
-            key={exp.id}
-            className={styles.experience__grid__item}
-            ref={(el) => {
-              itemsRef.current[index] = el;
-            }}
-          >
-            <ExperienceCard
-              number={exp.id}
-              title={exp.company}
-              description={exp.summary}
-            />
-          </div>
-        ))}
+        {experiencesData.map((expData, index) => {
+          const expTranslation = t.raw(`list.${expData.id}`) as {
+            period: string;
+            company: string;
+            summary: string;
+            details: string[];
+          };
+          return (
+            <div
+              key={expData.id}
+              className={styles.experience__grid__item}
+              ref={(el) => {
+                itemsRef.current[index] = el;
+              }}
+            >
+              <ExperienceCard
+                number={expData.id}
+                title={expTranslation.company}
+                description={expTranslation.summary}
+              />
+            </div>
+          );
+        })}
       </div>
     </section>
   );
