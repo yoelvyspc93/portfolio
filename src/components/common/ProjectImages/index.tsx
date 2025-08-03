@@ -2,21 +2,12 @@
 
 import { CustomImage } from '../CustomImage';
 import styles from './ProjectImages.module.scss';
-import dynamic from 'next/dynamic';
-import { useEffect, useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import { useRef } from 'react';
 import ArrowIcon from '../Icons/ArrowIcon';
-import type { SwiperModule } from 'swiper/types';
-
-const Swiper = dynamic(() => import('swiper/react').then((mod) => mod.Swiper), {
-  ssr: false,
-});
-
-const SwiperSlide = dynamic(
-  () => import('swiper/react').then((mod) => mod.SwiperSlide),
-  {
-    ssr: false,
-  },
-);
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 interface Props {
   images: string[];
@@ -25,24 +16,10 @@ interface Props {
 export const ProjectImages = ({ images }: Props) => {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
-  const [modules, setModules] = useState<SwiperModule[]>([]);
-
-  useEffect(() => {
-    const load = async () => {
-      await Promise.all([
-        import('swiper/css'),
-        import('swiper/css/navigation'),
-      ]);
-      const mod = await import('swiper/modules');
-      setModules([mod.Navigation, mod.Autoplay]);
-    };
-
-    load();
-  }, []);
 
   return (
     <Swiper
-      modules={modules}
+      modules={[Navigation, Autoplay]}
       slidesPerView={1}
       navigation={{
         prevEl: prevRef.current,
