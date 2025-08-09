@@ -8,8 +8,8 @@ import { Footer } from '@/components/common/Footer';
 import JsonLdSchema from '@/components/common/JsonLdSchema';
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
-import { routing } from '@/i18n/navigation';
-import { loadMessages } from '../../i18n/request';
+import { routing } from '@/utils/navigation';
+import { loadMessages } from '@/utils/request';
 
 export const metadata: Metadata = seo;
 
