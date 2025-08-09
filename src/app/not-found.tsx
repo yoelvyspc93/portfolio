@@ -1,27 +1,20 @@
-import { NextIntlClientProvider, useTranslations } from 'next-intl';
-import { routing, Link } from '@/navigation';
-import { loadMessages } from '../i18n/request';
+'use client';
+import { usePathname } from 'next/navigation';
 
-function NotFoundContent() {
-  const t = useTranslations('common.notFound');
-  return (
-    <div>
-      <h2>{t('title')}</h2>
-      <p>{t('description')}</p>
-      <Link href={`/${routing.defaultLocale}`}>{t('link')}</Link>
-    </div>
-  );
-}
+export default function NotFound() {
+  const pathname = usePathname();
+  const match = pathname.match(/^\/(es)\b/);
+  const locale = match ? 'es' : 'en';
 
-export default async function NotFoundPage() {
-  const locale = routing.defaultLocale;
-  const messages = await loadMessages(locale);
+  console.log('locale', locale);
+
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <NotFoundContent />
-        </NextIntlClientProvider>
+        <div>
+          <h1>Página no encontrada</h1>
+          <p>Ruta: {pathname}</p>
+        </div>
       </body>
     </html>
   );

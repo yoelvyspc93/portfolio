@@ -11,7 +11,7 @@ import { useTranslation } from '../../../../hooks/useTranslation';
 import { Modal } from '@/components/common/Modal';
 import { AboutModal } from '@/components/common/AboutModal';
 import { createPortal } from 'react-dom';
-import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 const list: string[] = [
   '/images/images.webp',

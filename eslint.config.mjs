@@ -15,7 +15,7 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.plugins('boundaries', 'jsx-a11y'),
+  ...compat.plugins('jsx-a11y'),
   ...compat.extends(
     'next/core-web-vitals',
     'next/typescript',
@@ -23,7 +23,6 @@ const eslintConfig = [
     'plugin:import/typescript',
     'plugin:jsx-a11y/strict',
     'plugin:sonarjs/recommended-legacy',
-    'plugin:boundaries/recommended',
     'plugin:storybook/recommended',
     'plugin:prettier/recommended',
   ),

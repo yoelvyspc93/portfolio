@@ -1,6 +1,6 @@
 'use client';
 
-import { projectList } from '@/constants/projects';
+import { projectsData } from '@/constants/projects';
 import styles from './Projects.module.scss';
 import { ProjectsCard } from '@/components/common/ProjectsCard';
 import { GradientButton } from '@/components/common/GradientButton';
@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 export const Projects = () => {
   const router = useRouter();
@@ -81,29 +81,35 @@ export const Projects = () => {
     };
   }, [prefersReducedMotion]);
 
-  const latestProjects = projectList.filter((project) => project.isFavorite);
+  const latestProjects = projectsData.filter((project) => project.isFavorite);
 
   return (
     <section id="projects" className={styles.projects} ref={sectionRef}>
       <h2 dangerouslySetInnerHTML={{ __html: t('latest') }} />
       <div className={styles.list}>
-        {latestProjects.map((project, index) => (
-          <button
-            type="button"
-            key={project.id}
-            onClick={() => router.push(`/all_projects/?#${project.id}`)}
-            ref={(el) => {
-              cardsRef.current[index] = el;
-            }}
-            className={styles.projectButton}
-          >
-            <ProjectsCard
-              number={project.id}
-              title={project.title}
-              content={project.shortDescription}
-            />
-          </button>
-        ))}
+        {latestProjects.map((projectData, index) => {
+          const project = t.raw(`list.${projectData.id}`) as {
+            title: string;
+            shortDescription: string;
+            detailedDescription: string[];
+          };
+          return (
+            <button
+              type="button"
+              key={projectData.id}
+              onClick={() => router.push(`/all_projects/?#${projectData.id}`)}
+              ref={(el) => {
+                cardsRef.current[index] = el;
+              }}
+            >
+              <ProjectsCard
+                number={projectData.id}
+                title={project.title}
+                content={project.shortDescription}
+              />
+            </button>
+          );
+        })}
       </div>
       <div ref={buttonRef}>
         <GradientButton onClick={() => router.push('/all_projects')}>

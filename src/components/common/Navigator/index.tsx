@@ -1,17 +1,17 @@
 'use client';
 
-import { usePathname, useRouter } from '@/navigation';
+import { usePathname, useRouter } from '@/i18n/navigation';
 import styles from './Navigator.module.scss';
 import { getNavigationItems } from '@/constants/navigator';
 import { socialLinks } from '@/constants/social';
 import { featureFlags } from '@/constants/featureFlags';
 import { useState, useEffect } from 'react';
-import { useTranslation } from '../../../hooks/useTranslation';
 
 import { clsx } from 'clsx';
-import { useViewports } from '@/hook/useViewports';
+import { useViewports } from '@/hooks/useViewports';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export const Navigator = () => {
   const { t } = useTranslation('common');

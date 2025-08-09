@@ -1,13 +1,20 @@
 {
-  "header": "Contact Me",
+  "title": "Contact Me",
+  "subtitle": "Let's build something amazing together!",
   "messages": [
     "I am always open to new opportunities, collaborations, and exciting projects. If you have any questions or just want to say hello, feel free to send me a message.",
     "I will be happy to respond as soon as possible!"
   ],
   "form": {
-    "emailLabel": "Email",
-    "messageLabel": "Message",
-    "submit": "Send",
+    "email": {
+      "label": "Email",
+      "placeholder": "your@email.com"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Hi Yoelvys, I would like to..."
+    },
+    "send": "Send",
     "success": "Message sent successfully",
     "errors": {
       "emailRequired": "Email is required.",
@@ -15,5 +22,8 @@
       "messageRequired": "Message is required.",
       "messageTooShort": "Message must be at least 3 characters long."
     }
+  },
+  "social": {
+    "title": "Follow me on"
   }
 }

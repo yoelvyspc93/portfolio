@@ -9,7 +9,7 @@ import { useTranslation } from '../../../hooks/useTranslation';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePathname, useRouter } from 'next/navigation';
-import { usePrefersReducedMotion } from '@/hook/usePrefersReducedMotion';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 export const Footer = () => {
   const { t } = useTranslation('common');

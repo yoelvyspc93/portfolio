@@ -1,6 +1,20 @@
 {
-  "title": "SOY <span class=\"title__gradient\">DESARROLLADOR FRONTEND</span> APASIONADO POR LA TECNOLOGÍA Y LA INNOVACIÓN",
+  "title": "SOY DESARROLLADOR FRONTEND APASIONADO POR LA TECNOLOGÍA Y LA INNOVACIÓN",
   "seeMore": "Ver más",
   "modalTitle": "Sobre mí",
-  "shortDescription": "Me especializo en crear interfaces de usuario intuitivas y eficientes con más de 6 años de experiencia en el desarrollo web. Combinando tecnologías modernas como React y Next.js, me enfoco en optimizar el rendimiento y ofrecer experiencias de usuario excepcionales."
+  "shortDescription": "Me especializo en crear interfaces de usuario intuitivas y eficientes con más de 6 años de experiencia en el desarrollo web. Combinando tecnologías modernas como React y Next.js, me enfoco en optimizar el rendimiento y ofrecer experiencias de usuario excepcionales.",
+  "detailedDescriptions": [
+    "Soy Ingeniero en Ciencias Informáticas con más de 6 años de experiencia desarrollando y optimizando aplicaciones web, enfocado en crear interfaces de usuario modernas, intuitivas y eficientes. A lo largo de mi carrera, he trabajado en proyectos complejos utilizando tecnologías como React y Next.js, siempre priorizando la experiencia del usuario y el rendimiento del sitio.",
+    "Me especializo en SEO y optimización del rendimiento web, lo que me permite construir aplicaciones rápidas y accesibles. Soy apasionado por la innovación tecnológica y la resolución de problemas, constantemente busco nuevas herramientas y enfoques para mejorar la eficiencia del desarrollo. Para mí, cada proyecto es una oportunidad de aprender y un desafío para superar las expectativas."
+  ],
+  "statistics": {
+    "experience": {
+      "value": "6+",
+      "label": "Años de Experiencia"
+    },
+    "projects": {
+      "value": "12+",
+      "label": "Proyectos Completados"
+    }
+  }
 }
