@@ -4,7 +4,9 @@ import { useEffect } from 'react';
 import { useTranslation } from '../../../../hooks/useTranslation';
 import styles from './Header.module.scss';
 import { GradientButton } from '@/components/common/GradientButton';
+import { HeaderCard } from '@/components/common/HeaderCard';
 import { gsap } from 'gsap';
+import { CustomImage } from '@/components/common/CustomImage';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 export const Header = () => {
@@ -53,14 +55,24 @@ export const Header = () => {
           dangerouslySetInnerHTML={{ __html: t('header.intro') }}
         />
         <p className={styles.paragraph}>{t('header.description')}</p>
-        <div className={styles.buttons}>
-          <GradientButton onClick={() => {}}>
-            {t('header.downloadCv')}
-          </GradientButton>
+        <div className={styles.button}>
           <GradientButton onClick={() => {}}>
             {t('header.downloadCv')}
           </GradientButton>
         </div>
+      </div>
+      <div className={styles.image}>
+        <CustomImage
+          src="/images/header/avatar.webp"
+          alt="Yoelvys Perez Cabrera"
+          fill
+          priority
+        />
+      </div>
+      <div className={styles.cards}>
+        <HeaderCard number="6+" label={t('header.cardYears')} />
+        <HeaderCard number="12+" label={t('header.cardProjects')} />
+        <HeaderCard number="2" label={t('header.cardCompanies')} />
       </div>
     </header>
   );
