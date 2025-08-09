@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { routing } from '@/i18n/navigation';
+import { routing } from '@/utils/navigation';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

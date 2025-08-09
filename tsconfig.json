@@ -22,12 +22,9 @@
       "@/public/*": ["./public/*"],
       "@/components/*": ["./src/components/*"],
       "@/constants/*": ["./src/constants/*"],
-      "@/hook/*": ["./src/hook/*"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/styles/*": ["./src/styles/*"],
-      "@/navigation": ["./src/navigation"],
-      "@/providers/*": ["./src/providers/*"],
-      "@/i18n/*": ["./src/i18n/*"]
+      "@/utils/*": ["./src/utils/*"],
     }
   },
   "include": [
