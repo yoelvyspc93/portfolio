@@ -1,24 +1,40 @@
 ---
-description: 
-globs: 
-alwaysApply: true
+globs: *.ts,*.tsx,*.scss
+description: Architectural guidelines for app router, i18n, layout, and component organization
 ---
 
-# Architecture and Best Practices
+# Architecture
 
-- **Code Organization:**
-  - Divide responsibilities among components, helpers, constants, hooks, and styles.
-  - Embrace SSR and Next.js Server Components to minimize `use client` usage.
+## Application structure
 
-- **Library and API Integration:**
-  - Use GSAP for sophisticated and fluid animations.
-  - Use CSS Modules for isolated and maintainable styles.
-  - Integrate SEO by dynamically injecting metadata with `next/head` or `generateMetadata()`.
+- App Router with locale segment:
+  - Root redirect: [src/app/page.tsx](mdc:src/app/page.tsx) → redirects to `/${routing.defaultLocale}`.
+  - Locale layout: [src/app/[locale]/layout.tsx](mdc:src/app/%5Blocale%5D/layout.tsx) wraps pages with `NextIntlClientProvider`, `Navigator`, and `Footer`.
+- Static export with base path `/portfolio` in production: [next.config.ts](mdc:next.config.ts).
 
-- **Server-side Error Handling and Validations:**
-  - Use `next-safe-action` to define secure, type-safe server actions.
-  - Model expected errors as return values and use error boundaries for unexpected exceptions.
+## Internationalization
 
-- **Optimization:**
-  - Optimize images with the `next/image` component (lazy loading, appropriate formats, size attributes).
-  - Implement dynamic imports to split large components.
+- Supported locales are configured in [next-intl.config.ts](mdc:next-intl.config.ts).
+- Messages are loaded in [src/utils/request.ts](mdc:src/utils/request.ts) and provided at layout level.
+- Use [src/hooks/useTranslation.ts](mdc:src/hooks/useTranslation.ts) to access `t` for the appropriate namespace.
+
+## Components & Sections
+
+- Common components under [src/components/common](mdc:src/components/common) and page sections under [src/components/sections](mdc:src/components/sections).
+- Co-locate styles as `*.module.scss` next to components.
+- Split UI (presentational) and data concerns; keep components pure where possible.
+
+## Routing & Navigation
+
+- Use helpers from [src/utils/navigation.ts](mdc:src/utils/navigation.ts) and respect locale-aware URLs.
+- When linking or referencing assets, consider the production `basePath`.
+
+## Images & Assets
+
+- Always use [CustomImage](mdc:src/components/common/CustomImage/index.tsx) to handle base path and blur placeholders.
+- Store public assets under [public/](mdc:public) and reference with paths that work with `basePath`.
+
+## Client vs Server
+
+- Default to Server Components. Add `"use client"` only when needed (hooks, state, effects, or browser-only APIs).
+- Avoid importing server-only modules into client components.

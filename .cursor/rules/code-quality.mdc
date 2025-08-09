@@ -1,32 +1,32 @@
 ---
-description: 
-globs: 
-alwaysApply: true
+globs: *.ts,*.tsx
+description: Code quality, linting, formatting and naming conventions
 ---
 
-# Code Quality and Style
+# Code Quality
 
-- **Naming and Clarity:**
-  - Use descriptive names for variables and functions; include auxiliary verbs (e.g., isLoading, hasError).
-  - Event functions must be prefixed with "handle" (e.g., handleClick, handleKeyDown).
-  - Prefer named exports for components and utilities.
+## Linting & Formatting
 
-- **Functional and Declarative Programming:**
-  - Write functional code and avoid classes.
-  - Prioritize modularization and iteration to avoid code duplication.
-  - Use the RORO (Receive an Object, Return an Object) pattern where applicable.
+- ESLint config lives in [eslint.config.mjs](mdc:eslint.config.mjs). It includes `next`, `import`, `jsx-a11y/strict`, `sonarjs`, `storybook`, `unicorn`, and Prettier.
+- Run `yarn lint` (or `yarn lint:fix`) and `yarn format` before committing.
+- Do not commit with lint errors. Prettier violations are treated as errors.
 
-- **Syntax and Formatting:**
-  - Use the `function` keyword for pure functions.
-  - Avoid unnecessary curly braces in conditional statements; for simple statements, use one-line syntax.
-  - Omit semicolons at the end of lines (if that’s your preference) and use Prettier for consistent formatting.
-  
-- **Error Handling:**
-  - Implement early returns to handle error conditions.
-  - Place the “happy path” at the end and avoid deep nesting by using guard clauses.
-  - Use clear error messages and logging; consider custom error types or error factories.
-  
-- **Documentation:**
-  - Comment your code with JSDoc when necessary.
-  - Always include all required imports and ensure that key component names are accurate.
+## TypeScript
 
+- Strict typing is required; avoid `any`. Prefer discriminated unions and exact prop types.
+- Component props must have explicit `Props` interfaces/types.
+- Prefer named exports where it improves clarity; keep default exports for components if consistent with the codebase.
+
+## Naming & Structure
+
+- Use descriptive names (no ambiguous abbreviations). The Unicorn rule disabling is scoped; continue to prefer clarity.
+- Keep files small and focused. Extract helpers to [src/utils](mdc:src/utils) and constants to [src/constants](mdc:src/constants).
+
+## Imports
+
+- Use path aliases from [tsconfig.json](mdc:tsconfig.json) (`@/components/*`, `@/utils/*`, etc.).
+- Avoid deep relative paths when an alias exists.
+
+## Tests & Stories
+
+- If adding Storybook stories, follow component co-location and name them consistently. Lint with `eslint-plugin-storybook` defaults.

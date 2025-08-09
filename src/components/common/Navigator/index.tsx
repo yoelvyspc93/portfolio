@@ -1,6 +1,6 @@
 'use client';
 
-import { Link, usePathname, useRouter } from '@/utils/navigation';
+import { usePathname, useRouter } from '@/utils/navigation';
 import styles from './Navigator.module.scss';
 import { getNavigationItems } from '@/constants/navigator';
 import { socialLinks } from '@/constants/social';
@@ -64,20 +64,27 @@ export const Navigator = () => {
         <div className={styles.navigator}>
           <ul>
             {getNavigationItems(t).map((link) => (
-              <li onClick={() => handleClickItem(link.path)} key={link.name}>
-                <Link href={'#'}>{link.name}</Link>
+              <li key={link.name}>
+                <button
+                  type="button"
+                  onClick={() => handleClickItem(link.path)}
+                  className={styles.linkButton}
+                >
+                  {link.name}
+                </button>
               </li>
             ))}
             {breakpoint === 'mobile' && (
               <li>
                 <ul className={styles.social}>
                   {socialLinks.map((sm) => (
-                    <li onClick={handleClickLink} key={sm.platform}>
+                    <li key={sm.platform}>
                       <a
                         aria-label={`link to ${sm.platform}`}
                         href={sm.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={handleClickLink}
                       >
                         {sm.icon}
                       </a>
@@ -108,8 +115,14 @@ export const Navigator = () => {
           <div className={styles.navigator}>
             <ul>
               {['en', 'es'].map((lng) => (
-                <li key={lng} onClick={() => changeLanguage(lng)}>
-                  {t(`lang.${lng}`)}
+                <li key={lng}>
+                  <button
+                    type="button"
+                    onClick={() => changeLanguage(lng)}
+                    className={styles.linkButton}
+                  >
+                    {t(`lang.${lng}`)}
+                  </button>
                 </li>
               ))}
             </ul>

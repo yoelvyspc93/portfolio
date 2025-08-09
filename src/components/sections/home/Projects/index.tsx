@@ -16,7 +16,7 @@ export const Projects = () => {
   const { t } = useTranslation('projects');
   const prefersReducedMotion = usePrefersReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const cardsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -94,7 +94,8 @@ export const Projects = () => {
             detailedDescription: string[];
           };
           return (
-            <div
+            <button
+              type="button"
               key={projectData.id}
               onClick={() => router.push(`/all_projects/?#${projectData.id}`)}
               ref={(el) => {
@@ -106,7 +107,7 @@ export const Projects = () => {
                 title={project.title}
                 content={project.shortDescription}
               />
-            </div>
+            </button>
           );
         })}
       </div>
