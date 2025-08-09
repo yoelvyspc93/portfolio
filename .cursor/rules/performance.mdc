@@ -1,17 +1,27 @@
 ---
-description: 
-globs: 
-alwaysApply: true
+globs: *.ts,*.tsx,*.scss
+description: Performance guidance for static export, images, animations, and bundles
 ---
 
-# Performance and Optimization
+# Performance
 
-- **Loading and Resource Optimization:**
-  - Use the `next/image` component with attributes like `priority`, `sizes`, and `loading="lazy"`.
-  - Dynamically import large components to reduce initial load time.
-  - Prefetch routes with `<Link prefetch />` in Next.js.
+## Static export & base path
+- The app is statically exported with a production base path `/portfolio` (see [next.config.ts](mdc:next.config.ts)).
+- Prefer build-time data. Avoid runtime fetches on the client.
 
-- **Animation Resource Management:**
-  - Optimize GSAP usage by avoiding unnecessary animations that consume resources.
-  - Monitor and minimize background memory usage.
+## Images
+- Use [CustomImage](mdc:src/components/common/CustomImage/index.tsx) for all images to respect `basePath` and enable blur placeholders.
+- Only set `priority` for a single LCP image (e.g., hero in the header). Otherwise, let images load lazily.
+
+## Animations
+- Use `gsap` thoughtfully. Honor reduced motion using a hook such as `usePrefersReducedMotion` if/when present.
+- Keep animations off the main thread when possible; prefer transforms and opacity.
+
+## Bundling
+- Avoid unnecessary client components; keep logic server-side by default.
+- Dynamically import heavy/rarely used components (e.g., carousels) with `next/dynamic`.
+- Memoize expensive subtrees and avoid passing new inline objects/functions as props when they cause re-renders.
+
+## Styles
+- Scope styles with SCSS Modules. Avoid overly deep selectors; prefer small, composable classes.
 

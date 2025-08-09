@@ -1,20 +1,16 @@
 ---
-description: 
-globs: 
-alwaysApply: true
+globs: *.tsx
+description: Enforce accessible, semantic UI with jsx-a11y strict
 ---
 
-# Accessibility and Usability
+# Accessibility (A11y)
 
-- **Interactive Elements:**
-  - All interactive elements (buttons, links, etc.) must include:
-    - `tabIndex={0}`
-    - A descriptive `aria-label`
-    - Keyboard event handlers (e.g., `onKeyDown`)
-    - Appropriate roles as needed
-
-- **Contrast and Navigation:**
-  - Ensure sufficient color contrast.
-  - Implement a “skip to content” link to improve keyboard navigation.
-  - Verify accessibility using tools like Lighthouse or axe DevTools.
+- Follow `plugin:jsx-a11y/strict` rules from [eslint.config.mjs](mdc:eslint.config.mjs).
+- Use semantic HTML elements (`<main>`, `<nav>`, `<header>`, `<footer>`, `<section>`, `<button>`, `<a>`).
+- All interactive elements must be keyboard accessible; avoid `div`/`span` with click handlers.
+- Provide meaningful `alt` text for images. Decorative images should use empty `alt`.
+- Inputs and controls must have associated labels. Use `aria-*` attributes only when semantic HTML is insufficient.
+- Links opening in new tabs must include `rel="noopener noreferrer"` when `target="_blank"`.
+- Maintain visible focus outlines; do not remove focus styles without providing accessible alternatives.
+- Ensure color contrast meets WCAG AA.
 
