@@ -1,11 +1,11 @@
 import { featureFlags } from '@/constants/featureFlags';
 
-import { About } from '@/components/sections/home/About';
-import { Contact } from '@/components/sections/home/Contact';
-import { Experience } from '@/components/sections/home/Experience';
 import { Header } from '@/components/sections/home/Header';
-import { Projects } from '@/components/sections/home/Projects';
-import { Skills } from '@/components/sections/home/Skills';
+import { About } from '@/components/sections/home2/About';
+import { Contact } from '@/components/sections/home2/Contact';
+import { Experience } from '@/components/sections/home2/Experience';
+import { Projects } from '@/components/sections/home2/Projects';
+import { Skills } from '@/components/sections/home2/Skills';
 
 export default function HomePage() {
   return (
