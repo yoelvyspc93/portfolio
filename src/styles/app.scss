@@ -8,4 +8,14 @@
 /* Provide a fallback font variable when the Google Font isn't loaded */
 :root {
   --font-montserrat: system-ui, sans-serif;
+  --font-audiowide: 'Audiowide', cursive;
+}
+
+/* Import Audiowide font */
+@font-face {
+  font-family: 'Audiowide';
+  src: url('/fonts/audiowide.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }

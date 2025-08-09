@@ -8,6 +8,7 @@ interface Props {
   width?: number;
   height?: number;
   blur?: boolean;
+  className?: string;
 }
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -20,11 +21,13 @@ export const CustomImage = ({
   width,
   height,
   blur = false,
+  className,
 }: Props) => {
   const customSrc = isProduction ? `/portfolio/${src}` : src;
 
   return (
     <Image
+      className={className}
       src={customSrc}
       alt={alt}
       fill={fill}
