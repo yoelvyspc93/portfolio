@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 
 type TranslationNamespace =
   | 'common'
+  | 'header'
   | 'about'
   | 'contact'
   | 'experience'
