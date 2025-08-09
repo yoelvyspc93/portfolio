@@ -13,4 +13,3 @@ description: Enforce accessible, semantic UI with jsx-a11y strict
 - Links opening in new tabs must include `rel="noopener noreferrer"` when `target="_blank"`.
 - Maintain visible focus outlines; do not remove focus styles without providing accessible alternatives.
 - Ensure color contrast meets WCAG AA.
-

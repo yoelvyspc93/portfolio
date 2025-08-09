@@ -6,23 +6,27 @@ description: Code quality, linting, formatting and naming conventions
 # Code Quality
 
 ## Linting & Formatting
+
 - ESLint config lives in [eslint.config.mjs](mdc:eslint.config.mjs). It includes `next`, `import`, `jsx-a11y/strict`, `sonarjs`, `storybook`, `unicorn`, and Prettier.
 - Run `yarn lint` (or `yarn lint:fix`) and `yarn format` before committing.
 - Do not commit with lint errors. Prettier violations are treated as errors.
 
 ## TypeScript
+
 - Strict typing is required; avoid `any`. Prefer discriminated unions and exact prop types.
 - Component props must have explicit `Props` interfaces/types.
 - Prefer named exports where it improves clarity; keep default exports for components if consistent with the codebase.
 
 ## Naming & Structure
+
 - Use descriptive names (no ambiguous abbreviations). The Unicorn rule disabling is scoped; continue to prefer clarity.
 - Keep files small and focused. Extract helpers to [src/utils](mdc:src/utils) and constants to [src/constants](mdc:src/constants).
 
 ## Imports
+
 - Use path aliases from [tsconfig.json](mdc:tsconfig.json) (`@/components/*`, `@/utils/*`, etc.).
 - Avoid deep relative paths when an alias exists.
 
 ## Tests & Stories
-- If adding Storybook stories, follow component co-location and name them consistently. Lint with `eslint-plugin-storybook` defaults.
 
+- If adding Storybook stories, follow component co-location and name them consistently. Lint with `eslint-plugin-storybook` defaults.

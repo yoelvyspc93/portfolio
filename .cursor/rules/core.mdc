@@ -17,24 +17,28 @@ This repository is a static-exported portfolio built with Next.js 15, React 19, 
   - [src/app/[locale]/layout.tsx](mdc:src/app/%5Blocale%5D/layout.tsx)
 
 ## TypeScript
+
 - Strict mode is enabled. Avoid `any`; prefer precise types and interfaces.
 - Respect path aliases defined in [tsconfig.json](mdc:tsconfig.json) (`@/components/*`, `@/utils/*`, etc.).
 - Export component props as explicit TypeScript types.
 
 ## Styling
+
 - Use SCSS Modules colocated with components (e.g., `Component.module.scss`).
 - Keep selectors local; avoid global styles except in [src/styles/app.scss](mdc:src/styles/app.scss).
 
 ## Components
+
 - Prefer functional components with explicit `Props` types.
 - Images: always use [src/components/common/CustomImage/index.tsx](mdc:src/components/common/CustomImage/index.tsx) to respect production `basePath`.
 - Translations: use [src/hooks/useTranslation.ts](mdc:src/hooks/useTranslation.ts) and message files under `public/locales/*`.
 
 ## Accessibility & Quality
+
 - ESLint is configured with `plugin:jsx-a11y/strict`, `unicorn`, `sonarjs`, and Prettier.
   - See [eslint.config.mjs](mdc:eslint.config.mjs). Fix all lint errors before committing.
 
 ## Commits & Language
+
 - Use Conventional Commits in English (e.g., `feat: ...`, `fix: ...`).
 - Any comments inside code must be written in English.
-

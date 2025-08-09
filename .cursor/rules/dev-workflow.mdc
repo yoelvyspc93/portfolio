@@ -6,9 +6,11 @@ description: Developer workflow, scripts, tooling, and commits
 # Developer Workflow
 
 ## Tooling
+
 - Node is pinned via Volta. Use Node `22.13.1` (see `volta` in [package.json](mdc:package.json)). Package manager: Yarn.
 
 ## Common scripts
+
 - `yarn dev` – start local development
 - `yarn build` – production build (static export)
 - `yarn start` – serve production build
@@ -17,9 +19,11 @@ description: Developer workflow, scripts, tooling, and commits
 - `yarn audit:security` – check vulnerabilities
 
 ## Lint & Format before commit
+
 - Ensure a clean lint run and formatting before pushing. Lint errors fail CI expectations.
 
 ## Commits
+
 - Use Conventional Commits in English. Examples:
   - `feat: add projects carousel to home header`
   - `fix: correct CustomImage basePath handling on production`
@@ -28,5 +32,5 @@ description: Developer workflow, scripts, tooling, and commits
   - `docs: add architecture rules`
 
 ## Branches
-- Prefer descriptive branches, e.g., `feat/home-header-carousel`, `fix/a11y-focus-styles`.
 
+- Prefer descriptive branches, e.g., `feat/home-header-carousel`, `fix/a11y-focus-styles`.
