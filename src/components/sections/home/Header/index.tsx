@@ -2,11 +2,11 @@
 
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
-import { GradientButton } from '@/components/common/GradientButton';
 import { CustomImage } from '@/components/common/CustomImage';
 import { useTranslation } from '@/hooks/useTranslation';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import styles from './Header.module.scss';
+import { Button } from '@/components/common/Button';
 
 type Props = {
   onDownloadCv?: () => void;
@@ -115,13 +115,13 @@ export function Header({ onDownloadCv, onContact }: Props) {
           </p>
 
           <div className={styles.buttons}>
-            <GradientButton aria-label={t('download')} onClick={onDownloadCv}>
+            <Button aria-label={t('download')} onClick={onDownloadCv}>
               {t('download')}
-            </GradientButton>
+            </Button>
 
-            <GradientButton aria-label={t('contact')} onClick={onContact}>
+            <Button aria-label={t('contact')} onClick={onContact}>
               {t('contact')}
-            </GradientButton>
+            </Button>
           </div>
         </div>
       </div>

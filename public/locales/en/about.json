@@ -1,20 +1,3 @@
 {
-  "title": "I AM FRONTEND DEVELOPER and INSPIRED by TECHNOLOGY and INNOVATION",
-  "seeMore": "See More",
-  "modalTitle": "About",
-  "shortDescription": "I specialize in creating intuitive and efficient user interfaces with over 6 years of experience in web development. Combining modern technologies like React and Next.js, I focus on optimizing performance and delivering exceptional user experiences.",
-  "detailedDescriptions": [
-    "I am a Computer Engineer with over 6 years of experience in developing and optimizing web applications, focused on creating modern, intuitive, and efficient user interfaces. Throughout my career, I have worked on complex projects using technologies such as React and Next.js, always prioritizing user experience and site performance.",
-    "I specialize in SEO and web performance optimization, enabling me to build fast and accessible applications. I am passionate about technological innovation and problem-solving, constantly seeking new tools and approaches to improve development efficiency. For me, every project is an opportunity to learn and a challenge to exceed expectations."
-  ],
-  "statistics": {
-    "experience": {
-      "value": "6+",
-      "label": "Years of Experience"
-    },
-    "projects": {
-      "value": "12+",
-      "label": "Completed Projects"
-    }
-  }
+  "description": "👨‍💻 Computer Engineer with 6+ years of experience in developing and optimizing web apps, specialized in frontend technologies. Built complex solutions using️ React and Next.js, creating intuitive and efficient interfaces. Strong in 🚀 SEO and ⚡ performance. Driven by 💡 innovation and 🧠 problem-solving. Always aiming to enhance 🎯 user experience and 🛠️ development efficiency."
 }
