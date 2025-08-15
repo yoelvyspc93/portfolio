@@ -106,7 +106,6 @@ export function Header({ onDownloadCv, onContact }: Props) {
       </ul>
       <div className={styles.inner}>
         <div className={styles.content}>
-          {/* Un solo h1 por página */}
           <h1 id="hero-title" className={styles.title}>
             {t('hello')} <span>{t('name')}</span>
           </h1>

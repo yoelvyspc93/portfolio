@@ -35,8 +35,7 @@
   font-weight: 800;
   color: #fff;
 
-  /* El nombre (viene envuelto por <span>) va en azul */
-  :global(span) {
+  span {
     color: #86a7ff;
   }
 }

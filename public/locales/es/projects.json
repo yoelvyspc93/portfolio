@@ -1,6 +1,7 @@
 {
   "main": "Mis Principales Proyectos",
-  "latest": "4 Últimos Proyectos",
+  "latest": "4 Últimos",
+  "latestHighlight": "Proyectos",
   "seeMore": "Ver más",
   "list": {
     "01": {

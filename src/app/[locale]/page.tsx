@@ -2,11 +2,11 @@ import { featureFlags } from '@/constants/featureFlags';
 
 import { Contact } from '@/components/sections/home2/Contact';
 import { Experience } from '@/components/sections/home2/Experience';
-import { Projects } from '@/components/sections/home2/Projects';
 import { Skills } from '@/components/sections/home2/Skills';
 
 import { Header } from '@/components/sections/home/Header';
 import { About } from '@/components/sections/home/About';
+import { Projects } from '@/components/sections/home/Projects';
 
 export default function HomePage() {
   return (
