@@ -1,13 +1,22 @@
 @use '@/styles/variables/colors' as cl;
+@use '@/styles/variables/typography' as ty;
 @use '@/styles/mixins/mixins' as mx;
+@use '@/styles/mixins/functions' as fn;
+
 
 .about {
   display: flex;
-  height: 100vh;
-  align-items: flex-end;
+  height: auto;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 50vh;
-  color: rgb(211, 211, 211);
+  margin-bottom: fn.rem(64);
+  color: rgba(cl.$color__white, 0.83);
+
+  @include mx.respond-to('tablet') {
+    height: 100vh;
+    align-items: flex-end;
+    margin-bottom: 50vh;
+  }
 }
 
 .content {
@@ -17,10 +26,26 @@
   justify-content: center;
 
   p {
-    font-size: 36px;
-    margin: 0px;
-    margin-right: 22px;
+    font-family: ty.$font__main;
+    font-size: fn.rem(24);
+    margin: 0;
+    margin-right: fn.rem(12);
     font-weight: 400;
+
+    @include mx.respond-to('mobile') {
+      font-size: fn.rem(28);
+      margin-right: fn.rem(16);
+    }
+
+    @include mx.respond-to('tablet') {
+      font-size: fn.rem(32);
+      margin-right: fn.rem(20);
+    }
+
+    @include mx.respond-to('desktop') {
+      font-size: fn.rem(36);
+      margin-right: fn.rem(22);
+    }
   }
   span {
     opacity: 0.2;

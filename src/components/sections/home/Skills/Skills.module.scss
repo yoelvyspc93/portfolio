@@ -1,44 +1,56 @@
 @use '@/styles/variables/colors' as cl;
 @use '@/styles/mixins/mixins' as mx;
 @use '@/styles/variables/typography' as ty;
+@use '@/styles/mixins/functions' as fn;
 
 .section {
-  color: rgba(255, 255, 255, 0.88);
-  padding-block: clamp(64px, 12vw, 160px);
+  color: rgba(cl.$color__white, 0.88);
+  padding-block: clamp(fn.rem(48), 12vw, fn.rem(160));
 }
 
 .container {
-  width: min(980px, 92vw);
+  width: min(fn.rem(980), 92vw);
   margin-inline: auto;
   text-align: center;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: fn.rem(24);
+
+  @include mx.respond-to('tablet') {
+    gap: fn.rem(32);
+  }
 }
 
 .title {
   font-family: ty.$font__secondary;
-  font-size: 32px;
+  font-size: fn.rem(32);
   font-weight: 400;
-  color: #ffffff;
+  color: cl.$color__white;
 
   @include mx.respond-to('tablet') {
-    font-size: 54px;
+    font-size: fn.rem(54);
   }
   @include mx.respond-to('desktop') {
-    font-size: 64px;
+    font-size: fn.rem(64);
   }
 
   span {
-    color: #86a7ff;
+    color: cl.$color__light-blue;
   }
 }
 
 .subtitle {
   margin: 0 auto;
-  max-width: 970px;
-  font-size: 36px;
-  color: #ffffff;
+  max-width: fn.rem(970);
+  font-size: fn.rem(24);
+  color: cl.$color__white;
+
+  @include mx.respond-to('tablet') {
+    font-size: fn.rem(30);
+  }
+  @include mx.respond-to('desktop') {
+    font-size: fn.rem(36);
+  }
 }
