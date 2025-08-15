@@ -4,13 +4,13 @@ import { InputField } from '@/components/common/Form/InputField';
 import styles from './Contact.module.scss';
 import { FormEvent, useState, useRef, useEffect } from 'react';
 import { TextAreaField } from '@/components/common/Form/TextAreaField';
-import { GradientButton } from '@/components/common/GradientButton';
 import { contactInfo } from '@/constants/contact';
 import { useTranslation } from '../../../../hooks/useTranslation';
 import { useMailTo } from '@/hooks/useMailTo';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { Button } from '@/components/common/Button';
 
 export const EMAIL_REGEX =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$/i;
@@ -222,7 +222,7 @@ export const Contact = () => {
                     {errors.message}
                   </span>
                 )}
-                <GradientButton type="submit">{t('form.send')}</GradientButton>
+                <Button type="submit">{t('form.send')}</Button>
               </>
             )}
           </form>
