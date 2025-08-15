@@ -1,0 +1,44 @@
+@use '@/styles/variables/colors' as cl;
+@use '@/styles/mixins/mixins' as mx;
+@use '@/styles/variables/typography' as ty;
+
+.section {
+  color: rgba(255, 255, 255, 0.88);
+  padding-block: clamp(64px, 12vw, 160px);
+}
+
+.container {
+  width: min(980px, 92vw);
+  margin-inline: auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.title {
+  font-family: ty.$font__secondary;
+  font-size: 32px;
+  font-weight: 400;
+  color: #ffffff;
+
+  @include mx.respond-to('tablet') {
+    font-size: 54px;
+  }
+  @include mx.respond-to('desktop') {
+    font-size: 64px;
+  }
+
+  span {
+    color: #86a7ff;
+  }
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 970px;
+  font-size: 36px;
+  color: #ffffff;
+}

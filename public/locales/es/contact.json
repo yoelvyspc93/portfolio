@@ -14,7 +14,7 @@
       "label": "Mensaje",
       "placeholder": "Hola Yoelvys, me gustaría..."
     },
-    "send": "Enviar",
+    "send": "Enviar Mensaje",
     "success": "Mensaje enviado con éxito",
     "errors": {
       "emailRequired": "El correo es obligatorio.",

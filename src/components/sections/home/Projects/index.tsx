@@ -4,7 +4,6 @@ import { projectsData } from '@/constants/projects';
 import styles from './Projects.module.scss';
 import { ProjectsCard } from '@/components/common/ProjectsCard';
 
-import { useRouter } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,7 +12,6 @@ import { Button } from '@/components/common/Button';
 import { useTranslation } from '@/hooks/useTranslation';
 
 export const Projects = () => {
-  const router = useRouter();
   const { t } = useTranslation('projects');
   const prefersReducedMotion = usePrefersReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -100,7 +98,6 @@ export const Projects = () => {
             <button
               type="button"
               key={projectData.id}
-              onClick={() => router.push(`/all_projects/?#${projectData.id}`)}
               ref={(el) => {
                 cardsRef.current[index] = el;
               }}
@@ -115,9 +112,7 @@ export const Projects = () => {
         })}
       </div>
       <div ref={buttonRef}>
-        <Button onClick={() => router.push('/all_projects')}>
-          {t('seeMore')}
-        </Button>
+        <Button>{t('seeMore')}</Button>
       </div>
     </section>
   );

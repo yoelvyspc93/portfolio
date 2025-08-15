@@ -1,5 +1,5 @@
-import styles from './ProjectsCard.module.scss';
 import { CircleButton } from '../CircleButton';
+import styles from './ProjectsCard.module.scss';
 
 interface Props {
   number: string;
