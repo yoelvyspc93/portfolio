@@ -1,11 +1,12 @@
 @use '@/styles/variables/colors' as cl;
 @use '@/styles/variables/typography' as ty;
 @use '@/styles/mixins/mixins' as mx;
+@use '@/styles/mixins/functions' as fn;
 
 .header {
   position: relative;
   isolation: isolate;
-  padding: 0 16px;
+  padding: 0 fn.rem(16px);
   display: grid;
   place-items: center;
   min-height: 100svh;
@@ -19,48 +20,63 @@
 .content {
   text-align: center;
   margin-inline: auto;
-  max-width: 920px;
+  max-width: fn.rem(920px);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: fn.rem(32px);
 }
 
 .title {
   font-family: ty.$font__secondary;
   text-transform: uppercase;
-  font-size: 96px;
+  font-size: fn.rem(48px);
   line-height: normal;
   font-weight: 800;
-  color: #fff;
+  color: cl.$color__white;
+
+  @include mx.respond-to('tablet') {
+    font-size: fn.rem(72px);
+  }
+  @include mx.respond-to('desktop') {
+    font-size: fn.rem(96px);
+  }
 
   span {
-    color: #86a7ff;
+    color: cl.$color__accent;
   }
 }
 
 .description {
-  margin-top: 1.25rem;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 20px;
+  margin-top: fn.rem(12px);
+  color: rgba(cl.$color__white, 0.88);
+  font-size: fn.rem(20px);
   line-height: 140%;
-  max-width: 520px;
+  max-width: fn.rem(520px);
   letter-spacing: 0.02em;
+
+  @include mx.respond-to('tablet') {
+    margin-top: fn.rem(20px);
+  }
 }
 
 .buttons {
-  margin-top: 2rem;
+  margin-top: fn.rem(24px);
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+
+  @include mx.respond-to('tablet') {
+    margin-top: fn.rem(32px);
+  }
 }
 
 .button {
   /* Asegura foco visible si el botón no lo define internamente */
   &:focus-visible {
-    outline: 2px solid #86a7ff;
+    outline: fn.rem(2px) solid cl.$color__accent;
     outline-offset: 2px;
   }
 }
@@ -115,12 +131,4 @@
   top: 60%;
 }
 
-/* Responsivo fino */
-@media (max-width: 640px) {
-  .description {
-    margin-top: 0.75rem;
-  }
-  .buttons {
-    margin-top: 1.5rem;
-  }
-}
+/* Responsivo fino handled above with mixins */
