@@ -1,0 +1,28 @@
+@use '@/styles/variables/colors' as cl;
+@use '@/styles/mixins/mixins' as mx;
+
+.about {
+  display: flex;
+  height: 100vh;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 50vh;
+  color: rgb(211, 211, 211);
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  p {
+    font-size: 36px;
+    margin: 0px;
+    margin-right: 22px;
+    font-weight: 400;
+  }
+  span {
+    opacity: 0.2;
+  }
+}

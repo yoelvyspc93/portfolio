@@ -1,6 +1,7 @@
 {
   "main": "My Main Projects",
-  "latest": "4 Latest Projects",
+  "latest": "4 Latest",
+  "latestHighlight": "Projects",
   "seeMore": "See More",
   "list": {
     "01": {
