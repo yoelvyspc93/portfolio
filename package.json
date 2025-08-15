@@ -9,6 +9,7 @@
     "lint": "next lint --dir src/",
     "lint:fix": "next lint --dir src/ --fix",
     "format": "prettier --write .",
+    "postbuild": "next-sitemap",
     "audit:security": "yarn audit --level moderate",
     "update:security": "yarn upgrade --pattern next"
   },
@@ -17,6 +18,7 @@
     "gsap": "^3.12.5",
     "next": "15.2.4",
     "next-intl": "^4.3.4",
+    "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sass": "^1.83.0",
