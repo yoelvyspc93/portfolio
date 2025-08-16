@@ -1,11 +1,12 @@
 @use '@/styles/variables/colors' as cl;
 @use '@/styles/variables/typography' as ty;
 @use '@/styles/mixins/mixins' as mx;
+@use '@/styles/mixins/functions' as fn;
 
 .header {
   position: relative;
   isolation: isolate;
-  padding: 0 16px;
+  padding: fn.rems(0 16);
   display: grid;
   place-items: center;
   min-height: 100svh;
@@ -19,49 +20,65 @@
 .content {
   text-align: center;
   margin-inline: auto;
-  max-width: 920px;
+  max-width: fn.rem(920);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: fn.rem(32);
 }
 
 .title {
   font-family: ty.$font__secondary;
   text-transform: uppercase;
-  font-size: 96px;
+  font-size: fn.rem(48);
   line-height: normal;
   font-weight: 800;
-  color: #fff;
+  color: cl.$color__white;
+
+  @include mx.respond-to('tablet') {
+    font-size: fn.rem(72);
+  }
+
+  @include mx.respond-to('desktop') {
+    font-size: fn.rem(96);
+  }
 
   span {
-    color: #86a7ff;
+    color: cl.$color__light-blue;
   }
 }
 
 .description {
-  margin-top: 1.25rem;
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 20px;
+  margin-top: fn.rem(12);
+  color: rgba(cl.$color__white, 0.88);
+  font-size: fn.rem(16);
   line-height: 140%;
-  max-width: 520px;
+  max-width: fn.rem(520);
   letter-spacing: 0.02em;
+
+  @include mx.respond-to('tablet') {
+    margin-top: fn.rem(20);
+    font-size: fn.rem(20);
+  }
 }
 
 .buttons {
-  margin-top: 2rem;
+  margin-top: fn.rem(24);
   display: flex;
-  gap: 1rem;
+  gap: fn.rem(16);
   justify-content: center;
   flex-wrap: wrap;
+
+  @include mx.respond-to('tablet') {
+    margin-top: fn.rem(32);
+  }
 }
 
 .button {
-  /* Asegura foco visible si el botón no lo define internamente */
   &:focus-visible {
-    outline: 2px solid #86a7ff;
-    outline-offset: 2px;
+    outline: fn.rem(2) solid cl.$color__light-blue;
+    outline-offset: fn.rem(2);
   }
 }
 
@@ -73,6 +90,7 @@
   width: 100%;
   height: 100%;
   z-index: 0;
+  overflow: hidden;
 }
 
 .brandItem {
@@ -113,14 +131,4 @@
   /* typescript */
   right: 0%;
   top: 60%;
-}
-
-/* Responsivo fino */
-@media (max-width: 640px) {
-  .description {
-    margin-top: 0.75rem;
-  }
-  .buttons {
-    margin-top: 1.5rem;
-  }
 }

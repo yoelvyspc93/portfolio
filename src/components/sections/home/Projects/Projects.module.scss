@@ -1,40 +1,46 @@
 @use '@/styles/variables/colors' as cl;
 @use '@/styles/variables/typography' as ty;
 @use '@/styles/mixins/mixins' as mx;
+@use '@/styles/mixins/functions' as fn;
 
 .projects {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: fn.rem(24);
   max-width: 100%;
   height: auto;
   max-height: 100%;
-  padding: 100px 0 100px;
+  padding: fn.rems(64 0);
+
+  @include mx.respond-to('mobile') {
+    gap: fn.rem(32);
+    padding: fn.rems(80 0);
+  }
 
   @include mx.respond-to('tablet') {
-    padding: 140px 0 100px;
-    gap: 50px;
+    padding: fn.rem(140) 0 fn.rem(100);
+    gap: fn.rem(50);
   }
   @include mx.respond-to('desktop') {
-    gap: 60px;
+    gap: fn.rem(60);
   }
 
   h2 {
     font-family: ty.$font__secondary;
-    font-size: 32px;
+    font-size: fn.rem(32);
     font-weight: 400;
-    color: #ffffff;
+    color: cl.$color__white;
 
     @include mx.respond-to('tablet') {
-      font-size: 54px;
+      font-size: fn.rem(54);
     }
     @include mx.respond-to('desktop') {
-      font-size: 64px;
+      font-size: fn.rem(64);
     }
 
     span {
-      color: #86a7ff;
+      color: cl.$color__light-blue;
     }
   }
 

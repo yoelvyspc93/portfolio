@@ -1,29 +1,21 @@
 {
-  "title": "Contáctame",
-  "subtitle": "¡Construyamos algo increíble juntos!",
-  "messages": [
-    "Siempre estoy abierto a nuevas oportunidades, colaboraciones y proyectos emocionantes. Si tienes alguna pregunta o simplemente quieres saludar, no dudes en enviarme un mensaje.",
-    "¡Estaré encantado de responder lo antes posible!"
+  "title": "CONTACTAME",
+  "description": [
+    "Siempre estoy abierto a nuevas oportunidades, colaboraciones y proyectos emocionantes. Si tienes alguna pregunta o simplemente quieres saludar, no dudes en contactarme.",
+    "¡Me encantaré responder lo antes posible!"
   ],
   "form": {
     "email": {
-      "label": "Correo electrónico",
-      "placeholder": "tu@email.com"
+      "label": "Email",
+      "placeholder": "Tu email"
     },
     "message": {
       "label": "Mensaje",
-      "placeholder": "Hola Yoelvys, me gustaría..."
+      "placeholder": [
+        "Tu mensaje",
+        "Tu mensaje2"
+      ]
     },
-    "send": "Enviar Mensaje",
-    "success": "Mensaje enviado con éxito",
-    "errors": {
-      "emailRequired": "El correo es obligatorio.",
-      "emailInvalid": "Introduce una dirección de correo válida.",
-      "messageRequired": "El mensaje es obligatorio.",
-      "messageTooShort": "El mensaje debe tener al menos 3 caracteres."
-    }
-  },
-  "social": {
-    "title": "Sígueme en"
+    "submit": "Enviar mensaje"
   }
 }
