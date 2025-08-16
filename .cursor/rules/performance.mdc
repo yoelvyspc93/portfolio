@@ -7,7 +7,7 @@ description: Performance guidance for static export, images, animations, and bun
 
 ## Static export & base path
 
-- The app is statically exported with a production base path `/portfolio` (see [next.config.ts](mdc:next.config.ts)).
+- The app is statically exported with a production base path `/` (see [next.config.ts](mdc:next.config.ts)).
 - Prefer build-time data. Avoid runtime fetches on the client.
 
 ## Images

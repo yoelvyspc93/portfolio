@@ -10,7 +10,7 @@ description: Architectural guidelines for app router, i18n, layout, and componen
 - App Router with locale segment:
   - Root redirect: [src/app/page.tsx](mdc:src/app/page.tsx) → redirects to `/${routing.defaultLocale}`.
   - Locale layout: [src/app/[locale]/layout.tsx](mdc:src/app/%5Blocale%5D/layout.tsx) wraps pages with `NextIntlClientProvider`, `Navigator`, and `Footer`.
-- Static export with base path `/portfolio` in production: [next.config.ts](mdc:next.config.ts).
+- Static export in production: [next.config.ts](mdc:next.config.ts).
 
 ## Internationalization
 

@@ -8,7 +8,7 @@ description: Core conventions and project overview for the Next.js 15 + TypeScri
 This repository is a static-exported portfolio built with Next.js 15, React 19, TypeScript (strict), SCSS Modules, and next-intl.
 
 - Framework: Next.js App Router with static export and base path.
-  - See [next.config.ts](mdc:next.config.ts) → `output: 'export'` and production `basePath: '/portfolio'`.
+  - See [next.config.ts](mdc:next.config.ts) → `output: 'export'`.
 - Internationalization: next-intl configured via plugin.
   - See [next-intl.config.ts](mdc:next-intl.config.ts) and [src/utils/request.ts](mdc:src/utils/request.ts).
 - SEO defaults live in [src/constants/metadata.ts](mdc:src/constants/metadata.ts).
