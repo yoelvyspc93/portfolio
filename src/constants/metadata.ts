@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
 
 const SITE_URL =
-  process.env?.NEXT_PUBLIC_SITE_URL ||
-  'https://yoelvyspc93.github.io/portfolio';
+  process.env?.NEXT_PUBLIC_SITE_URL || 'https://yoelvyspc93.github.io';
 
 const description =
   'I am Yoelvys, a frontend developer specialized in Next.js, React, and modern technologies. Explore my portfolio featuring innovative projects, advanced animations, and scalable solutions.';
@@ -14,9 +13,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Yoelvys Perez Cabrera' }],
   //themeColor: '#1D212C',
   icons: {
-    icon: '/portfolio/favicon.ico',
-    shortcut: '/portfolio/favicon.png',
-    apple: '/portfolio/favicon.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
     // apple: "/apple-touch-icon.png",
   },
   alternates: {
