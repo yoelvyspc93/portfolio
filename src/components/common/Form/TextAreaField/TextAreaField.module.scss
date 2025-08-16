@@ -27,24 +27,21 @@
 .textarea {
   width: 100%;
   min-height: 100px;
-  background-color: #1e1e2f;
+  background-color: rgba(255, 255, 255, 0.05);
   border: 2px solid transparent;
-  border-radius: 12px;
+  border-radius: 20px;
   padding: 10px 15px;
   color: white;
   font-size: 1rem;
   outline: none;
-  resize: vertical;
+  resize: none;
   transition: all 0.3s ease;
-  background-image:
-    linear-gradient(#1e1e2f, #1e1e2f), cl.$color__linear-gradient;
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+
   @include mx.respond-to('tablet') {
     min-height: 130px;
   }
   &:focus-visible {
-    box-shadow: 0 0 8px 1px #7779e7;
+    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.2);
   }
 }
 

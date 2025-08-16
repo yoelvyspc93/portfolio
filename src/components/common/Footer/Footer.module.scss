@@ -2,31 +2,49 @@
 @use '@/styles/mixins/mixins' as mx;
 
 .footer {
-  text-align: center;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  padding: 20px 16px;
-  max-width: 600px;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  padding: 32px 16px;
+  overflow: hidden;
+
+  height: 100%;
+  max-height: 100%;
 
   @include mx.respond-to('tablet') {
-    max-width: 1000px;
-    padding: 20px 32px;
+    padding: 40px 24px;
   }
   @include mx.respond-to('desktop') {
-    max-width: 1200px;
-    padding: 20px 0;
+    padding: 48px 0;
   }
 }
 
-.divider {
-  border-radius: 50%;
-  width: 100%;
-  height: 4px;
-  background: cl.$color__linear-gradient;
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: center;
+
+  @include mx.respond-to('tablet') {
+    gap: 20px;
+  }
+}
+
+.copyrightText {
+  margin: 0;
+  color: cl.$color__white;
+  font-size: 14px;
+  line-height: 1.4;
+
+  @include mx.respond-to('tablet') {
+    font-size: 15px;
+  }
 }
 
 .navMenu {
@@ -34,24 +52,17 @@
     list-style: none;
     padding: 0;
     margin: 0;
+
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
+
+    @include mx.respond-to('tablet') {
+      gap: 28px;
+    }
 
     li {
-      a {
-        color: cl.$color__white;
-        text-decoration: none;
-
-        &:hover,
-        &.active {
-          background: cl.$color__linear-gradient;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-      }
-
       .linkButton {
         background: none;
         border: none;
@@ -60,11 +71,14 @@
         padding: 0;
         font: inherit;
         text-decoration: none;
+        font-size: 16px;
+        line-height: 1.4;
+        transition: all 0.3s ease;
 
-        &:hover,
-        &.active {
+        &:hover {
           background: cl.$color__linear-gradient;
           background-clip: text;
+          -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
       }
@@ -72,18 +86,26 @@
   }
 }
 
-.socialLinks {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 
-  a {
-    color: cl.$color__white;
-    transition: color 0.3s ease;
-
-    svg {
-      width: 20px;
-      height: 20px;
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #010101f7 50%, #010101e4 100%);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
   }
+}
+
+.bgImage {
+  object-fit: contain;
+  object-position: center bottom;
+  width: 100%;
+  height: 100%;
 }

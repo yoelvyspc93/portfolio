@@ -76,7 +76,6 @@
 }
 
 .button {
-  /* Asegura foco visible si el botón no lo define internamente */
   &:focus-visible {
     outline: fn.rem(2) solid cl.$color__light-blue;
     outline-offset: fn.rem(2);
@@ -91,6 +90,7 @@
   width: 100%;
   height: 100%;
   z-index: 0;
+  overflow: hidden;
 }
 
 .brandItem {

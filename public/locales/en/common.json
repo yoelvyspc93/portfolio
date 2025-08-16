@@ -15,5 +15,8 @@
   "lang": {
     "en": "English",
     "es": "Spanish"
+  },
+  "footer": {
+    "copyright": "© 2025 Built by Yoelvys. All rights reserved."
   }
 }

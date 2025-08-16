@@ -1,0 +1,91 @@
+@use '@/styles/variables/colors' as cl;
+@use '@/styles/variables/typography' as ty;
+@use '@/styles/mixins/mixins' as mx;
+@use '@/styles/mixins/functions' as fn;
+
+.contact {
+  padding: fn.rem(32) fn.rem(24);
+
+  @include mx.respond-to('tablet') {
+    padding: fn.rem(64);
+  }
+}
+
+.container {
+  max-width: fn.rem(1200);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: fn.rem(48);
+
+  @include mx.respond-to('desktop') {
+    flex-direction: row;
+    gap: fn.rem(80);
+  }
+}
+
+.content,
+.form {
+  flex: 1;
+}
+
+.title {
+  font-family: ty.$font__secondary;
+  font-size: fn.rem(36);
+  font-weight: 700;
+  margin-bottom: fn.rem(16);
+
+  @include mx.respond-to('tablet') {
+    font-size: fn.rem(48);
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: fn.rem(16);
+  font-size: fn.rem(16);
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: fn.rem(40);
+
+  @include mx.respond-to('tablet') {
+    font-size: fn.rem(18);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: fn.rem(24);
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: fn.rem(16);
+
+  svg {
+    width: fn.rem(24);
+    height: fn.rem(24);
+  }
+
+  span {
+    font-size: fn.rem(16);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: fn.rem(40) fn.rem(30);
+  gap: fn.rem(30);
+  background-color: #121212;
+  border-radius: fn.rem(24);
+
+  button {
+    margin-top: fn.rem(16);
+    align-self: flex-end;
+  }
+}
