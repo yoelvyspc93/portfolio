@@ -56,19 +56,23 @@ export const metadata: Metadata = {
 
 export const schemaData = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
+  '@type': ['Person', 'SoftwareDeveloper'],
   name: 'Yoelvys Pérez Cabrera',
   email: 'yoelvyspc93@gmail.com',
   telephone: '+53 54773819',
   birthDate: '1993-07-06',
   url: SITE_URL,
   jobTitle: 'Frontend Developer',
+  knowsAbout: ['Next.js', 'React', 'TypeScript'],
   worksFor: {
     '@type': 'Organization',
     name: 'Dspot Sp. z o.o.',
     url: 'https://www.dspot.com.pl',
   },
-  sameAs: [SITE_URL, 'https://linkedin.com/in/yoelvys'],
+  sameAs: [
+    'https://github.com/yoelvyspc93',
+    'https://www.linkedin.com/in/yoelvys-perez-cabrera',
+  ],
   address: {
     '@type': 'PostalAddress',
     addressRegion: 'Villa Clara',
