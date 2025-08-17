@@ -50,8 +50,7 @@
     "yarn": ">=1.22.0"
   },
   "browserslist": [
-    "defaults and supports es2020",
-    "not IE 11",
+    "defaults and fully supports es6-module",
     "maintained node versions"
   ]
 }
