@@ -7,9 +7,8 @@
   width: 100%;
   padding: 32px 16px;
   overflow: hidden;
-
   height: 100%;
-  max-height: 100%;
+  min-height: 100%;
 
   @include mx.respond-to('tablet') {
     padding: 40px 24px;
@@ -26,23 +25,28 @@
   margin: 0 auto;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+  order: 1;
   gap: 16px;
   text-align: center;
 
   @include mx.respond-to('tablet') {
+    flex-direction: row;
     gap: 20px;
+    order: 0;
   }
 }
 
 .copyrightText {
+  order: 1;
   margin: 0;
   color: cl.$color__white;
   font-size: 14px;
   line-height: 1.4;
 
   @include mx.respond-to('tablet') {
+    order: 0;
     font-size: 15px;
   }
 }

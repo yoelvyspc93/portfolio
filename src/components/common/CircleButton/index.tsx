@@ -3,12 +3,12 @@ import styles from './CircleButton.module.scss';
 
 export const CircleButton = () => {
   return (
-    <button
+    <span
       aria-label="circle button"
-      type="button"
       className={styles.circle_button}
+      aria-hidden="true"
     >
       <ArrowIcon />
-    </button>
+    </span>
   );
 };
