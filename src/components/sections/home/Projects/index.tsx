@@ -15,7 +15,7 @@ export const Projects = () => {
   const { t } = useTranslation('projects');
   const prefersReducedMotion = usePrefersReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
-  const cardsRef = useRef<(HTMLButtonElement | null)[]>([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const buttonRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -95,19 +95,20 @@ export const Projects = () => {
             detailedDescription: string[];
           };
           return (
-            <button
-              type="button"
+            <article
               key={projectData.id}
               ref={(el) => {
-                cardsRef.current[index] = el;
+                cardsRef.current[index] = el as HTMLDivElement;
               }}
+              className={styles.cardWrapper}
+              aria-label={`${project.title} project`}
             >
               <ProjectsCard
                 number={projectData.id}
                 title={project.title}
                 content={project.shortDescription}
               />
-            </button>
+            </article>
           );
         })}
       </div>

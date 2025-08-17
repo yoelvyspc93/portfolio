@@ -22,11 +22,11 @@ export function Contact() {
       <div className={styles.container}>
         <div className={styles.content}>
           <h2 className={styles.title}>{t('title')}</h2>
-          <p className={styles.description}>
+          <div className={styles.description}>
             {description.map((item, index) => (
-              <div key={index}>{item}</div>
+              <p key={index}>{item}</p>
             ))}
-          </p>
+          </div>
           <div className={styles.info}>
             <div className={styles.infoItem}>
               <EmailGradientIcon />

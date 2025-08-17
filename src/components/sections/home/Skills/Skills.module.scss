@@ -4,8 +4,10 @@
 @use '@/styles/mixins/functions' as fn;
 
 .section {
-  color: rgba(cl.$color__white, 0.88);
-  padding-block: clamp(fn.rem(48), 12vw, fn.rem(160));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {

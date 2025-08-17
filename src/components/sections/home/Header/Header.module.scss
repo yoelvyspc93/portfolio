@@ -9,6 +9,7 @@
   padding: fn.rems(0 16);
   display: grid;
   place-items: center;
+  max-width: 100%;
   min-height: 100svh;
 }
 
@@ -103,7 +104,7 @@
 
 .brandItem:nth-child(1) {
   /* storybook */
-  left: -20%;
+  left: 12%;
   top: 65%;
 }
 
@@ -119,16 +120,16 @@
 }
 .brandItem:nth-child(4) {
   /* cypress */
-  left: -10%;
+  left: 20%;
   top: 10%;
 }
 .brandItem:nth-child(5) {
   /* react */
-  right: -10%;
+  right: 10%;
   top: 10%;
 }
 .brandItem:nth-child(6) {
   /* typescript */
-  right: 0%;
+  right: 20%;
   top: 60%;
 }
