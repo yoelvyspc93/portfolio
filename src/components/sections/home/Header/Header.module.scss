@@ -5,7 +5,6 @@
 
 .header {
   position: relative;
-  isolation: isolate;
   padding: fn.rems(0 16);
   display: grid;
   place-items: center;
@@ -96,6 +95,7 @@
 
 .brandItem {
   position: absolute;
+  opacity: 0;
 }
 
 .brand {

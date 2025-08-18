@@ -78,7 +78,7 @@ export function Header({ onDownloadCv, onContact }: Props) {
         .fromTo(
           `.${styles.brands} > *`,
           { opacity: 0, y: 20 },
-          { opacity: 0.18, y: 0, stagger: 0.08 },
+          { opacity: 0.8, y: 0, stagger: 0.08 },
           '-=0.6',
         );
     }
