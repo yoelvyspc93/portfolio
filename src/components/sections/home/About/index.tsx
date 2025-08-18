@@ -74,19 +74,22 @@ export function About() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
     const ctx = gsap.context(() => {
       gsap.to(refs.current, {
-        scrollTrigger: {
-          trigger: container.current,
-          scrub: true,
-          start: 'top',
-          end: `+=${window.innerHeight / 1.5}`,
-        },
         opacity: 1,
         ease: 'none',
         stagger: 0.1,
+        scrollTrigger: {
+          trigger: container.current,
+          start: '50% 90%',
+          end: `+=${window.innerHeight / 2.5}`,
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
       });
     }, container);
+
     return () => ctx.revert();
   }, []);
 

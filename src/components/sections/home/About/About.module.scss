@@ -3,19 +3,17 @@
 @use '@/styles/mixins/mixins' as mx;
 @use '@/styles/mixins/functions' as fn;
 
-
 .about {
   display: flex;
   height: auto;
   align-items: center;
   justify-content: center;
   margin-bottom: fn.rem(64);
-  color: rgba(cl.$color__white, 0.83);
+  color: #fff;
 
   @include mx.respond-to('tablet') {
     height: 100vh;
-    align-items: flex-end;
-    margin-bottom: 50vh;
+    align-items: center;
   }
 }
 
@@ -48,6 +46,6 @@
     }
   }
   span {
-    opacity: 0.2;
+    opacity: 0.1;
   }
 }
