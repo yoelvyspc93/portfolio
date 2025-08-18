@@ -18,36 +18,46 @@ export const Footer = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const footerRef = useRef<HTMLDivElement | null>(null);
-  const navLinksRef = useRef<(HTMLLIElement | null)[]>([]);
+  const listRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
     if (prefersReducedMotion) return;
+
     gsap.registerPlugin(ScrollTrigger);
-    const footer = footerRef.current;
 
-    for (const link of navLinksRef.current) {
-      if (link) gsap.set(link, { opacity: 0, y: 20 });
-    }
+    const ctx = gsap.context(() => {
+      const items = [...(listRef.current?.querySelectorAll('li') ?? [])];
+      if (items.length === 0) return;
 
-    for (const [index, link] of navLinksRef.current.entries()) {
-      if (!link) continue;
-      gsap.to(link, {
-        opacity: 1,
+      gsap.set(items, { autoAlpha: 0, y: 16 });
+
+      const tl = gsap.timeline({ paused: true });
+      tl.to(items, {
+        autoAlpha: 1,
         y: 0,
-        duration: 0.6,
-        delay: index * 0.1,
+        duration: 0.5,
         ease: 'power2.out',
-        scrollTrigger: {
-          trigger: footer!,
-          start: 'top 100%',
-          once: true,
-        },
+        stagger: 0.08,
       });
-    }
 
-    return () => {
-      for (const trigger of ScrollTrigger.getAll()) trigger.kill();
-    };
+      const trigger = ScrollTrigger.create({
+        trigger: footerRef.current!,
+        start: 'top bottom',
+        once: true,
+        onEnter: () => tl.play(0),
+        onEnterBack: () => tl.play(0),
+      });
+
+      // si ya está visible al montar, anima inmediatamente
+      if (footerRef.current && ScrollTrigger.isInViewport(footerRef.current)) {
+        tl.play(0);
+      }
+
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+      return () => trigger.kill();
+    }, footerRef);
+
+    return () => ctx.revert();
   }, [prefersReducedMotion]);
 
   const handleClickItem = (href: string) => {
@@ -74,19 +84,14 @@ export const Footer = () => {
         <p className={styles.copyrightText}>{t('footer.copyright')}</p>
 
         <nav className={styles.navMenu} aria-label="Footer navigation">
-          <ul>
+          <ul ref={listRef}>
             {getNavigationItems(t)
               .filter(
                 (link) =>
                   link.name !== t('nav.home') && link.name !== t('nav.contact'),
               )
-              .map((link, index) => (
-                <li
-                  key={link.name}
-                  ref={(el) => {
-                    navLinksRef.current[index] = el;
-                  }}
-                >
+              .map((link) => (
+                <li key={link.name}>
                   <button
                     type="button"
                     onClick={() => handleClickItem(link.path)}
