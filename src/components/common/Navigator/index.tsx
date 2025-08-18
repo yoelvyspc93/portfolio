@@ -12,11 +12,14 @@ import { useViewports } from '@/hooks/useViewports';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useLocale } from 'next-intl';
 
 export const Navigator = () => {
   const { t } = useTranslation('common');
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
+  const oppositeLang = locale === 'es' ? 'en' : 'es';
   const { breakpoint } = useViewports();
   const [open, setOpen] = useState(false);
 
@@ -114,17 +117,15 @@ export const Navigator = () => {
         {featureFlags.showLanguage && (
           <div className={styles.navigator}>
             <ul>
-              {['en', 'es'].map((lng) => (
-                <li key={lng}>
-                  <button
-                    type="button"
-                    onClick={() => changeLanguage(lng)}
-                    className={styles.linkButton}
-                  >
-                    {t(`lang.${lng}`)}
-                  </button>
-                </li>
-              ))}
+              <li>
+                <button
+                  type="button"
+                  onClick={() => changeLanguage(oppositeLang)}
+                  className={styles.linkButton}
+                >
+                  {t(`lang.${oppositeLang}`)}
+                </button>
+              </li>
             </ul>
           </div>
         )}
@@ -137,7 +138,7 @@ export const Navigator = () => {
         aria-expanded={open}
         aria-controls="main-navigation"
         aria-keyshortcuts="Alt+M"
-      ></button>
+      />
     </nav>
   );
 };
