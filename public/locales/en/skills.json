@@ -1,6 +1,8 @@
 {
-  "title": "My Skills",
-  "names": [
+  "title": "My",
+  "titleHighlight": "Skills",
+  "description": "I approach every project as an opportunity to refine my skills and create meaningful results.",
+  "list": [
     "Next.js",
     "CSS3",
     "Redux",

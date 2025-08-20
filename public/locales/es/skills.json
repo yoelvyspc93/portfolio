@@ -1,6 +1,8 @@
 {
-  "title": "Mis Habilidades",
-  "names": [
+  "title": "Mis",
+  "titleHighlight": "Habilidades",
+  "description": "Aprendo de cada proyecto para mejorar mis habilidades y crear resultados significativos.",
+  "list": [
     "Next.js",
     "CSS3",
     "Redux",
