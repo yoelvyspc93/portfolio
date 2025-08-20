@@ -3,25 +3,26 @@
 @use '@/styles/variables/typography' as ty;
 @use '@/styles/mixins/functions' as fn;
 
-.section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+.skills {
+  width: 100%;
+  height: 100vh;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
 
-.container {
-  width: min(fn.rem(980), 92vw);
-  margin-inline: auto;
-  text-align: center;
+  touch-action: pan-y;
+  background-color: #121212;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: fn.rem(24);
-
-  @include mx.respond-to('tablet') {
-    gap: fn.rem(32);
+  .info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -45,6 +46,7 @@
 
 .subtitle {
   margin: 0 auto;
+  text-align: center;
   max-width: fn.rem(970);
   font-size: fn.rem(24);
   color: cl.$color__white;
@@ -55,4 +57,23 @@
   @include mx.respond-to('desktop') {
     font-size: fn.rem(36);
   }
+}
+
+.skillCard {
+  width: auto;
+  height: 46px;
+  position: absolute;
+  background: #fff;
+
+  border-radius: 12px;
+  padding: 20px 32px;
+  color: #1a1a1a;
+  font-weight: 400;
+  font-size: 24px;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  will-change: transform;
 }
