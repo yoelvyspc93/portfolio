@@ -1,25 +1,28 @@
 {
-  "title": "Mi Experiencia",
-  "techTitle": "Tecnologías Aprendidas",
-  "seeMore": "Ver más",
-  "list": {
-    "01": {
-      "period": "2022 - Presente",
+  "title": "Mi",
+  "titleHighlight": "Experiencia",
+  "list": [
+    {
+      "period": "2022 - Hoy",
       "company": "Dspot Team",
-      "summary": "Contribuí en más de 10 proyectos, incluyendo páginas de aterrizaje con animaciones avanzadas y SEO optimizado, así como aplicaciones complejas que manejan grandes volúmenes de datos. Usando herramientas como Next.js, entregué soluciones innovadoras y experiencias visuales únicas.",
-      "details": [
-        "Contribuí en más de 10 proyectos, incluyendo páginas de aterrizaje con animaciones avanzadas y SEO optimizado, así como aplicaciones complejas que manejan grandes volúmenes de datos. Usando herramientas como Next.js, entregué soluciones innovadoras y experiencias visuales únicas.",
-        "También colaboré en mejorar la infraestructura técnica, asegurando rendimiento y confiabilidad en diversos proyectos."
+      "paragraphs": [
+        "Participé en más de 10 proyectos que incluían páginas de aterrizaje con animaciones avanzadas y SEO optimizado, así como aplicaciones complejas diseñadas para manejar grandes volúmenes de datos. Gracias al uso de herramientas modernas como Next.js, desarrollé soluciones técnicas innovadoras y experiencias visuales únicas.",
+        "Participé en más de 10 proyectos que incluían páginas de aterrizaje con animaciones avanzadas y SEO optimizado, así como aplicaciones complejas diseñadas para manejar grandes volúmenes de datos. Gracias al uso de herramientas modernas como Next.js, desarrollé soluciones técnicas innovadoras y experiencias visuales únicas."
       ]
     },
-    "02": {
+    {
       "period": "2020 - 2022",
       "company": "Datazucar",
-      "summary": "Contribuí a diseñar y desarrollar soluciones críticas de negocio para planificación y gestión económica, utilizadas por más del 60% de las empresas del país. Me enfoqué en construir interfaces avanzadas de Ext JS y sistemas backend robustos con Django, optimizando la eficiencia operacional.",
-      "details": [
-        "Contribuí a diseñar y desarrollar soluciones críticas de negocio para planificación y gestión económica, utilizadas por más del 60% de las empresas del país.",
-        "Además, implementé mejoras de rendimiento y aseguré la escalabilidad del sistema para satisfacer las demandas de alto volumen."
+      "paragraphs": [
+        "Participé en más de 10 proyectos que incluían páginas de aterrizaje con animaciones avanzadas y SEO optimizado, así como aplicaciones complejas diseñadas para manejar grandes volúmenes de datos. Gracias al uso de herramientas modernas como Next.js, desarrollé soluciones técnicas innovadoras y experiencias visuales únicas."
+      ]
+    },
+    {
+      "period": "2013 – 2018",
+      "company": "Universidad",
+      "paragraphs": [
+        "Participé en más de 10 proyectos que incluían páginas de aterrizaje con animaciones avanzadas y SEO optimizado, así como aplicaciones complejas diseñadas para manejar grandes volúmenes de datos. Gracias al uso de herramientas modernas como Next.js, desarrollé soluciones técnicas innovadoras y experiencias visuales únicas."
       ]
     }
-  }
+  ]
 }

@@ -1,5 +1,14 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import styles from './Experience.module.scss';
 import { CustomImage } from '@/components/common/CustomImage';
+import { useTranslation } from '@/hooks/useTranslation';
+
+gsap.registerPlugin(ScrollTrigger);
 
 type ExperienceImage = {
   src: string;
@@ -9,108 +18,168 @@ type ExperienceImage = {
 };
 
 type ExperienceItem = {
-  id: string;
   period: string;
   company: string;
   paragraphs: string[];
-  images?: ExperienceImage[];
 };
 
-const ITEMS: ExperienceItem[] = [
-  {
-    id: 'dspot',
-    period: '2022 – Today',
-    company: 'DSpot Team',
-    paragraphs: [
-      'I was part of more than 10 projects that included landing pages with advanced animations and optimized SEO, as well as complex applications designed to manage large volumes of data. Thanks to the use of modern tools like Next.js, I developed innovative technical solutions and unique visual experiences.',
-      'I was part of more than 10 projects that included landing pages with advanced animations and optimized SEO, as well as complex applications designed to manage large volumes of data. Thanks to the use of modern tools like Next.js, I developed innovative technical solutions and unique visual experiences.',
-    ],
-    images: [
-      {
-        src: '/images/projects/flowsev.webp',
-        alt: 'Code screen',
-        width: 800,
-        height: 600,
-      },
-      {
-        src: '/images/projects/pioneerz.webp',
-        alt: 'Typing close-up',
-        width: 800,
-        height: 600,
-      },
-      {
-        src: '/images/projects/flowsev.webp',
-        alt: 'Laptop with charts',
-        width: 800,
-        height: 600,
-      },
-      {
-        src: '/images/projects/pioneerz.webp',
-        alt: 'Code editor detail',
-        width: 800,
-        height: 600,
-      },
-    ],
-  },
-  {
-    id: 'datatucar',
-    period: '2020 – 2022',
-    company: 'Datatucar',
-    paragraphs: [
-      'I was part of more than 10 projects that included landing pages with advanced animations and optimized SEO, as well as complex applications designed to manage large volumes of data. Thanks to the use of modern tools like Next.js, I developed innovative technical solutions and unique visual experiences.',
-    ],
-    images: [
-      {
-        src: '/images/projects/pioneerz.webp',
-        alt: 'Code screen',
-        width: 800,
-        height: 600,
-      },
-      {
-        src: '/images/projects/flowsev.webp',
-        alt: 'Typing close-up',
-        width: 800,
-        height: 600,
-      },
-    ],
-  },
-  {
-    id: 'university',
-    period: '2013 – 2018',
-    company: 'University',
-    paragraphs: [
-      'I was part of more than 10 projects that included landing pages with advanced animations and optimized SEO, as well as complex applications designed to manage large volumes of data. Thanks to the use of modern tools like Next.js, I developed innovative technical solutions and unique visual experiences.',
-    ],
-    images: [
-      {
-        src: '/images/projects/flowsev.webp',
-        alt: 'Code screen',
-        width: 800,
-        height: 600,
-      },
-      {
-        src: '/images/projects/pioneerz.webp',
-        alt: 'Typing close-up',
-        width: 800,
-        height: 600,
-      },
-    ],
-  },
+const images: ExperienceImage[][] = [
+  [
+    {
+      src: '/images/projects/flowsev.webp',
+      alt: 'Code screen',
+      width: 800,
+      height: 600,
+    },
+    {
+      src: '/images/projects/pioneerz.webp',
+      alt: 'Typing close-up',
+      width: 800,
+      height: 600,
+    },
+    {
+      src: '/images/projects/flowsev.webp',
+      alt: 'Laptop with charts',
+      width: 800,
+      height: 600,
+    },
+    {
+      src: '/images/projects/pioneerz.webp',
+      alt: 'Code editor detail',
+      width: 800,
+      height: 600,
+    },
+  ],
+  [
+    {
+      src: '/images/projects/pioneerz.webp',
+      alt: 'Code screen',
+      width: 800,
+      height: 600,
+    },
+    {
+      src: '/images/projects/flowsev.webp',
+      alt: 'Typing close-up',
+      width: 800,
+      height: 600,
+    },
+  ],
+  [
+    {
+      src: '/images/projects/flowsev.webp',
+      alt: 'Code screen',
+      width: 800,
+      height: 600,
+    },
+    {
+      src: '/images/projects/pioneerz.webp',
+      alt: 'Typing close-up',
+      width: 800,
+      height: 600,
+    },
+  ],
 ];
 
 export function Experience() {
+  const { t } = useTranslation('experience');
+
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const timelineRef = useRef<HTMLOListElement | null>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    const section = sectionRef.current!;
+    const timeline = timelineRef.current!;
+    const items = gsap.utils.toArray<HTMLElement>(`.${styles.item}`);
+    const lineProgress = timeline.querySelector<HTMLElement>(
+      `.${styles.lineProgress}`,
+    );
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: timeline,
+        start: `top top+=${window.innerHeight / 2}`,
+        end: `bottom ${window.innerHeight / 2}`,
+        scrub: true,
+        onUpdate: (self) => {
+          if (lineProgress) gsap.set(lineProgress, { scaleY: self.progress });
+        },
+      });
+
+      for (const el of items) {
+        const left = el.querySelector<HTMLElement>(`.${styles.left}`);
+        const right = el.querySelector<HTMLElement>(`.${styles.right}`);
+
+        if (left) {
+          gsap.fromTo(
+            left,
+            { y: 25, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.6,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 50%',
+                toggleActions: 'play none none none',
+              },
+            },
+          );
+        }
+
+        if (right) {
+          gsap.fromTo(
+            right,
+            { y: 25, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.6,
+              ease: 'power2.out',
+              delay: 0.5,
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 50%',
+                toggleActions: 'play none none none',
+              },
+            },
+          );
+        }
+      }
+
+      const onResize = () => ScrollTrigger.refresh();
+
+      window.addEventListener('resize', onResize);
+      return () => window.removeEventListener('resize', onResize);
+    }, section);
+
+    return () => ctx.revert();
+  }, [prefersReducedMotion]);
+
+  const items = t.raw('list') as ExperienceItem[];
+
   return (
-    <section aria-labelledby="experience-heading" className={styles.section}>
+    <section
+      aria-labelledby="experience-heading"
+      ref={sectionRef}
+      className={styles.section}
+    >
       <div className={styles.container}>
         <h2 id="experience-heading" className={styles.title}>
-          MY <span>EXPERIENCE</span>
+          {t('title')} <span>{t('titleHighlight')}</span>
         </h2>
 
-        <ol className={styles.timeline}>
-          {ITEMS.map((item) => (
-            <li key={item.id} className={styles.item}>
-              <div className={styles.marker} aria-hidden />
+        <ol ref={timelineRef} className={styles.timeline}>
+          <div className={styles.line} aria-hidden>
+            <span className={styles.lineProgress} />
+          </div>
 
+          {items.map((item, index) => (
+            <li key={item.period} className={styles.item}>
+              <div className={styles.marker} aria-hidden />
               <div className={styles.left}>
                 <p className={styles.period}>{item.period}</p>
                 <p className={styles.company}>{item.company}</p>
@@ -123,9 +192,9 @@ export function Experience() {
                   </p>
                 ))}
 
-                {item.images?.length ? (
+                {images[index]?.length ? (
                   <div className={styles.gallery} role="list">
-                    {item.images.map((img, i) => (
+                    {images[index].map((img, i) => (
                       <div key={i} role="listitem" className={styles.thumb}>
                         <CustomImage
                           src={img.src}
