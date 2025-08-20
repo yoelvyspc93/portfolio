@@ -8,6 +8,7 @@
   padding: clamp(fn.rem(48), 8vw, fn.rem(96)) 0;
   height: 100%;
   max-height: 100%;
+  overflow: hidden;
 }
 
 .container {
@@ -19,7 +20,6 @@
   justify-content: center;
   gap: fn.rem(100);
 }
-
 
 .title {
   text-align: center;
@@ -41,45 +41,66 @@
 }
 
 .timeline {
-  position: relative;
-  padding-left: clamp(fn.rem(72), 9vw, fn.rem(120));
+  $pad-l: clamp(fn.rem(72), 9vw, fn.rem(120));
+  $line-x: clamp(fn.rem(32), 5vw, fn.rem(50));
+  $marker-size: fn.rem(24);
+  $marker-top: fn.rem(8);
 
-  &::before {
-    content: '';
+  position: relative;
+  padding-left: $pad-l;
+
+  .line {
     position: absolute;
-    left: clamp(fn.rem(32), 5vw, fn.rem(52));
+    left: $line-x;
     top: fn.rem(12);
     bottom: 0;
-    width: fn.rem(2);
-    background: linear-gradient(180deg, cl.$color__timeline-blue, rgba(cl.$color__timeline-blue, 0.25));
-    opacity: 0.9;
+    width: fn.rem(5);
+    overflow: hidden;
+    pointer-events: none;
   }
-}
 
-.item {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: fn.rem(24);
-  padding-bottom: fn.rem(56);
+  .lineProgress {
+    position: absolute;
+    inset: 0;
+    background: cl.$color__linear-gradient;
+    transform: scaleY(0);
+    transform-origin: top center;
+    will-change: transform;
 
-  @include mx.respond-to('tablet') {
-    grid-template-columns: clamp(fn.rem(180), 24vw, fn.rem(280)) 1fr;
-    gap: clamp(fn.rem(24), 5vw, fn.rem(64));
-    padding-bottom: clamp(fn.rem(56), 10vw, fn.rem(140));
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
   }
-}
 
-.marker {
-  position: absolute;
-  left: calc(clamp(fn.rem(32), 5vw, fn.rem(52)) - fn.rem(7));
-  top: fn.rem(8);
-  width: fn.rem(14);
-  height: fn.rem(14);
-  border-radius: 50%;
-  background: cl.$color__medium-blue;
-  box-shadow: 0 0 0 fn.rem(4) rgba(cl.$color__light-blue, 0.18);
-  border: fn.rem(3) solid cl.$color__navy-blue;
+  .item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: fn.rem(24);
+    padding-bottom: fn.rem(56);
+
+    @include mx.respond-to('tablet') {
+      grid-template-columns: clamp(fn.rem(180), 24vw, fn.rem(280)) 1fr;
+      gap: clamp(fn.rem(24), 5vw, fn.rem(64));
+      padding-bottom: clamp(fn.rem(56), 10vw, fn.rem(140));
+    }
+  }
+
+  .marker {
+    position: absolute;
+    top: $marker-top;
+    left: calc($line-x - $pad-l + fn.rem(2));
+    transform: translateX(-50%);
+    width: $marker-size;
+    height: $marker-size;
+    border-radius: 50%;
+    background: cl.$color__medium-blue;
+    box-shadow: 0 0 0 fn.rem(4) rgba(cl.$color__light-blue, 0.18);
+    border: fn.rem(3) solid cl.$color__navy-blue;
+  }
 }
 
 .left {
@@ -91,9 +112,8 @@
   font-size: fn.rem(32);
   text-transform: uppercase;
   letter-spacing: fn.rem(-0.32);
-  color: cl.$color__very-light-blue;
-  margin: 0 0 fn.rem(6);
   color: cl.$color__white;
+  margin: 0 0 fn.rem(6);
 }
 
 .company {

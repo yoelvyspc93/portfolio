@@ -1,25 +1,28 @@
 {
-  "title": "My Experience",
-  "techTitle": "Technologies Learned",
-  "seeMore": "See More",
-  "list": {
-    "01": {
-      "period": "2022 - Present",
+  "title": "My",
+  "titleHighlight": "Experience",
+  "list": [
+    {
+      "period": "2022 - Today",
       "company": "Dspot Team",
-      "summary": "I contributed to over 10 projects, including landing pages with advanced animations and optimized SEO, as well as complex applications handling large data volumes. Using tools like Next.js, I delivered innovative solutions and unique visual experiences.",
-      "details": [
-        "I contributed to over 10 projects, including landing pages with advanced animations and optimized SEO, as well as complex applications handling large data volumes. Using tools like Next.js, I delivered innovative solutions and unique visual experiences.",
-        "I also collaborated on enhancing the technical infrastructure, ensuring performance and reliability across diverse projects."
+      "paragraphs": [
+        "I was part of more than 10 projects that included landing pages with advanced animations and optimized SEO, as well as complex applications designed to manage large volumes of data. Thanks to the use of modern tools like Next.js, I developed innovative technical solutions and unique visual experiences.",
+        "I was part of more than 10 projects that included landing pages with advanced animations and optimized SEO, as well as complex applications designed to manage large volumes of data. Thanks to the use of modern tools like Next.js, I developed innovative technical solutions and unique visual experiences."
       ]
     },
-    "02": {
+    {
       "period": "2020 - 2022",
       "company": "Datazucar",
-      "summary": "I contributed to designing and developing critical business solutions for economic planning and management, utilized by over 60% of the country's companies. I focused on building advanced Ext JS interfaces and robust backend systems with Django, optimizing operational efficiency.",
-      "details": [
-        "I contributed to designing and developing critical business solutions for economic planning and management, utilized by over 60% of the country's companies.",
-        "Additionally, I implemented performance enhancements and ensured system scalability to meet high-volume demands."
+      "paragraphs": [
+        "I was part of more than 10 projects that included landing pages with advanced animations and optimized SEO, as well as complex applications designed to manage large volumes of data. Thanks to the use of modern tools like Next.js, I developed innovative technical solutions and unique visual experiences."
+      ]
+    },
+    {
+      "period": "2013 – 2018",
+      "company": "University",
+      "paragraphs": [
+        "I was part of more than 10 projects that included landing pages with advanced animations and optimized SEO, as well as complex applications designed to manage large volumes of data. Thanks to the use of modern tools like Next.js, I developed innovative technical solutions and unique visual experiences."
       ]
     }
-  }
+  ]
 }
