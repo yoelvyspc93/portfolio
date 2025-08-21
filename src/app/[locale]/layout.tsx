@@ -4,7 +4,6 @@ import { ReactNode } from 'react';
 import { schemaData, metadata as seo } from '@/constants/metadata';
 import { Metadata } from 'next';
 import { Navigator } from '@/components/common/Navigator';
-import { Footer } from '@/components/common/Footer';
 import JsonLdSchema from '@/components/common/JsonLdSchema';
 import { NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
@@ -32,7 +31,6 @@ export default async function LocaleLayout({
           <div className="page">
             <Navigator />
             {children}
-            <Footer />
           </div>
           <JsonLdSchema schemaData={schemaData} />
         </NextIntlClientProvider>

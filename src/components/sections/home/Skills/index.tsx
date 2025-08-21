@@ -16,13 +16,13 @@ import {
 import { useTranslation } from '@/hooks/useTranslation';
 
 function randomBetween(min: number, max: number): number {
-  const crypto = globalThis.crypto;
-  const buf = crypto.getRandomValues(new Uint8Array(1));
+  const buf = globalThis.crypto.getRandomValues(new Uint8Array(1));
   return (buf[0] / 255) * (max - min) + min;
 }
 
 export const Skills: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const layerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<HTMLDivElement[]>([]);
   const rafRef = useRef<number | null>(null);
 
@@ -35,6 +35,7 @@ export const Skills: React.FC = () => {
     const runner = Runner.create();
 
     const sectionEl = sectionRef.current!;
+    const dragEl = layerRef.current!;
     const rect = sectionEl.getBoundingClientRect();
     const sectionWidth = rect.width;
     const sectionHeight = rect.height;
@@ -66,19 +67,20 @@ export const Skills: React.FC = () => {
     );
     World.add(world, [ground, leftWall, rightWall]);
 
-    const mouse = Mouse.create(sectionEl);
+    const mouse = Mouse.create(dragEl);
 
-    type MouseWithWheel = typeof mouse & {
-      mousewheel?: (event: WheelEvent) => void;
+    type MouseWithHandlers = typeof mouse & {
+      mousewheel?: (e: WheelEvent) => void;
+      touchmove?: (e: TouchEvent) => void;
+      touchstart?: (e: TouchEvent) => void;
+      touchend?: (e: TouchEvent) => void;
     };
-    const mw = mouse as MouseWithWheel;
+    const mw = mouse as MouseWithHandlers;
+
     if (mw.mousewheel) {
-      sectionEl.removeEventListener('wheel', mw.mousewheel as EventListener);
-      sectionEl.removeEventListener(
-        'mousewheel',
-        mw.mousewheel as EventListener,
-      );
-      sectionEl.removeEventListener(
+      dragEl.removeEventListener('wheel', mw.mousewheel as EventListener);
+      dragEl.removeEventListener('mousewheel', mw.mousewheel as EventListener);
+      dragEl.removeEventListener(
         'DOMMouseScroll',
         mw.mousewheel as EventListener,
       );
@@ -88,7 +90,6 @@ export const Skills: React.FC = () => {
       mouse,
       constraint: {
         stiffness: 0.8,
-        // angularStiffness: 0.8,
         render: { visible: false },
       },
     });
@@ -190,20 +191,23 @@ export const Skills: React.FC = () => {
         </h2>
         <p className={styles.subtitle}>{t('description')}</p>
       </div>
-      {skills.map((skill, idx) => (
-        <div
-          key={idx}
-          ref={(el) => {
-            if (el) cardRefs.current[idx] = el;
-          }}
-          className={styles.skillCard}
-          role="button"
-          tabIndex={0}
-          aria-label={skill}
-        >
-          {skill}
-        </div>
-      ))}
+
+      <div ref={layerRef} className={styles.layer}>
+        {skills.map((skill, idx) => (
+          <div
+            key={idx}
+            ref={(el) => {
+              if (el) cardRefs.current[idx] = el;
+            }}
+            className={styles.skillCard}
+            role="button"
+            tabIndex={0}
+            aria-label={skill}
+          >
+            {skill}
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
