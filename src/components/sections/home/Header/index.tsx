@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { MouseEvent, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { CustomImage } from '@/components/common/CustomImage';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -52,6 +52,9 @@ const backgroundImages = [
   },
 ];
 
+const lerp = (start: number, target: number, amount: number) =>
+  start * (1 - amount) + target * amount;
+
 export function Header({ onDownloadCv, onContact }: Props) {
   const { t } = useTranslation('header');
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -88,11 +91,84 @@ export function Header({ onDownloadCv, onContact }: Props) {
     };
   }, [prefersReducedMotion]);
 
+  const backgroundImagesRef = useRef<HTMLLIElement[]>([]);
+
+  let requestAnimationFrameId: number | null = null;
+  let xForce = 0;
+  let yForce = 0;
+  const easing = 0.08;
+  const speed = 0.03;
+
+  const animate = () => {
+    xForce = lerp(xForce, 0, easing);
+    yForce = lerp(yForce, 0, easing);
+
+    gsap.set(backgroundImagesRef.current[0], {
+      x: `+=${xForce * -0.04}`,
+      y: `+=${yForce * -0.04}`,
+    });
+    gsap.set(backgroundImagesRef.current[1], {
+      x: `+=${xForce * 0.15}`,
+      y: `+=${yForce * 0.15}`,
+    });
+    gsap.set(backgroundImagesRef.current[2], {
+      x: `+=${xForce * 0.08}`,
+      y: `+=${yForce * 0.08}`,
+    });
+    gsap.set(backgroundImagesRef.current[3], {
+      x: `+=${xForce * 0.1}`,
+      y: `+=${yForce * 0.1}`,
+    });
+    gsap.set(backgroundImagesRef.current[4], {
+      x: `+=${xForce * 0.04}`,
+      y: `+=${yForce * 0.04}`,
+    });
+    gsap.set(backgroundImagesRef.current[5], {
+      x: `+=${xForce * -0.05}`,
+      y: `+=${yForce * -0.05}`,
+    });
+
+    if (Math.abs(xForce) < 0.01) xForce = 0;
+    if (Math.abs(yForce) < 0.01) yForce = 0;
+
+    if (xForce !== 0 || yForce !== 0) {
+      requestAnimationFrame(animate);
+    } else {
+      if (requestAnimationFrameId) {
+        cancelAnimationFrame(requestAnimationFrameId);
+        requestAnimationFrameId = null;
+      }
+    }
+  };
+
+  const manageMouseMove = (e: MouseEvent) => {
+    const { movementX, movementY } = e;
+    xForce += movementX * speed;
+    yForce += movementY * speed;
+
+    if (requestAnimationFrameId == null) {
+      requestAnimationFrameId = requestAnimationFrame(animate);
+    }
+  };
+
   return (
-    <header id="header" className={styles.header}>
+    <header
+      id="header"
+      className={styles.header}
+      onMouseMove={manageMouseMove}
+      role="presentation"
+    >
       <ul className={styles.brands} aria-hidden="true">
-        {backgroundImages.map((image) => (
-          <li key={image.label} className={styles.brandItem}>
+        {backgroundImages.map((image, index) => (
+          <li
+            key={image.label}
+            className={styles.brandItem}
+            ref={(el) => {
+              if (el) {
+                backgroundImagesRef.current[index] = el;
+              }
+            }}
+          >
             <CustomImage
               className={styles.brand}
               src={image.url}

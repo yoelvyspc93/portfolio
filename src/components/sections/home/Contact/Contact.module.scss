@@ -3,11 +3,26 @@
 @use '@/styles/mixins/mixins' as mx;
 @use '@/styles/mixins/functions' as fn;
 
+.contactWrapper {
+  position: relative;
+  height: 100vh;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  overflow: hidden;
+}
+
+.contactContainer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+}
+
 .contact {
-  padding: fn.rem(16);
+  padding: fn.rems(160 16 0);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .container {

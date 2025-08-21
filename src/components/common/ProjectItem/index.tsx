@@ -3,8 +3,8 @@
 import { ReactNode } from 'react';
 import { ProjectImages } from '../ProjectImages';
 import styles from './ProjectItem.module.scss';
-import { GradientButton } from '../GradientButton';
 import { clsx } from 'clsx';
+import { Button } from '../Button';
 
 interface Props {
   id: string;
@@ -50,9 +50,7 @@ export const ProjectItem = ({
             ))}
           </div>
         </div>
-        {website && (
-          <GradientButton href={website}>Go to website</GradientButton>
-        )}
+        {website && <Button href={website}>Go to website</Button>}
       </div>
       <div
         className={clsx(

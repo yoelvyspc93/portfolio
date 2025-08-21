@@ -109,26 +109,7 @@ export function Experience() {
       });
 
       for (const el of items) {
-        const left = el.querySelector<HTMLElement>(`.${styles.left}`);
         const right = el.querySelector<HTMLElement>(`.${styles.right}`);
-
-        if (left) {
-          gsap.fromTo(
-            left,
-            { y: 25, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.6,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: el,
-                start: 'top 50%',
-                toggleActions: 'play none none none',
-              },
-            },
-          );
-        }
 
         if (right) {
           gsap.fromTo(
@@ -139,7 +120,6 @@ export function Experience() {
               opacity: 1,
               duration: 0.6,
               ease: 'power2.out',
-              delay: 0.5,
               scrollTrigger: {
                 trigger: el,
                 start: 'top 50%',

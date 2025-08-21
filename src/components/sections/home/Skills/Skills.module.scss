@@ -4,33 +4,46 @@
 @use '@/styles/mixins/functions' as fn;
 
 .skills {
+  position: relative;
   width: 100%;
   height: 100vh;
   max-width: 100%;
   overflow: hidden;
-  position: relative;
-
-  touch-action: pan-y;
   background-color: #121212;
+  touch-action: pan-y;
 
   .info {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    inset: 50% auto auto 50%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     gap: 12px;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  @include mx.respond-to('desktop') {
+    pointer-events: auto;
+    touch-action: pan-y;
   }
 }
 
 .title {
   font-family: ty.$font__secondary;
-  font-size: fn.rem(32);
   font-weight: 400;
   color: cl.$color__white;
+  font-size: fn.rem(32);
 
   @include mx.respond-to('tablet') {
     font-size: fn.rem(54);
@@ -48,8 +61,8 @@
   margin: 0 auto;
   text-align: center;
   max-width: fn.rem(970);
-  font-size: fn.rem(24);
   color: cl.$color__white;
+  font-size: fn.rem(24);
 
   @include mx.respond-to('tablet') {
     font-size: fn.rem(30);
@@ -60,20 +73,24 @@
 }
 
 .skillCard {
+  position: absolute;
   width: auto;
   height: 46px;
-  position: absolute;
-  background: #fff;
-
-  border-radius: 12px;
   padding: 20px 32px;
+  border-radius: 12px;
+  background: #fff;
   color: #1a1a1a;
-  font-weight: 400;
-  font-size: 24px;
-  cursor: grab;
-  display: flex;
+  font-weight: 500;
+  font-size: 20px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   user-select: none;
   will-change: transform;
+  cursor: grab;
+  pointer-events: auto;
+
+  &:active {
+    cursor: grabbing;
+  }
 }
