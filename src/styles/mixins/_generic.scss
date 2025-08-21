@@ -6,6 +6,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .page {
   color: #ffffff;
   font-family: var(--font-montserrat), sans-serif;
