@@ -35,7 +35,9 @@ export const Header = () => {
 
   return (
     <section className={styles.section} ref={headerRef}>
-      <h1 dangerouslySetInnerHTML={{ __html: t('main') }} />
+      <h1>
+        {t('main')} <span>{t('mainHighlight')}</span>
+      </h1>
     </section>
   );
 };
