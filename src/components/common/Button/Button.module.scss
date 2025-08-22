@@ -9,7 +9,7 @@
   cursor: pointer;
   background-color: cl.$color__white;
   z-index: 2;
-  transition: color 0.4s ease;
+  transition: color 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -20,7 +20,7 @@
     0 266px 106px rgba(0, 0, 0, 0.1);
 
   &__dot {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s cubic-bezier(1, 0.01, 0, 1);
     position: absolute;
     top: 40%;
     left: 20px;
@@ -32,7 +32,7 @@
   }
 
   &__content {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s cubic-bezier(1, 0.01, 0, 1);
     font-size: 16px;
     font-weight: 500;
     color: #010101;
@@ -47,17 +47,19 @@
     }
   }
 
-  &:hover {
-    .button__dot {
-      inset: -2px;
-      width: calc(100% + 4px);
-      height: calc(100% + 4px);
-      border-radius: 50px;
-    }
+  @include mx.respond-to('desktop') {
+    &:hover {
+      .button__dot {
+        inset: -2px;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        border-radius: 50px;
+      }
 
-    .button__content {
-      color: cl.$color__white;
-      transform: translateX(-6px);
+      .button__content {
+        color: cl.$color__white;
+        transform: translateX(-6px);
+      }
     }
   }
 }
