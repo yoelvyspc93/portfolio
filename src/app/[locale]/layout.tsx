@@ -26,12 +26,6 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <head>
-        <meta
-          name="openai-domain-verification"
-          content="dv-f8BuCOiRP2ZG7P1yALyB8oMp"
-        />
-      </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <div className="page">
