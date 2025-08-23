@@ -1,9 +1,18 @@
 'use client';
-import { useEffect, useMemo, useRef, useCallback } from 'react';
+import { useEffect, useMemo, useRef, useCallback, ReactNode } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTranslation } from '@/hooks/useTranslation';
 import styles from './About.module.scss';
+import Lottie from 'lottie-react';
+
+import developer from '@/public/lotties/developer.json';
+import rocket from '@/public/lotties/rocket.json';
+import idea from '@/public/lotties/idea.json';
+import lightning from '@/public/lotties/lightning.json';
+import tools from '@/public/lotties/tools.json';
+import brain from '@/public/lotties/brain.json';
+import target from '@/public/lotties/target.json';
 
 interface SegmenterOptions {
   granularity: 'grapheme' | 'word' | 'sentence';
@@ -41,6 +50,44 @@ const toGraphemes = (s: string) => {
   return [...str];
 };
 
+const emojiMap: Record<string, ReactNode> = {
+  '👨‍💻': (
+    <div className={styles.emoji} aria-label="developer">
+      <Lottie animationData={developer} className={styles.lottie} />
+    </div>
+  ),
+  '🚀': (
+    <div className={styles.emoji} aria-label="rocket">
+      <Lottie animationData={rocket} className={styles.lottie} />
+    </div>
+  ),
+  '💡': (
+    <div className={styles.emoji} aria-label="idea">
+      <Lottie animationData={idea} className={styles.lottie} />
+    </div>
+  ),
+  '⚡': (
+    <div className={styles.emoji} aria-label="lightning">
+      <Lottie animationData={lightning} className={styles.lottie} />
+    </div>
+  ),
+  '🛠️': (
+    <div className={styles.emoji} aria-label="tools">
+      <Lottie animationData={tools} className={styles.lottie} />
+    </div>
+  ),
+  '🧠': (
+    <div className={styles.emoji} aria-label="brain">
+      <Lottie animationData={brain} className={styles.lottie} />
+    </div>
+  ),
+  '🎯': (
+    <div className={styles.emoji} aria-label="target">
+      <Lottie animationData={target} className={styles.lottie} />
+    </div>
+  ),
+};
+
 export function About() {
   const { t } = useTranslation('about');
   const refs = useRef<HTMLSpanElement[]>([]);
@@ -59,16 +106,16 @@ export function About() {
     let idx = 0;
 
     return words.map((w, wi) => (
-      <p key={`w-${wi}`}>
+      <div key={`w-${wi}`} className={styles.word}>
         {toGraphemes(w).map((g) => {
           const i = idx++;
           return (
             <span key={`c-${i}`} ref={setRef(i)}>
-              {g}
+              {emojiMap[g] ?? g}
             </span>
           );
         })}
-      </p>
+      </div>
     ));
   };
 
@@ -94,7 +141,7 @@ export function About() {
   }, []);
 
   const phrase = t('description');
-  const content = useMemo(() => renderContent(phrase), [phrase]);
+  const content = useMemo(() => renderContent(phrase), [phrase, renderContent]);
 
   return (
     <section ref={container} className={styles.about}>
